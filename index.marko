@@ -1,0 +1,23 @@
+<lasso-page package-path="./browser.json" />
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Mfk-Marko</title>
+    <lasso-head/>
+  </head>
+  <body>
+
+    <app-hello name=data.name/>
+
+    <lasso-body/>
+
+    <!--
+    Page will automatically refresh any time a template is modified
+    if launched using the browser-refresh Node.js process launcher:
+    https://github.com/patrick-steele-idem/browser-refresh
+    -->
+    <browser-refresh/>
+  </body>
+</html>
