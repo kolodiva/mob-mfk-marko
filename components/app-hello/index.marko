@@ -1,47 +1,61 @@
+import * as glob  from '../constants'
+
 class {
 
-  onCreate() {
+  onCreate(input, out) {
     this.state = {
       count: 0
-    }
+    };
+  }
+
+  onInput(input, out) {
   }
 
   onMount() {
-    console.log('Mounted in the browser!');
-  }
+
+    //out.global.globalVar    = globalVar;
+    //this.colorBlueMF2 = colorBlueMF;
+
+    //console.log( getGlobalVar() );
+    // console.log( this.colorBlueMF2 );
+
+ }
 
   increment() {
     this.state.count++;
   }
+
 }
 
 style {
-  .carousel .carousel-inner .carousel-item {
-    min-height: 100vh !important;
-  }
-    .d-block {
-      max-height: 49vh !important;
-      min-height: 49vh !important;
-  }
 }
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+//$ const colorBlueMF1 = { minHeight: '100vh', border: '3px solid ' + ${ out.global.colorBlueMF } } ;
+//$ const colorBlueMF3 = this.colorBlueMF2;
+//$ var colorBlueMF2 = 'undefined';
+//$  const colorBlueMF = ;
 
-  <div class="carousel-inner">
+<div class="d-flex flex-column justify-content-around" style="min-height: 100vh; border: 3px solid ${ glob.colorBlueMF };" >
 
-    <div class="carousel-item active">
-      <img class="d-block" src="https://newfurnitura.ru/news/pic2_postfix_GM85vEBK9JBYxhJ_E5FTbA.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block" src="https://newfurnitura.ru/news/pic2_postfix_2SuThQhRtGnr18RSzV7VnQ.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block" src="https://newfurnitura.ru/news/pic2_postfix_xEsgkzRXVojgIjOjN_Dg1w.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block" src="https://newfurnitura.ru/news/pic2_postfix_kBlgt7z_GVYAOSPsnCWsqA.jpg" alt="First slide">
-    </div>
+  $ //console.log( glob.getColor ); //debugger;
+
+  <div id='carouselExampleControls' class="carousel slide" data-ride="false"  style=''>
+
+      <div class="carousel-inner" style=''>
+
+        <div class="carousel-item active">
+          <img class="d-block w-75 mx-auto" src="logo_big_orig.png" alt="First slide">
+        </div>
+
+        <div class="carousel-item">
+          <img class="d-block w-75  mx-auto" src="logo_big_orig.png" alt="First slide">
+        </div>
+
+
+
+      </div>
 
   </div>
+
 
 </div>

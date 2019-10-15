@@ -1,8 +1,10 @@
 {
   "dependencies": [
     "jquery/dist/jquery.slim.min.js",
+    "jquery-touchswipe/jquery.touchSwipe.min.js",
     "popper.js/dist/umd/popper.min.js",
     "bootstrap/dist/js/bootstrap.min.js",
-    "bootstrap/dist/css/bootstrap.min.css"
+    "bootstrap/dist/css/bootstrap.min.css",
+    "jquery-touchswipe/jquery.bcSwipe.min.js"
   ]
 }

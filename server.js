@@ -5,8 +5,6 @@ var {Pool} = require('pg');
 
 var express = require('express');
 
-var indexTemplate = require('./index.marko');
-
 var app = express();
 var port = 8080;
 //var port = 8081;
@@ -32,6 +30,12 @@ app.use(require('lasso/middleware').serveStatic());
 
 app.use( express.static( 'public' ) );
 
+//
+var device = require('express-device');
+app.use(device.capture());
+
+var indexTemplate = require('./index.marko');
+
 router.get('/', async (req, res) => {
 
   try {
@@ -39,7 +43,8 @@ router.get('/', async (req, res) => {
     res.marko(indexTemplate, {
             name: 'Frank',
             count: 30,
-            colors: ['red', 'green', 'blue']
+            colors: ['red', 'green', 'blue'],
+            device: req.device.type.toUpperCase(),
         });
 
     // let result = await postgres.getNomenklator( db, '' )

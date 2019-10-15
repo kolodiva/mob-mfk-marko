@@ -4,14 +4,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <title>Mfk-Marko</title>
+    <title>МФ-Комплект</title>
     <lasso-head/>
   </head>
   <body>
 
-    <app-hello name=data.name/>
-
     <lasso-body/>
+
+
+
+    <app-hello device = input.device />
+
+    <script>
+      $(document).ready( () => {
+
+           $(".carousel").bcSwipe({ threshold: 100 });
+
+          }
+        );
+    </script>
 
     <!--
     Page will automatically refresh any time a template is modified
