@@ -3,17 +3,21 @@ require('marko/express'); //enable res.marko
 
 var {Pool} = require('pg');
 
+var postgres = require("./components/postgres");
+
 var express = require('express');
 
 var app = express();
-var port = 8080;
-//var port = 8081;
+//var port = 8080;
+var port = process.env.PORT || 8081;
 
 var router = express.Router();
 
 var path = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
+
+const dbpg = new Pool( postgres.params_conn );
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
 require('lasso').configure({
@@ -28,11 +32,13 @@ require('lasso').configure({
 
 app.use(require('lasso/middleware').serveStatic());
 
+app.use(compression());
+
 app.use( express.static( 'public' ) );
 
 //
-var device = require('express-device');
-app.use(device.capture());
+// var device = require('express-device');
+// app.use(device.capture());
 
 var indexTemplate = require('./index.marko');
 
@@ -44,7 +50,9 @@ router.get('/', async (req, res) => {
             name: 'Frank',
             count: 30,
             colors: ['red', 'green', 'blue'],
-            device: req.device.type.toUpperCase(),
+            // device: req.device.type.toUpperCase(),
+            isProduction: isProduction,
+            dbpg: dbpg,
         });
 
     // let result = await postgres.getNomenklator( db, '' )
@@ -72,10 +80,14 @@ router.get('/', async (req, res) => {
 
 app.use('/', router);
 
-app.listen(port, function() {
+app.listen(port, function(err) {
+    if (err) {
+        throw err;
+    }
+    console.log('Listening on port %d', port);
 
-    console.log('Server started! Try it out:\nhttp://localhost:' + port + '/');
-
+    // The browser-refresh module uses this event to know that the
+    // process is ready to serve traffic after the restart
     if (process.send) {
         process.send('online');
     }

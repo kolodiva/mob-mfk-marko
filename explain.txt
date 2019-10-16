@@ -1,0 +1,4 @@
+git init
+git add .
+git commit -a -m 'ddd'
+git push -u original master

@@ -1,0 +1,500 @@
+   12  cd ~
+   13  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+   14  sudo apt-get install -y nodejs
+   15  sudo apt install node
+   16  node -v
+   17  sudo apt-get install -y build-essential
+   18  npm -v
+   19  node -v
+   20  node -v
+   21  npm -v
+   22  adv
+   23  avb
+   24  avd
+   25  adb devices
+   26  adb devices
+   27  adb devices
+   28  npm start
+   29  sudo npm start
+   30  npm install --global expo-cli
+   31  sudo npm install --global expo-cli
+   32  cd $HOME
+   33  ls -al
+   34  cd mnt
+   35  cd mnt/
+   36  cd /mnt/
+   37  ls -al
+   38  cd ~
+   39  nano .bashrc
+   40  ls -al
+   41  nano .bash_profile
+   42  source .bash_profile
+   43  rm -r node_modules
+   44  ls -al
+   45  npm start
+   46  фви
+   47  adb
+   48  adb version
+   49  nano ~/.bashrc
+   50  npm install prerender
+   51  npm audit fix
+   52  node server.js start
+   53  node server.js start
+   54  cd ..//
+   55  export PRERENDER_SERVICE_URL=http://localhost:8081
+   56  git clone https://github.com/prerender/prerender.git
+   57  cd prerender
+   58  npm install
+   59  npm audit fix
+   60  node server.js
+   61  cls
+   62  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+   63  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+   64  sudo apt-get update 
+   65  sudo apt-get install google-chrome-stable
+   66  node server.js
+   67  whereis google-chrome
+   68  node server.js
+   69  node server.js
+   70  whereis google-chrome
+   71  /usr/bin/google-chrome
+   72  sudo apt install gksu
+   73  sudo apt install gksu
+   74  sudo /usr/bin/google-chrome
+   75  sudo /usr/bin/google-chrome --no-sandbox
+   76  sudo /usr/bin/google-chrome --no-sandbox
+   77  exit
+   78  sudo /usr/bin/google-chrome
+   79  google-chrome
+   80  sudo rm ~/.config/google-chrome/*
+   81  sudo rm -rf ~/.config/google-chrome/*
+   82  node server.js
+   83  node server.js
+   84  node server.js
+   85  node server.js
+   86  node server.js
+   87  expo start
+   88  npm install -g expo-cli
+   89  history >> history.txt
+   90  sudo chown -R victor: /usr/lib/node_modules
+   91  123
+   92  npm install -g expo-cli
+   93  sudo chown -R victor: /usr/bin/expo/
+   94  sudo chown -R victor: /usr/bin/expo
+   95  sudo chown -R victor: /usr/bin/expo/
+   96  npm install -g expo-cli
+   97  sudo chown -R victor: /usr/bin/expo-cli
+   98  sudo chown -R victor: /usr/bin/expo-cli/
+   99  npm install -g expo-cli
+  100  sudo npm install -g expo-cli
+  101  sudo chown -R victor: /home/victor/.npm
+  102  sudo chown -R victor: /usr/lib/node_modules/expo-cli/node_modules
+  103  sudo npm install -g expo-cli
+  104  sudo chown -R victor: /home/victor/.npm
+  105  123
+  106  sudo chown -R victor: /usr/lib/node_modules/expo-cli/node_modules/
+  107  sudo npm install -g expo-cli
+  108  expo start
+  109  adb devices
+  110  expo start --localhost --android
+  111  sudo npm install react-native-elements
+  112  sudo npm install react-native-elements
+  113  npm audit fix
+  114  expo start --localhost --android
+  115  watchman watch-del /mnt/d/node/notifications ; watchman watch-project /mnt/d/node/notifications
+  116  expo start --localhost --android
+  117  sudo npm install react-navigation
+  118  sudo npm install react-navigation
+  119  sudo chown -R victor: /mnt/d/node/notifications/node_modules/
+  120  sudo npm install react-navigation
+  121  sudo chown -R victor: '/mnt/d/node/notifications/
+  122  '
+  123  sudo chown -R victor: /mnt/d/node/notifications/
+  124  sudo npm install react-navigation
+  125  npm install -s react-navigation
+  126  expo start --localhost --android
+  127  watchman watch-del /mnt/d/node/notifications ; watchman watch-project /mnt/d/node/notifications
+  128  expo start --localhost --android
+  129  watchman watch-del-all
+  130  rm -rf node_modules
+  131  npm install
+  132  npm audit fix
+  133  expo start --localhost --android
+  134  кь -к
+  135  rm -rf /tmp/metro-bundler-cache-*
+  136  rm -rf /tmp/metro-bundler-cache-*
+  137  expo r -c
+  138  adb
+  139  adb devices
+  140  npm start -- --reset-cache
+  141  expo start --reset-cache
+  142  rm -rf /tmp/metro-bundler-cache-*
+  143  expo start --localhost --android
+  144  cd ..//
+  145  expo init rn1
+  146  cd rn1
+  147  expo start --localhost --androif
+  148  expo start --localhost --android
+  149  npm install react-navigation
+  150  expo start --localhost --android
+  151  npm install
+  152  npm install
+  153  sudo chown -R victor: '/mnt/d/node/rn1/
+  154  sudo chown -R victor: /mnt/d/node/rn1/
+  155  npm install
+  156  cd ..//
+  157  expo init rn2
+  158  expo init rn3
+  159  expo init rn4
+  160  cd rn4
+  161  npm init
+  162  npm install
+  163  npm audit fix
+  164  yarn add react-navigation
+  165  yarn add react-native-elements
+  166  mkdir components
+  167  touch components/HomeScreen.js
+  168  touch components/DetailsScreen.js
+  169  yarn start --localhost --android
+  170  yarn add react-native-gesture-handler
+  171  yarn start --localhost --android
+  172  expo install react-native-gesture-handler react-native-reanimated
+  173  куфсе-тфешму -м
+  174  react-native -v
+  175  react-native -v
+  176  reactnative -v
+  177  react-native
+  178  yarn start --localhost --android
+  179  node service
+  180  node server
+  181  npm install
+  182  npm audit fix
+  183  adb devices
+  184  adb devices
+  185  adb devices
+  186  yarn start --localhost --android
+  187  yarn start --localhost --android
+  188  yarn start --localhost --android
+  189  node server
+  190  node server
+  191  node server
+  192  node server
+  193  node server
+  194  node server.js
+  195  forever start node server.js
+  196  forever start server.js
+  197  npm install forever -g
+  198  sudo npm install forever -g
+  199  npm install -g npm
+  200  sudo npm install -g npm
+  201  forever start server.js
+  202  forever -l
+  203  forever list
+  204  nano /home/victor/.forever/auit.log
+  205  nano /home/victor/.forever/auit.log
+  206  nano /home/victor/.forever/auit.log
+  207  nano /home/victor/.forever/auit.log
+  208  nano /home/victor/.forever/auit.log
+  209  nano /home/victor/.forever/auit.log
+  210  fg
+  211  nano /home/victor/.forever/auit.log
+  212  nano /home/victor/.forever/auit.log
+  213  nano /home/victor/.forever/auit.log
+  214  nano /home/victor/.forever/auit.log
+  215  nano /home/victor/.forever/auit.log
+  216  nano /home/victor/.forever/auit.log
+  217  nano /home/victor/.forever/auit.log
+  218  forever list
+  219  nano /home/victor/.forever/auit.log
+  220  nano /home/victor/.forever/auit.log
+  221  nano /home/victor/.forever/auit.log
+  222  nano /home/victor/.forever/auit.log
+  223  nano /home/victor/.forever/auit.log
+  224  nano /home/victor/.forever/auit.log
+  225  nano /home/victor/.forever/auit.log
+  226  nano /home/victor/.forever/auit.log
+  227  nano /home/victor/.forever/auit.log
+  228  nano /home/victor/.forever/auit.log
+  229  nano /home/victor/.forever/auit.log
+  230  nano /home/victor/.forever/auit.log
+  231  nano /home/victor/.forever/auit.log
+  232  nano /home/victor/.forever/auit.log
+  233  nano /home/victor/.forever/auit.log
+  234  nano /home/victor/.forever/auit.log
+  235  nano /home/victor/.forever/auit.log
+  236  forever stop all
+  237  forever stopall
+  238  forever stopall
+  239  node server.js
+  240  node server.js
+  241  node server.js
+  242  node server.js
+  243  node server.js
+  244  node server.js
+  245  node server.js
+  246  node server.js
+  247  node server.js
+  248  node server.js
+  249  node server.js
+  250  node server.js
+  251  node server.js
+  252  node server.js
+  253  node server.js
+  254  node server.js
+  255  node server.js
+  256  node server.js
+  257  node server.js
+  258  node server.js
+  259  node server.js
+  260  cd upload
+  261  ls -al
+  262  rm *
+  263  ls -al
+  264  cd ..
+  265  node server.js
+  266  cd upload
+  267  ls -al
+  268  rm *
+  269  ls -al
+  270  cd ..
+  271  sudo node server.js
+  272  sudo node server.js
+  273  sudo node server.js
+  274  sudo node server.js
+  275  sudo node server.js
+  276  sudo node server.js
+  277  sudo node server.js
+  278  sudo node server.js
+  279  sudo node server.js
+  280  node server.js
+  281  node server.js
+  282  node -v
+  283  exit
+  284  node server
+  285  node server
+  286  node server
+  287  node server
+  288  node server
+  289  node server
+  290  node server
+  291  yarn start --localhost --android
+  292  node server
+  293  node server
+  294  node server
+  295  node server
+  296  node server
+  297  node server
+  298  node server
+  299  node server
+  300  node server
+  301  node server
+  302  node server
+  303  node server
+  304  node server
+  305  node server
+  306  node server
+  307  node server
+  308  node server
+  309  node server
+  310  node server
+  311  node server
+  312  node server
+  313  node server
+  314  node server
+  315  node server
+  316  node server
+  317  node server
+  318  node server
+  319  node server
+  320  node server
+  321  node server
+  322  node server
+  323  node server
+  324  node server
+  325  node server
+  326  node server
+  327  node server
+  328  node server
+  329  node server
+  330  node server
+  331  node server
+  332  node server
+  333  node server
+  334  node server
+  335  node server
+  336  node server
+  337  node server
+  338  node server
+  339  node server
+  340  node server
+  341  node server
+  342  node server
+  343  node server
+  344  node server
+  345  node server
+  346  node server
+  347  node server
+  348  node server
+  349  node server
+  350  history
+  351  browser-refresh server
+  352  browser-refresh server
+  353  browser-refresh server
+  354  browser-refresh server
+  355  npm install pg
+  356  npm install pg
+  357  npm audit fix
+  358  npm install -g npm
+  359  sudo npm install -g npm
+  360  browser-refresh server
+  361  node server
+  362  node server
+  363  browser-refresh server
+  364  cd ..
+  365  marko mfk_express
+  366  marko create mfk_express
+  367  cd mfk_express
+  368  npm install express --save
+  369  npm install pg
+  370  npm install pg --save
+  371  npm audit fix
+  372  cd ..
+  373  ls -al
+  374  cd mfk-marko
+  375  browser-refresh server
+  376  browser-refresh server
+  377  browser-refresh server
+  378  npm install browser-refresh -g
+  379  sudo npm install browser-refresh -g
+  380  browser-refresh server
+  381  browser-refresh server
+  382  browser-refresh server
+  383  npm install --save @marko/match-media
+  384  sudo npm install --save @marko/match-media
+  385  sudo npm install --save @marko/match-media
+  386  browser-refresh server
+  387  cd ..
+  388  sudo rm -r -f /mfk-marko/
+  389  ls -al
+  390  sudo rm -r -f /mfk-marko
+  391  sudo rm -r -f mfk-marko
+  392  ls -al
+  393  marko create mfk-marko
+  394  cd mk marko
+  395  cd mfk-marko
+  396  npm start
+  397  cd ..
+  398  cd marko-express-master
+  399  npm install pg --save
+  400  browser-refresh server
+  401  npm install
+  402  npm audit fix
+  403  browser-refresh server
+  404  npm install @lasso/marko-taglib --save
+  405  npm audit fix
+  406  browser-refresh server
+  407  npm install bootstrap
+  408  npm audit fix
+  409  browser-refresh server
+  410  npm install --save bootstrap jquery popper.js
+  411  npm audit fix
+  412  browser-refresh server
+  413  browser-refresh server
+  414  browser-refresh server
+  415  node server
+  416  browser-refresh server
+  417  npm install lasso-marko --save
+  418  npm audit fix
+  419  sudo npm audit fix --force
+  420  browser-refresh server
+  421  npm install marko
+  422  npm audit fix
+  423  npm install browser-refresh --save
+  424  npm install --save @lasso/marko-taglib
+  425  npm install --save browser-refresh-taglib
+  426  npm audit fix
+  427  browser-refresh server
+  428  cd ..
+  429  git clone https://github.com/marko-js-samples/marko-lasso.git
+  430  cd marko-lasso
+  431  npm install
+  432  npm audit fix
+  433  npm start
+  434  npm start
+  435  npm start
+  436  cd ..
+  437  ls -al
+  438  cd marko-express-master
+  439  browser-refresh server
+  440  browser-refresh server
+  441  node server
+  442  node server
+  443  browser-refresh server
+  444  node server
+  445  browser-refresh server
+  446  node server
+  447  browser-refresh server
+  448  git init
+  449  git add README.md
+  450  git commit -m "first commit"
+  451  git remote add origin https://github.com/kolodiva/marko-express-master.git
+  452  git push -u origin master
+  453  node server
+  454  node server
+  455  node server
+  456  node server
+  457  node server
+  458  node server
+  459  node server
+  460  node server
+  461  node server
+  462  node server
+  463  node server
+  464  node server
+  465  node server
+  466  node server
+  467  node server
+  468  node server
+  469  node server
+  470  node server
+  471  node server
+  472  ping
+  473  ping newfurnitura.ru
+  474  browser-refresh server.js
+  475  node server
+  476  browser-refresh server.js
+  477  npm install jquery-touchswipe --save
+  478  npm audit fix
+  479  browser-refresh server.js
+  480  browser-refresh server.js
+  481  browser-refresh server.js
+  482  browser-refresh server.js
+  483  npm install --save @marko/match-media
+  484  npm i --save express express-device
+  485  npm audit fix
+  486  npm audit fix
+  487  browser-refresh server.js
+  488  browser-refresh server.js
+  489  node server
+  490  node server
+  491  exit
+  492  node -version
+  493  node --version
+  494  npm i --save express express-deviceexit
+  495  exit
+  496  git init
+  497  git add .
+  498  exit
+  499  browser-refresh server.js
+  500  browser-refresh server.js
+  501  browser-refresh server.js
+  502  npm install memory-cache --save
+  503  npm install -g npm
+  504  sudo npm install -g npm
+  505  browser-refresh server.js
+  506  npm install redux --save
+  507  npm audit fix
+  508  npm install redux --save
+  509  npm audit fix
+  510  history >> hidtory.txt
+  511  history >> history.txt
