@@ -1,4 +1,6 @@
 git init
 git add .
 git commit -a -m 'ddd'
-git push -u original master
+git push -u origin master
+
+git remote add origin git@gitHub:mob_mfk_marko.git
