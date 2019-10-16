@@ -5,7 +5,9 @@ var {Pool} = require('pg');
 
 var postgres = require("./components/postgres");
 
-var express = require('express');
+var express     = require('express');
+var compression = require('compression'); // Provides gzip compression for the HTTP response
+
 
 var app = express();
 //var port = 8080;
