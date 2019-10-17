@@ -19,7 +19,7 @@ var path = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
-console.log('isProduction:' + isProduction);
+console.log('isProduction:' + isProduction + ' ' + process.env.PORT1);
 
 const dbpg = new Pool( postgres.params_conn );
 
