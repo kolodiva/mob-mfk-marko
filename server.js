@@ -19,6 +19,8 @@ var path = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
+console.log('isProduction:' + isProduction);
+
 const dbpg = new Pool( postgres.params_conn );
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
