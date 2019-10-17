@@ -3,7 +3,7 @@ require('marko/express'); //enable res.marko
 
 var {Pool} = require('pg');
 
-var postgres = require("./components/postgres");
+var postgres = require("./routes/index/postgres");
 
 var express     = require('express');
 var compression = require('compression'); // Provides gzip compression for the HTTP response
@@ -19,7 +19,7 @@ var path = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
-console.log('isProduction:' + isProduction + ' ' + process.env.PORT1);
+// console.log('isProduction:' + isProduction + ' ' + process.env.PORT1);
 
 const dbpg = new Pool( postgres.params_conn );
 
@@ -41,47 +41,9 @@ app.use(compression());
 app.use( express.static( 'public' ) );
 
 //
-// var device = require('express-device');
-// app.use(device.capture());
+router.get( '/', require('./routes/index/route') );
 
-var indexTemplate = require('./index.marko');
-
-router.get('/', async (req, res) => {
-
-  try {
-
-    res.marko(indexTemplate, {
-            name: 'Frank',
-            count: 30,
-            colors: ['red', 'green', 'blue'],
-            // device: req.device.type.toUpperCase(),
-            isProduction: isProduction,
-            dbpg: dbpg,
-        });
-
-    // let result = await postgres.getNomenklator( db, '' )
-    //
-    // //console.log( result );
-    //
-    // //return res.status(200).send( result );
-    // res.render( 'home', { items: result[0], parentguid: result[1], artikul: result[2] } );
-
-  } catch(e) {
-
-      res.status(404).send( e.stack )
-    }
-
-});
-
-
-// app.get('/', function(req, res) {
-//     res.marko(indexTemplate, {
-//             name: 'Frank',
-//             count: 30,
-//             colors: ['red', 'green', 'blue']
-//         });
-// });
-
+//
 app.use('/', router);
 
 app.listen(port, function(err) {
