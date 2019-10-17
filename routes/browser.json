@@ -5,6 +5,6 @@
     "popper.js/dist/umd/popper.min.js",
     "bootstrap/dist/js/bootstrap.min.js",
     "bootstrap/dist/css/bootstrap.min.css",
-    "jquery-touchswipe/jquery.bcSwipe.min.js"
+    "./jquery.bcSwipe.min.js"
   ]
 }
