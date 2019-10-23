@@ -20,8 +20,7 @@ module.exports = function(state, action) {
       case 'PUT_AXIOS_AHTUNG':
         //console.log( action.payload );
         return {
-          ahtung_postgre: 'action.payload',
-          recs: [],
+          ahtung_postgre: action.payload,
         };
 
     case 'GET_AXIOS':
