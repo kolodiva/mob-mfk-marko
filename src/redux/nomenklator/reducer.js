@@ -21,6 +21,7 @@ module.exports = function(state, action) {
         //console.log( action.payload );
         return {
           ahtung_postgre: 'action.payload',
+          recs: [],
         };
 
     case 'GET_AXIOS':

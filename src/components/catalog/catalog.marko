@@ -90,7 +90,7 @@ $ const wh = '230px';
 
 <div class="d-flex flex-row justify-content-around align-items-center flex-wrap p-5" style="min-height: 100vh;">
 
-  <if( attrs && attrs.recs.length > 0 )>
+  <if( attrs && attrs.recs && attrs.recs.length > 0 )>
     <for|value, index| of=attrs.recs>
       <groupName obj=value imgPath=value.guid_picture  />
     </for>
