@@ -19,6 +19,7 @@
   "homepage": "https://github.com/marko-js-samples/marko-express",
   "dependencies": {
     "@lasso/marko-taglib": "^1.0.15",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "browser-refresh": "^1.7.3",
     "browser-refresh-taglib": "^1.1.0",
@@ -35,7 +36,9 @@
     "mime": "^2.4.4",
     "pg": "^7.12.1",
     "popper.js": "^1.15.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
   },
   "browser": {
     "routes\\index\\components\\app-hello.js": "routes\\index\\components\\app-hello.browser.js",

@@ -1,0 +1,148 @@
+import axios            from 'axios';
+import * as glob        from '../../jslib/constants';
+import storeNomenklator from '../../redux/nomenklator/store';
+
+class {
+
+    onCreate(input, out) {
+        this.state = {
+            count: 0,
+            waitData: true
+        };
+    }
+
+    onInput(input, out) {
+    }
+
+    onMount() {
+        storeNomenklator.subscribe(() => {
+            this.forceUpdate();
+        });
+    }
+
+    dispatch(type) {
+        //console.log('...type %s', type);
+        storeNomenklator.dispatch({ type: type });
+    }
+
+    dispatch2() {
+
+        const asyncGetTracks = () => {
+
+            return dispatch => {
+
+        axios.get('/getNum', {
+                  params: {
+                    id: 'this.state',
+                    id1: 'this.state1',
+                  }
+                })
+                .then( function(response) {
+
+                  //console.log( response );
+
+                  if (response.status == 200) {
+                    dispatch({ type: 'GET_AXIOS', payload: response.data[0] });
+                  }
+                  //dispatch({ type: 'GET_AXIOS', payload: [] });
+
+                  //dispatch({ type: 'GET_AXIOS', payload: response.data });
+
+                  // return {
+                  //   value: state.value + 1,
+                  //   val1: response.data,
+                  // };
+                })
+          .catch(function (error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+          });
+
+          }
+
+        }
+
+        storeNomenklator.dispatch( asyncGetTracks() );
+      }
+
+    increment() {
+        //zolupa on vorotnik
+        this.state.count++;
+        //and for you zolupa on vorotnik
+    }
+}
+
+style {
+}
+
+<!-- $ const colorBlueMF1 = { minHeight: '100vh', border: '3px solid ' + ${ out.global.colorBlueMF } } ; -->
+<!-- $ const colorBlueMF3 = this.colorBlueMF2; -->
+<!-- $ var colorBlueMF2 = 'undefined'; -->
+<!-- $  const colorBlueMF = ; -->
+$ const pathToNews = input.isProduction ? "/img/newsimg/" : "/img/group/";
+
+$ const attrs = storeNomenklator.getState();
+$ //console.log( '...attrs %o', attrs );
+
+
+<!-- <h1 class='display-4 text-center' >${ state.count }</h1> -->
+<h1 class='display-4 text-center' > ${ attrs.value } </h1>
+<h1 class='display-4 text-center' > ${ attrs.recs && attrs.recs[0] ? attrs.recs[0].name : ''} </h1>
+
+<button type="button" class="btn btn-primary btn-lg btn-block" on-click('dispatch', 'INCREMENT')>val plus</button>
+<button type="button" class="btn btn-danger  btn-lg btn-block"  on-click( 'dispatch2' )>get axios</button>
+
+<div class="d-flex flex-column justify-content-around align-items-center"
+    style="min-height: 100vh;">
+    <img class="" style="width: 80vw" src="logo_big_orig.png"/>
+    <h1 class="display-3 text-center" style="width: 80vw">
+        В данный момент готовится к запуску Мобильная верcия сайта.<br/>тел. в Москве:<br/>
+        <a href="tel:+74950500075" style="font-weight: bold;">
+            <br/>+7 (495) 050-00-75<br/>(многокан.)
+        </a>
+    </h1>
+    <h1 class="display-4 text-center" style="width: 80vw">
+        Для ознакомления необходимо зайти на сайт с настольного компьютера.
+    </h1>
+    <h1 class="display-4 text-center" style="width: 80vw">
+        Заранее извиняемся за неудобства.
+    </h1>
+    <h1 class="display-4 text-center" style="width: 80vw">
+        <br/>
+    </h1>
+    $ //console.log( glob.getColor ); //debugger;
+    $ //console.log( postgres );
+    <!-- <div id='carouselExampleControls' class="carousel slide" data-ride="true"  style=''>
+
+      <div class="carousel-inner" style=''>
+
+        <div class="carousel-item  active">
+          <img class="d-block w-75 mx-auto" src= pathToNews+'00ab318c-7ee2-4d9c-bacc-e3415fa7.png' alt="First slide">
+        </div>
+
+        <div class="carousel-item">
+          <img class="d-block w-75  mx-auto" src="https://newfurnitura.ru/news/pic2_postfix_kBlgt7z_GVYAOSPsnCWsqA.jpg" alt="First slide">
+        </div>
+
+        <div class="carousel-item">
+          <img class="d-block w-75 mx-auto" src="logo_big_orig.png" alt="First slide">
+        </div>
+
+      </div>
+
+  </div> -->
+</div>

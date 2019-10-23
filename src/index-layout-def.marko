@@ -1,0 +1,39 @@
+import SiteLayout from './index.marko';
+
+<${SiteLayout}>
+
+  <@title>
+    МФ Комплект
+  </@title>
+
+    <@body>
+
+      <if( out.global.htmlPath == 'home' )>
+        <app-hello isProduction=out.global.isProduction/>
+      </if>
+
+      <else-if( out.global.htmlPath == 'catalog' )>
+        <catalog isProduction=out.global.isProduction/>
+      </else-if>
+
+      <else-if( out.global.htmlPath == 'test' )>
+        <div  class='d-flex flex-column justify-content-around align-items-center' style='min-height: 100vh;'>
+          <h1 class='display-3 text-center' style='font-weight: bold; '>Hi, test the best!</h1>
+        </div>
+      </else-if>
+
+      <else-if( out.global.htmlPath == '404' )>
+        <div  class='d-flex flex-column justify-content-around align-items-center' style='min-height: 100vh;'>
+          <h1 class='display-3 text-center' style='font-weight: bold; cursor: pointer;'><a href="/" style=''>Hey Bro! page 404 Yo!<br/>Go Home!</a></h1>
+        </div>
+      </else-if>
+
+      <else>
+        <div  class='d-flex flex-column justify-content-around align-items-center' style='min-height: 100vh;'>
+          <h1 class='display-3 text-center' style='font-weight: bold; '>Hey Bro!</h1>
+        </div>
+      </else>
+
+    </@body>
+
+  </>

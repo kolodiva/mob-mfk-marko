@@ -1,6 +1,6 @@
 
 //var port    =   process.env.PORT || 8080;
-var { genGuid } = require("./enother.js");
+var { genGuid } = require("../jslib/enother.js");
 
 //const params_conn = {user: 'postgres',  host: 'newfurnitura.ru',  database: 'statistica',  password: '27ac4a1dd6873624b7535fe5660740d6', port: 8815};
 const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
@@ -83,8 +83,6 @@ const taskProc = (db, params) => {
   // return db.query( qryText, params ).then( res => { return JSON.stringify(res) } )
 }
 
-
-
 const getNomenklator = (db, parentguid, artikul='') => {
 
   const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.pic_guid, \
@@ -104,10 +102,21 @@ const getNomenklator = (db, parentguid, artikul='') => {
   return db.query( qryText, params ).then( res => { return [res.rows, res.rows.length == 0 ? '' : res.rows[0].parentguid, artikul ] } )
 }
 
+const getNmnkl = (db, parentguid, artikul='') => {
+
+  const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.guid_picture \
+  									from nomenklators t1 where case when $1='' then parentguid is null else parentguid=$1 end and guid<>'yandexpagesecret' and guid<>'sekretnaya_papka' \
+  											order by sort_field, name;"
+
+  const params  = [ parentguid ];
+
+  return db.query( qryText, params ).then( res => { return [res.rows, res.rows.length == 0 ? '' : res.rows[0].parentguid, artikul ] } )
+}
 
 module.exports = { params_conn: params_conn,
 						connect: connect,
 							getServicesList: getServicesList,
 								saveServiceParams: saveServiceParams,
 									taskProc: taskProc,
-										getNomenklator: getNomenklator }
+										getNomenklator: getNomenklator,
+											getNmnkl: getNmnkl, }

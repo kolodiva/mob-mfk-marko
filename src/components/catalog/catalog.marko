@@ -1,0 +1,103 @@
+import storeNomenklator from '../../redux/nomenklator/store';
+import axios            from 'axios';
+import * as glob        from '../../jslib/constants';
+
+class {
+    onCreate(input, out) {
+      this.state = {
+        qtyEl: 60,
+      }
+    }
+
+    onInput(input, out) {
+    }
+
+    onMount() {
+
+      storeNomenklator.subscribe(() => {
+          this.forceUpdate();
+      });
+
+      const asyncGetTracks = () => {
+
+          return dispatch => {
+
+      axios.get('/getNum', {
+                params: {
+                  id: 'this.state',
+                  id1: 'this.state1',
+                }
+              })
+              .then( function(response) {
+
+                //console.log( response );
+
+                if (response.status == 200) {
+                  dispatch({ type: 'GET_AXIOS', payload: response.data[0] });
+                }
+                //dispatch({ type: 'GET_AXIOS', payload: [] });
+
+                //dispatch({ type: 'GET_AXIOS', payload: response.data });
+
+                // return {
+                //   value: state.value + 1,
+                //   val1: response.data,
+                // };
+              })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+          console.log(error.config);
+        });
+
+        }
+
+      }
+
+      storeNomenklator.dispatch( asyncGetTracks() );
+
+    }
+
+}
+
+style {
+}
+
+//$ console.log( input );
+$ const attrs = storeNomenklator.getState();
+$ const wh = '230px';
+
+
+<macro|{ name, count }| name="greeting">
+    <h1 class='display-2'>Hello ${name}! Waiting fornew messages.</h1>
+</macro>
+
+<macro|{ obj, imgPath }| name="groupName">
+    <img src=imgPath class='mx-4 my-4 img-fluid' style='border: 3px solid ${glob.colorBlueMF}; border-radius: 10px; height: ${wh}; width: ${wh};' />
+</macro>
+
+<div class="d-flex flex-row justify-content-around align-items-center flex-wrap p-5" style="min-height: 100vh;">
+
+  <if( attrs && attrs.recs.length > 0 )>
+    <for|value, index| of=attrs.recs>
+      <groupName obj=value imgPath=value.guid_picture  />
+    </for>
+  </if>
+  <else>
+    <greeting name="Frank" count=20/>
+  </else>
+
+</div>
