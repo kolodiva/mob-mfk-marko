@@ -44,7 +44,7 @@ router.get( '/catalog', routes.getCatalog );
 
 router.get( '/test',    routes.getTest );
 
-router.get( '/getNum',  routes.getNum );
+router.get( '/getNum/:id',  routes.getNum );
 
 router.get( '*',          routes.get404 );
 
