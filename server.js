@@ -6,7 +6,8 @@ var compression = require('compression'); // Provides gzip compression for the H
 
 var app = express();
 //var port = 8080;
-var port = process.env.PORT1 || 8080;
+//var port = process.env.PORT1 || 8080;
+var port = process.env.PORT1 || 8081;
 
 var router = express.Router();
 
