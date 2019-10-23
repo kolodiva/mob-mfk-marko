@@ -3,7 +3,7 @@
 var { genGuid } = require("../jslib/enother.js");
 
 //const params_conn = {user: 'postgres',  host: 'newfurnitura.ru',  database: 'statistica',  password: '27ac4a1dd6873624b7535fe5660740d6', port: 8815};
-const params_conn = {user: 'postgres',  host: 'https://newfurnitura.ru',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 5432};
+const params_conn = {user: 'postgres',  host: 'newfurnitura.ru',  database: 'orders',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 5432};
 
 //const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
 
