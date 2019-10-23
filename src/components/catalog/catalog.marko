@@ -22,15 +22,10 @@ class {
 
           return dispatch => {
 
-      axios.get('/getNum', {
-                params: {
-                  id: 'this.state',
-                  id1: 'this.state1',
-                }
-              })
+      axios.get('/getNum', {})
               .then( function(response) {
 
-                //console.log( response );
+                console.log( response );
 
                 if (response.status == 200) {
                   dispatch({ type: 'GET_AXIOS', payload: response.data[0] });
