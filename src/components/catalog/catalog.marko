@@ -13,8 +13,6 @@ class {
 
     onMount() {
 
-        //console.log(  );
-
         storeNomenklator.subscribe(() => {
             this.forceUpdate();
         });
@@ -22,30 +20,36 @@ class {
         const guidParent = this.input.guidParent || '';
 
         storeNomenklator.dispatch(axiosProc.getNumenklator(guidParent, ''));
+
+        // const currEl = global.jQuery('#44444').height();
+        //
+        // console.log( currEl );
     }
 
-    getNomenkl(guid) {
-      console.log( 'input: ', guid );
-      storeNomenklator.dispatch(axiosProc.getNumenklator(guid, ''));
-    }
 }
 
 style {
 }
 
 //$ console.log( input );
-//$ console.log( input );
 $ const attrs = storeNomenklator.getState();
 $ const rec0 = attrs.recs && attrs.recs.length>0 && attrs.recs[0] || false;
-$ const wh = '210px';
+$ const headerText = rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...';
+
+static const wh = '210px';
 
 //$ console.log( rec0 );
 
+//${ console.log( component.getEl() ) };
+
+
 <!-- ////////////////////////////////////////////////// -->
-<headerName name=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...'}`
+<headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-<div style='height: 130px'/>
+
+//$ const tmpHeight = getHeight();
+<div style=`height: ${ headerText.length>12 ? '250px' : '150px' }`/>
 
 <div
     class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } `
@@ -86,8 +90,8 @@ $ const wh = '210px';
   </h1>
 </macro>
 
-<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/images'); -->
-<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/img/group'); -->
+<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/images'); -->
+<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/img/group'); -->
 <macro|{guid, guid_picture}| name='outIconsGroup'>
   <a href="/catalog/" + guid>
     <img
