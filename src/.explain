@@ -153,3 +153,4 @@ $ //console.log( '...attrs %o', attrs );
 1 изменить параметры подключения к постгрес
 2 проверить в catalog измнение путей для картинок
 3 сервер Express 8081
+cd /home/nodejs/mob-mfk-marko
