@@ -21,9 +21,9 @@ class {
 
         storeNomenklator.dispatch(axiosProc.getNumenklator(guidParent, ''));
 
-        // const currEl = global.jQuery('#44444').height();
-        //
-        // console.log( currEl );
+        //const currEl = jQuery('#44444');
+        // const currEl = jQuery(this.getEl('44444')).height('250px');
+        // console.log( 'currEl ', currEl );
     }
 
 }
@@ -46,7 +46,6 @@ static const wh = '210px';
 <!-- ////////////////////////////////////////////////// -->
 <headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
-
 
 //$ const tmpHeight = getHeight();
 <div style=`height: ${ headerText.length>12 ? '250px' : '150px' }`/>
@@ -96,7 +95,7 @@ static const wh = '210px';
   <a href="/catalog/" + guid>
     <img
         key = guid
-        src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
+        src = guid_picture
         class = 'mx-4 my-5 img-fluid'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
   </a>
@@ -108,7 +107,7 @@ static const wh = '210px';
 
     <img
         key = guid
-        src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
+        src = guid_picture
         class = 'mx-4 my-5 img-fluid col-3'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
 
@@ -120,6 +119,6 @@ static const wh = '210px';
 
 <macro|{name, path}| name='headerName'>
   <a href=`${path}` class='btn btn-outline-primary col-12 position-fixed p-4' style='background-color: white; z-index: 1' >
-    <h1 class='display-2 text-center'>${name}</h1>
+    <h1 key='44444' class='display-2 text-center'>${name}</h1>
   </a>
 </macro>
