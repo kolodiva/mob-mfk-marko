@@ -86,25 +86,25 @@ $ const wh = '210px';
   </h1>
 </macro>
 
+<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/images'); -->
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/img/group'); -->
 <macro|{guid, guid_picture}| name='outIconsGroup'>
   <a href="/catalog/" + guid>
     <img
         key = guid
-        src = guid_picture
+        src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/images');
         class = 'mx-4 my-5 img-fluid'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
   </a>
 </macro>
 
-<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/img/group'); -->
 <macro|{ guid, guid_picture, name }| name='outIconsGoods'>
 
   <div class='col-12 row'>
 
     <img
         key = guid
-        src = guid_picture
+        src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/images');
         class = 'mx-4 my-5 img-fluid col-3'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
 
