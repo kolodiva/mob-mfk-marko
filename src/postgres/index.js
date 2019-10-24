@@ -3,8 +3,8 @@
 var { genGuid } = require("../jslib/enother.js");
 
 //const params_conn = {user: 'postgres',  host: 'newfurnitura.ru',  database: 'statistica',  password: '27ac4a1dd6873624b7535fe5660740d6', port: 8815};
-const params_conn = {user: 'postgres',  host: '127.0.0.1',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 12550};
 
+const params_conn = {user: 'postgres',  host: '127.0.0.1',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 12550};
 //const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
 
 const connect = (db)  => {
@@ -104,15 +104,44 @@ const getNomenklator = (db, parentguid, artikul='') => {
   return db.query( qryText, params ).then( res => { return [res.rows, res.rows.length == 0 ? '' : res.rows[0].parentguid, artikul ] } )
 }
 
-const getNmnkl = (db, parentguid, artikul='') => {
+////////////////////////////////////////////////////////
+const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
-  const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.guid_picture \
-  									from nomenklators t1 where case when $1='' then parentguid is null else parentguid=$1 end and guid<>'yandexpagesecret' and guid<>'sekretnaya_papka' \
-  											order by sort_field, name;"
+	//console.log( 'postgre guidParent: ', guidParent );
 
-  const params  = [ parentguid ];
 
-  return db.query( qryText, params ).then( res => { return [res.rows, res.rows.length == 0 ? '' : res.rows[0].parentguid, artikul ] } )
+  // const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.guid_picture, t1.itgroup \
+  // 									from nomenklators t1 where case when $1='' then parentguid is null else parentguid = $1 end and guid <> 'yandexpagesecret' and guid <> 'sekretnaya_papka' \
+  // 											order by sort_field, name;"
+
+	const params  = [ guidParent ];
+
+	const qryText = "with t2 as( \
+											select name nameParent0, parentguid guidParent0 \
+											from nomenklators \
+											where case when $1='' then guid is null else guid = $1 end\
+											limit 1 \
+										) \
+										select t1.artikul, t1.artikul_new, t1.name,  \
+										t1.guid, t1.parentguid, t1.guid_picture, t1.itgroup, t1.level_group, \
+										case when t2.guidParent0 is null then 'В суть вещей...' else t2.nameParent0 end nameParent0,  \
+										case when t2.guidParent0 is null then '' else t2.guidParent0 end guidParent0, \
+										case when t2.guidParent0 is null then '/catalog' else concat('/catalog/', t2.guidParent0) end pathParent0 \
+										from nomenklators t1 left join t2 on true \
+										where case when $1='' then t1.parentguid is null else t1.parentguid = $1 end \
+										and t1.guid not in (select 'yandexpagesecret' guid union all select 'sekretnaya_papka') \
+										order by t1.sort_field, t1.name;"
+
+	return db.query( qryText, params ).then( res => {
+
+		const rows = res.rows;
+		//console.log(qryText.replace(/\s\s+/g, ' '), params);
+
+			return [
+				rows,
+			]
+		}
+	);
 }
 
 module.exports = { params_conn: params_conn,

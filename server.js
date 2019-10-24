@@ -38,15 +38,16 @@ app.set( 'appParams', { 'isProduction': isProduction, } );
 const routes = require('./src/routes');
 
 //
-router.get( '/',        routes.getHome );
+router.get( '/',            routes.getHome );
 
-router.get( '/catalog', routes.getCatalog );
+router.get( '/catalog/:guidParent', routes.getCatalog );
+router.get( '/catalog',       routes.getCatalog );
 
-router.get( '/test',    routes.getTest );
+router.get( '/test',        routes.getTest );
 
-router.get( '/getNum',  routes.getNum );
+router.get( '/getNum',      routes.getNum );
 
-router.get( '*',          routes.get404 );
+router.get( '*',            routes.get404 );
 
 //
 app.use('/', router);

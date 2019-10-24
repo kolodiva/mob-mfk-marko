@@ -9,11 +9,11 @@ import SiteLayout from './index.marko';
     <@body>
 
       <if( out.global.htmlPath == 'home' )>
-        <app-hello isProduction=out.global.isProduction/>
+        <app-hello isProduction = out.global.isProduction />
       </if>
 
       <else-if( out.global.htmlPath == 'catalog' )>
-        <catalog isProduction=out.global.isProduction/>
+        <catalog isProduction = out.global.isProduction  guidParent = out.global.guidParent/>
       </else-if>
 
       <else-if( out.global.htmlPath == 'test' )>
@@ -24,6 +24,7 @@ import SiteLayout from './index.marko';
 
       <else-if( out.global.htmlPath == '404' )>
         <div  class='d-flex flex-column justify-content-around align-items-center' style='min-height: 100vh;'>
+          <img class="" style="width: 80vw" src="logo_big_orig.png"/>
           <h1 class='display-3 text-center' style='font-weight: bold; cursor: pointer;'><a href="/" style=''>Hey Bro! page 404 Yo!<br/>Go Home!</a></h1>
         </div>
       </else-if>

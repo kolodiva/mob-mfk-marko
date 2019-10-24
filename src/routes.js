@@ -32,7 +32,30 @@ exports.getHome = (req, res) => {
 };
 
 exports.getCatalog = (req, res) => {
-  renderHtml(req, res, 'catalog');
+  //renderHtml(req, res, 'catalog');
+  //
+  let params = getAppParams(req);
+
+  // console.log('routs params: ', req.params);
+  // console.log('routs query: ', req.query);
+
+  const guidParent = req.params && req.params.guidParent || '';
+
+  try {
+
+    res.status(200).marko(view, {
+      $global: {
+        isProduction: params.appParams.isProduction,
+        htmlPath: 'catalog',
+        guidParent: guidParent,
+      },
+    });
+
+  } catch (e) {
+    res.status(404).send(e.stack)
+  }
+
+
 };
 
 exports.getTest = (req, res) => {
@@ -46,9 +69,14 @@ exports.get404 = (req, res) => {
 //
 exports.getNum = async (req, res) => {
 
+  let params = req.query;
+
+  // console.log('routs params: ', req.params);
+  // console.log('routs params: ', req.query);
+
   try {
 
-    let result = await postgres.getNmnkl(dbpg, '')
+    let result = await postgres.getNmnkl(dbpg, params.guidParent)
 
     return res.status(200).send(result);
 

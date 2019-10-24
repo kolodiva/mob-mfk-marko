@@ -1,105 +1,121 @@
-import storeNomenklator from '../../redux/nomenklator/store';
-import axios            from 'axios';
-import * as glob        from '../../jslib/constants';
+import storeNomenklator from '../../redux/nomenklator/store'
+import * as glob        from '../../jslib/constants'
+import axiosProc        from '../../axios'
 
 class {
     onCreate(input, out) {
-      this.state = {
-        qtyEl: 60,
-      }
+        // this.state = {
+        //     qtyEl: 60
+        // };
     }
 
-    onInput(input, out) {
-    }
+    onInput(input, out) {}
 
     onMount() {
 
-      storeNomenklator.subscribe(() => {
-          this.forceUpdate();
-      });
+        //console.log(  );
 
-      const asyncGetTracks = () => {
-
-          return dispatch => {
-
-      axios.get('/getNum', {})
-              .then( function(response) {
-
-                //console.log( response );
-
-                if (response.status == 200) {
-                  dispatch({ type: 'GET_AXIOS', payload: response.data[0] });
-                }
-                //dispatch({ type: 'GET_AXIOS', payload: [] });
-
-                //dispatch({ type: 'GET_AXIOS', payload: response.data });
-
-                // return {
-                //   value: state.value + 1,
-                //   val1: response.data,
-                // };
-              })
-        .catch(function (error) {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-
-            dispatch({ type: 'PUT_AXIOS_AHTUNG', payload: error.response.data });
-
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message);
-          }
-
-          console.log(error.config);
+        storeNomenklator.subscribe(() => {
+            this.forceUpdate();
         });
 
-        }
+        const guidParent = this.input.guidParent || '';
 
-      }
-
-      storeNomenklator.dispatch( asyncGetTracks() );
-
+        storeNomenklator.dispatch(axiosProc.getNumenklator(guidParent, ''));
     }
 
+    getNomenkl(guid) {
+      console.log( 'input: ', guid );
+      storeNomenklator.dispatch(axiosProc.getNumenklator(guid, ''));
+    }
 }
 
 style {
 }
 
 //$ console.log( input );
+//$ console.log( input );
 $ const attrs = storeNomenklator.getState();
-$ const wh = '230px';
+$ const rec0 = attrs.recs && attrs.recs.length>0 && attrs.recs[0] || false;
+$ const wh = '210px';
 
+$ console.log( rec0 );
 
-<macro|{ name, count }| name="greeting">
-    <h1 class='display-3 text-center'>Здравствуйте ${name}! Ожидайте получения данных.<br/>Если их долго нет , то это возможно ошибка - зайдите позже или на станционарном компьютере.</h1>
-</macro>
+<!-- ////////////////////////////////////////////////// -->
+<headerName name=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...'}`
+    path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-<macro|{ obj, imgPath }| name="groupName">
-    <img src=imgPath class='mx-4 my-4 img-fluid' style='border: 3px solid ${glob.colorBlueMF}; border-radius: 10px; height: ${wh}; width: ${wh};' />
-</macro>
+<div style='height: 130px'/>
 
-<div class="d-flex flex-row justify-content-around align-items-center flex-wrap p-5" style="min-height: 100vh;">
+<div
+    class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } `
+    style='min-height: 100vh;'>
 
-  <if( attrs && attrs.recs && attrs.recs.length > 0 )>
-    <for|value, index| of=attrs.recs>
-      <groupName obj=value imgPath=value.guid_picture  />
-    </for>
-  </if>
-  <else-if( attrs && attrs.ahtung_postgre !== '' )>
-    <h1 class='display-4 text-center'>При получении данных произошла ошибка.<br/>${attrs.ahtung_postgre}</h1>
-  </else-if>
-  <else>
-    <greeting name="Посетитель" count=20/>
-  </else>
-
+    <if(rec0)>
+        <for|value| of=attrs.recs>
+          <if(rec0.itgroup)>
+            <outIconsGroup guid=value.guid guid_picture=value.guid_picture name=value.name />
+          </if>
+          <else>
+            <outIconsGoods guid=value.guid guid_picture=value.guid_picture name=value.name />
+          </else>
+        </for>
+    </if>
+    <else-if(attrs && attrs.recs && attrs.recs.length == 0)>
+        <ahtung descr = 'Просто НЕТ таких данных...'/>
+    </else-if>
+    <else-if(attrs && attrs.ahtung_postgre !== "")>
+        <ahtung descr = attrs.ahtung_postgre/>
+    </else-if>
+    <else>
+      <greetings name = 'Посетитель'/>
+    </else>
 </div>
+<!-- ////////////////////////////////////////////////// -->
+
+
+<macro|{descr}| name='ahtung'>
+  <h1 class="display-3 text-center">
+      При получении данных произошла ошибка:<br/>${descr}.
+  </h1>
+</macro>
+
+<macro|{name}| name='greetings'>
+  <h1 class="display-3 text-center">
+      Здравствуйте ${name}. Ожидайте получения данных.<br/>Если их долго нет , то это возможно ошибка - зайдите позже или на станционарном компьютере.
+  </h1>
+</macro>
+
+<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/img/group'); -->
+<macro|{guid, guid_picture}| name='outIconsGroup'>
+  <a href="/catalog/" + guid>
+    <img
+        key = guid
+        src = guid_picture);
+        class = 'mx-4 my-5 img-fluid'
+        style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
+  </a>
+</macro>
+
+<!-- src = guid_picture.replace('https://newfurnitura.ru/upload', 'http://localhost:8081/img/group'); -->
+<macro|{ guid, guid_picture, name }| name='outIconsGoods'>
+
+  <div class='col-12 row'>
+
+    <img
+        key = guid
+        src = guid_picture;
+        class = 'mx-4 my-5 img-fluid col-3'
+        style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
+
+    <p  class='col-8 my-auto display-4' >${name}</p>
+
+  </div>
+
+</macro>
+
+<macro|{name, path}| name='headerName'>
+  <a href=`${path}` class='btn btn-outline-primary col-12 position-fixed p-4' style='background-color: white; z-index: 1' >
+    <h1 class='display-2 text-center'>${name}</h1>
+  </a>
+</macro>
