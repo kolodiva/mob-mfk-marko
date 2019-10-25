@@ -5,8 +5,8 @@
 
 
 const globalVar = {
-      imgPath:      '/images',
       imgPath1:      '/img/group',
+      imgPath:      '/images',
 
       paramsConnPg1:    {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432},
       paramsConnPg:    {user: 'postgres',  host: '127.0.0.1',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 12550},

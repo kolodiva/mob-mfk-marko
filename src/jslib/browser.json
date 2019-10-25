@@ -5,6 +5,7 @@
     "popper.js/dist/umd/popper.min.js",
     "bootstrap/dist/js/bootstrap.min.js",
     "bootstrap/dist/css/bootstrap.min.css",
-    "./jquery.bcSwipe.min.js"
+    "./jquery.bcSwipe.min.js",
+    "./redux.min.js"
   ]
 }

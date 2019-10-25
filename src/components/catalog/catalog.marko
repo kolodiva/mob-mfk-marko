@@ -58,9 +58,7 @@ static const whGood   = '250px';
 <headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-<div
-    class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } `
-    style=''>
+<div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } ` style=''>
 
     <if(rec0)>
         <for|value| of=attrs.recs>
@@ -73,14 +71,16 @@ static const whGood   = '250px';
         </for>
     </if>
     <else-if(attrs && attrs.recs && attrs.recs.length == 0)>
-        <ahtung descr = 'Просто НЕТ таких данных...'/>
+        <!-- <ahtung descr = 'Просто НЕТ таких данных...'/> -->
+        <ahtung descr = 'Загрузка данных...'/>
     </else-if>
     <else-if(attrs && attrs.ahtung_postgre !== "")>
-        <ahtung descr = attrs.ahtung_postgre/>
+        <ahtung descr = 'При получении данных произошла ошибка:<br/>' + attrs.ahtung_postgre/>
     </else-if>
     <else>
       <greetings name = 'Посетитель'/>
     </else>
+    
 </div>
 <!-- ////////////////////////////////////////////////// -->
 
@@ -88,7 +88,7 @@ static const whGood   = '250px';
 
 <macro|{descr}| name='ahtung'>
     <h1 class="display-3 text-center my-auto">
-        При получении данных произошла ошибка:<br/>${descr}.
+        ${descr}.
     </h1>
 </macro>
 

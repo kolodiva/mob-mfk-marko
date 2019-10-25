@@ -1,4 +1,6 @@
-const { createStore, applyMiddleware }  = require('redux');
+const { createStore, applyMiddleware, combineReducers, compose  }  = require('redux');
+//const { createStore, applyMiddleware, combineReducers, compose  }  = require('../../jslib/redux.min.js');
+
 const { composeWithDevTools }           = require('redux-devtools-extension');
 
 var thunk   = require('redux-thunk').default;
