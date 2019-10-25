@@ -5,6 +5,8 @@ const globalVar = {
 
       getColor: () => '#00aec6',
 
+      heightHeader: '120px',
+
       getWinSize: () => { return {width: jQuery(window).width(), height: jQuery(window).height(), } },
     };
 
