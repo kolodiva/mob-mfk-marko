@@ -21,9 +21,20 @@ class {
 
         storeNomenklator.dispatch(axiosProc.getNumenklator(guidParent, ''));
 
+        //
+        this.winSize = glob.getWinSize();
         //const currEl = jQuery('#44444');
         // const currEl = jQuery(this.getEl('44444')).height('250px');
         // console.log( 'currEl ', currEl );
+
+    }
+
+    onUpdate() {
+
+      const heightHeader = jQuery(this.getEl('catalogHeader')).height();
+
+      jQuery(this.getEl('catalogHeader2')).height( heightHeader + 10 + 'px' );
+
     }
 
 }
@@ -36,23 +47,22 @@ $ const attrs = storeNomenklator.getState();
 $ const rec0 = attrs.recs && attrs.recs.length>0 && attrs.recs[0] || false;
 $ const headerText = rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...';
 
-static const wh = '210px';
+$ const whGroup       = component&&component.winSize&&component.winSize.width/2-150 + 'px'||'150px';
+static const whGood   = '250px';
 
-//$ console.log( rec0 );
+//$ { () => {console.log( try {component.winWidth/2-50} catch(e) {'350px'}}  )}
 
-//${ console.log( component.getEl() ) };
-
+//${ console.log( component&&component.winWidth/2-50||'nothing' ) };
 
 <!-- ////////////////////////////////////////////////// -->
 <headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-//$ const tmpHeight = getHeight();
-<div style=`height: ${ headerText.length>12 ? '250px' : '150px' }`/>
+<div  key='catalogHeader2' style=`height: 150px; }`/>
 
 <div
     class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } `
-    style='min-height: 100vh;'>
+    style=''>
 
     <if(rec0)>
         <for|value| of=attrs.recs>
@@ -77,14 +87,15 @@ static const wh = '210px';
 <!-- ////////////////////////////////////////////////// -->
 
 
+
 <macro|{descr}| name='ahtung'>
-  <h1 class="display-3 text-center">
-      При получении данных произошла ошибка:<br/>${descr}.
-  </h1>
+    <h1 class="display-3 text-center my-auto">
+        При получении данных произошла ошибка:<br/>${descr}.
+    </h1>
 </macro>
 
 <macro|{name}| name='greetings'>
-  <h1 class="display-3 text-center">
+  <h1 class="display-3 text-center my-auto">
       Здравствуйте ${name}. Ожидайте получения данных.<br/>Если их долго нет , то это возможно ошибка - зайдите позже или на станционарном компьютере.
   </h1>
 </macro>
@@ -92,13 +103,15 @@ static const wh = '210px';
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/images'); -->
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/img/group'); -->
 <macro|{guid, guid_picture}| name='outIconsGroup'>
-  <a href="/catalog/" + guid>
-    <img
-        key = guid
-        src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
-        class = 'mx-4 my-5 img-fluid'
-        style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
-  </a>
+  <div class='d-flex flex-column p-0' style=''>
+    <a href="/catalog/" + guid>
+      <img
+          key = guid
+          src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
+          class = 'mx-4 my-5 img-fluid'
+          style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGroup}; width: ${whGroup};`/>
+    </a>
+  </div>
 </macro>
 
 <macro|{ guid, guid_picture, name }| name='outIconsGoods'>
@@ -109,7 +122,7 @@ static const wh = '210px';
         key = guid
         src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
         class = 'mx-4 my-5 img-fluid col-3'
-        style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${wh}; width: ${wh};`/>
+        style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGood}; width: ${whGood};`/>
 
     <p  class='col-8 my-auto display-4' >${name}</p>
 
@@ -118,7 +131,17 @@ static const wh = '210px';
 </macro>
 
 <macro|{name, path}| name='headerName'>
-  <a href=`${path}` class='btn btn-outline-primary col-12 position-fixed p-4' style='background-color: white; z-index: 1' >
-    <h1 key='44444' class='display-2 text-center'>${name}</h1>
-  </a>
+
+  <div class='btn btn-outline-primary col-12 position-fixed d-flex justify-content-between align-items-center p-0' style='background-color: white; z-index: 1;'>
+
+    <a href='/' class='' style='' >
+       <img class='img-fluid' style='height: 100px;' src='/img/logoHeaderNum.png' alt="" />
+    </a>
+
+    <a href=`${path}` class='' >
+       <h1 key='catalogHeader' class='display-3 pr-3' style='' nowrap>zurück <span>&#187</span></h1>
+    </a>
+
+  </div>
+
 </macro>

@@ -5,7 +5,7 @@ var express     = require('express');
 var compression = require('compression'); // Provides gzip compression for the HTTP response
 
 var app = express();
-//var port = 8080;
+
 //var port = process.env.PORT1 || 8080;
 var port = process.env.PORT1 || 8081;
 
@@ -38,16 +38,21 @@ app.set( 'appParams', { 'isProduction': isProduction, } );
 const routes = require('./src/routes');
 
 //
-router.get( '/',            routes.getHome );
+router.get( '/index',               routes.getHome );
+router.get( '/home',                routes.getHome );
+router.get( '/',                    routes.getHome );
 
 router.get( '/catalog/:guidParent', routes.getCatalog );
-router.get( '/catalog',       routes.getCatalog );
+router.get( '/catalog',             routes.getCatalog );
 
-router.get( '/test',        routes.getTest );
+router.get( '/filial_info/:id',     routes.getContacts );
+router.get( '/filial_info',         routes.getContacts );
 
-router.get( '/getNum',      routes.getNum );
+router.get( '/test',                routes.getTest );
 
-router.get( '*',            routes.get404 );
+router.get( '/getNum',              routes.getNum );
+
+router.get( '*',                    routes.get404 );
 
 //
 app.use('/', router);

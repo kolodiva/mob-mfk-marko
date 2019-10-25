@@ -26,12 +26,13 @@ const renderHtml = (req, res, htmlPath, status = 200) => {
   }
 
 };
+
 //
-exports.getHome = (req, res) => {
+exports.getHome       = (req, res) => {
   renderHtml(req, res, 'home');
 };
 
-exports.getCatalog = (req, res) => {
+exports.getCatalog    = (req, res) => {
   //renderHtml(req, res, 'catalog');
   //
   let params = getAppParams(req);
@@ -58,6 +59,22 @@ exports.getCatalog = (req, res) => {
 
 };
 
+exports.getContacts   = (req, res) => {
+
+  try {
+
+    res.status(200).marko(view, {
+      $global: {
+        htmlPath: 'contacts',
+      },
+    });
+
+  } catch (e) {
+    res.status(404).send(e.stack)
+  }
+};
+
+//
 exports.getTest = (req, res) => {
   renderHtml(req, res, 'test');
 };

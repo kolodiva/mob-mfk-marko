@@ -13,7 +13,11 @@ import SiteLayout from './index.marko';
       </if>
 
       <else-if( out.global.htmlPath == 'catalog' )>
-        <catalog isProduction = out.global.isProduction  guidParent = out.global.guidParent key='catalog'/>
+        <catalog isProduction = out.global.isProduction  guidParent = out.global.guidParent />
+      </else-if>
+
+      <else-if( out.global.htmlPath == 'contacts' )>
+        <contacts />
       </else-if>
 
       <else-if( out.global.htmlPath == 'test' )>
