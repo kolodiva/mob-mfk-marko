@@ -18,7 +18,7 @@ style {
 
 <headerName  />
 
-<div class='d-flex flex-column justify-content-around align-items-center my-3' style=''>
+<div class='my-3' style=''>
 
   <address phone0 = '+74950500075' phone = '+7 (495) 050-00-75' city = 'Москва' adr1 = 'Московская Область, г. Химки,' adr2 = 'мкр. Подрезково, ул. Комсомольская, д.14' />
   <address phone0 = '+78123839204' phone = '+7 (812) 383-92-04' city = 'Санкт-Петербург' adr1 = 'г. Санкт-Петербург,' adr2 = 'просп. Маршала Блюхера, д.78Д, оф.8' />
@@ -31,7 +31,7 @@ style {
 
 <!-- ////////////////////////////////////////////////// -->
 <macro|{phone0, phone, city, adr1, adr2}| name="address">
-  <div class='d-flex flex-column justify-content-around align-items-center col-10 mb-3' style=''>
+  <div class='d-flex flex-column justify-content-around align-items-center col-10 mb-3 mx-auto' style=''>
     <h1 class="display-3 text-center" style="">
       <p style='font-weight: 500'>${city}:</p>
       <a href=`tel:${phone0}` style=`color: ${glob.colorBlueMF}`>
