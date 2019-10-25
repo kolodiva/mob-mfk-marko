@@ -100,15 +100,17 @@ static const whGood   = '250px';
 
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/images'); -->
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/img/group'); -->
-<macro|{guid, guid_picture, glob}| name='outIconsGroup'>
+<macro|{guid, guid_picture, name, glob}| name='outIconsGroup'>
   <div class='d-flex flex-column p-0' style=''>
     <a href="/catalog/" + guid>
       <img
           key = guid
           src = guid_picture.replace('https://newfurnitura.ru/upload', glob.imgPath );
-          class = 'mx-4 my-5 img-fluid'
+          class = 'mx-4 mt-5 mb-1 img-fluid'
           style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGroup}; width: ${whGroup};`/>
     </a>
+    <p class='p-0 text-center text-wrap ml-4' style=`font-size: 3rem; width: ${whGroup};`>${name}</p>
+
   </div>
 </macro>
 
