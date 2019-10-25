@@ -58,8 +58,6 @@ static const whGood   = '250px';
 <headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-<div  key='catalogHeader2' style=`height: 150px; }`/>
-
 <div
     class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } `
     style=''>
@@ -67,10 +65,10 @@ static const whGood   = '250px';
     <if(rec0)>
         <for|value| of=attrs.recs>
           <if(rec0.itgroup)>
-            <outIconsGroup guid=value.guid guid_picture=value.guid_picture name=value.name />
+            <outIconsGroup guid=value.guid guid_picture=value.guid_picture name=value.name glob=glob />
           </if>
           <else>
-            <outIconsGoods guid=value.guid guid_picture=value.guid_picture name=value.name />
+            <outIconsGoods guid=value.guid guid_picture=value.guid_picture name=value.name glob=glob />
           </else>
         </for>
     </if>
@@ -102,25 +100,25 @@ static const whGood   = '250px';
 
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/images'); -->
 <!-- src = guid_picture.replace('https://newfurnitura.ru/upload', '/img/group'); -->
-<macro|{guid, guid_picture}| name='outIconsGroup'>
+<macro|{guid, guid_picture, glob}| name='outIconsGroup'>
   <div class='d-flex flex-column p-0' style=''>
     <a href="/catalog/" + guid>
       <img
           key = guid
-          src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
+          src = guid_picture.replace('https://newfurnitura.ru/upload', glob.imgPath );
           class = 'mx-4 my-5 img-fluid'
           style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGroup}; width: ${whGroup};`/>
     </a>
   </div>
 </macro>
 
-<macro|{ guid, guid_picture, name }| name='outIconsGoods'>
+<macro|{ guid, guid_picture, name, glob }| name='outIconsGoods'>
 
   <div class='col-12 row'>
 
     <img
         key = guid
-        src = guid_picture.replace('https://newfurnitura.ru/upload', '/images');
+        src = guid_picture.replace('https://newfurnitura.ru/upload', glob.imgPath );
         class = 'mx-4 my-5 img-fluid col-3'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGood}; width: ${whGood};`/>
 
@@ -143,5 +141,7 @@ static const whGood   = '250px';
     </a>
 
   </div>
+
+  <div  key='catalogHeader2' style=`height: 150px; }`/>
 
 </macro>

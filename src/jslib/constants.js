@@ -1,5 +1,8 @@
+///img/group /images
 
 const globalVar = {
+      imgPath:      '/img/group',
+
       colorBlueMF:  '#00aec6',
       colorBlackMF: 'black',
 
