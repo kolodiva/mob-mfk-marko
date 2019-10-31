@@ -31,18 +31,34 @@ style {
 
 <!-- ////////////////////////////////////////////////// -->
 <macro|{phone0, phone, city, adr1, adr2}| name="address">
-  <div class='d-flex flex-column justify-content-around align-items-center col-10 mb-3 mx-auto' style=''>
-    <h1 class="display-3 text-center" style="">
-      <p style='font-weight: 500'>${city}:</p>
-      <a href=`tel:${phone0}` style=`color: ${glob.colorBlueMF}`>
-          ${phone}
-      </a>
-    </h1>
-    <h1 class="display-4 text-center" style="">
-      <p>${adr1}</p>
-      <p>${adr2}</p>
-    </h1>
-  </div>
+
+    <div class='d-flex flex-column justify-content-around align-items-center col-10 mb-3 mx-auto' style=''>
+
+      $ let loc_id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 15);
+
+      <div class='d-flex flex-row justify-content-between align-items-center col-12 mb-3' style=''>
+
+        <h1 data-toggle='collapse' data-target=`#${loc_id}` class="display-2 text-center" style="">&oplus;</h1>
+
+        <h1 class="display-3 text-center" style="">
+
+          <p style='font-weight: 500'>${city}:</p>
+
+          <a href=`tel:${phone0}` style=`color: ${glob.colorBlueMF}`>
+              ${phone}
+          </a>
+        </h1>
+
+      </div>
+
+      <h1 id=`${loc_id}` class="display-4 text-center collapse" style="">
+
+        <p>${adr1}</p>
+        <p>${adr2}</p>
+      </h1>
+
+    </div>
+
 </macro>
 
 
@@ -57,5 +73,4 @@ style {
   </div>
 
   <div style=`height: 150px; }`/>
-
 </macro>
