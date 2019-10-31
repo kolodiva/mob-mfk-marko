@@ -109,39 +109,51 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
-
-  // const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.guid_picture, t1.itgroup \
-  // 									from nomenklators t1 where case when $1='' then parentguid is null else parentguid = $1 end and guid <> 'yandexpagesecret' and guid <> 'sekretnaya_papka' \
-  // 											order by sort_field, name;"
-
-	const params  = [ guidParent ];
-
-	const qryText = "with t2 as( \
+	const qryText = `with t2 as( \
 											select name nameParent0, parentguid guidParent0 \
 											from nomenklators \
-											where case when $1='' then guid is null else guid = $1 end\
+											where case when '${guidParent}'='' then guid is null else guid = '${guidParent}' end \
 											limit 1 \
 										) \
 										select t1.artikul, t1.artikul_new, t1.name,  \
 										t1.guid, t1.parentguid, t1.guid_picture, t1.itgroup, t1.level_group, \
 										case when t2.guidParent0 is null then 'В суть вещей...' else t2.nameParent0 end nameParent0,  \
 										case when t2.guidParent0 is null then '' else t2.guidParent0 end guidParent0, \
-										case when t2.guidParent0 is null then '/catalog' else concat('/catalog/', t2.guidParent0) end pathParent0 \
-										from nomenklators t1 left join t2 on true \
-										where case when $1='' then t1.parentguid is null else t1.parentguid = $1 end \
+										case when t2.guidParent0 is null then '/catalog' else concat('/catalog/', t2.guidParent0) end pathParent0, \
+										prt.price1, prt.price2, prt.price3  \
+										from nomenklators t1
+										left join t2 on true \
+										left join ( \
+										select * \
+										            from crosstab( \
+										            $$select nomenklator_id::text, price_type_id, round(price*coalesce(currencies.value, 1), 2) \
+										            from prices \
+										            left join currencies on prices.currency_id = currencies.code \
+										            where nomenklator_id in ( select guid from nomenklators where case when '${guidParent}'='' then parentguid is null else parentguid = '${guidParent}' end \
+										            ) \
+										            order by 1$$, \
+										            $$ SELECT '000000004' UNION ALL SELECT '000000003' UNION ALL SELECT '000000005'$$ \
+															) \
+										            AS (guid text, price1 numeric, price2 numeric, price3 numeric)) as prt  on t1.guid=prt.guid
+										where case when '${guidParent}'='' then t1.parentguid is null else t1.parentguid = '${guidParent}' end \
 										and t1.guid not in (select 'yandexpagesecret' guid union all select 'sekretnaya_papka') \
-										order by t1.sort_field, t1.name;"
+										order by t1.sort_field, t1.name;`
 
-	return db.query( qryText, params ).then( res => {
+// console.log( qryText.replace(/\s+/g," ") );
 
-		const rows = res.rows;
-		//console.log(qryText.replace(/\s\s+/g, ' '), params);
+	//const params = [];
 
-			return [
-				rows,
-			]
-		}
-	);
+	return db.query( qryText ).then( (res) => {
+
+					const rows = res.rows;
+					//console.log(rows);
+					//console.log(qryText.replace(/\s\s+/g, ' '), params);
+
+					return [
+							rows,
+						]
+});
+
 }
 
 module.exports = { params_conn: params_conn,

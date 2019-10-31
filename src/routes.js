@@ -95,7 +95,18 @@ exports.getNum = async (req, res) => {
 
     let result = await postgres.getNmnkl(dbpg, params.guidParent)
 
+    // postgres.getNmnkl(dbpg, params.guidParent).then( res => {
+    //
+    //   return res.status(200).send('res');
+    //
+    // }
+    //
+    // )
+
     return res.status(200).send(result);
+
+    //console.log('ffffffffff', result);
+
 
   } catch (e) {
 

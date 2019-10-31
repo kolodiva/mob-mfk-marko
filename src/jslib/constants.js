@@ -19,6 +19,8 @@ const globalVar = {
       heightHeader: '135px',
 
       getWinSize: () => { return {width: jQuery(window).width(), height: jQuery(window).height(), } },
+
+      signRur: '&#8381',
     };
 
 module.exports = globalVar;

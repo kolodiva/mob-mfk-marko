@@ -58,7 +58,7 @@ static const whGood   = '250px';
 <headerName name=`${ headerText }`
     path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
 
-<div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column' } ` style=''>
+<div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column py-5' } ` style=''>
 
     <if(rec0)>
         <for|value| of=attrs.recs>
@@ -66,7 +66,7 @@ static const whGood   = '250px';
             <outIconsGroup guid=value.guid guid_picture=value.guid_picture name=value.name glob=glob />
           </if>
           <else>
-            <outIconsGoods guid=value.guid guid_picture=value.guid_picture name=value.name glob=glob />
+            <outIconsGoods guid=value.guid guid_picture=value.guid_picture name=value.name glob=glob  price=[value.price1, value.price2, value.price3]/>
           </else>
         </for>
     </if>
@@ -114,19 +114,31 @@ static const whGood   = '250px';
   </div>
 </macro>
 
-<macro|{ guid, guid_picture, name, glob }| name='outIconsGoods'>
+<macro|{ guid, guid_picture, name, price, glob }| name='outIconsGoods'>
 
   <div class='col-12 row'>
 
     <img
         key = guid
         src = guid_picture.replace('https://newfurnitura.ru/upload', glob.imgPath );
-        class = 'mx-4 my-5 img-fluid col-3'
+        class = 'mx-4 mb-3 mt-5 img-fluid col-3'
         style = `border: 3px solid ${glob.colorBlueMF}; border-radius: 20px; height: ${whGood}; width: ${whGood};`/>
 
     <p  class='col-8 my-auto display-4' >${name}</p>
 
   </div>
+
+  <div class='col-12 row'>
+    <p  class='col-4 text-center' style='font-size: 3rem;' >розн.</p>
+    <p  class='col-4 text-center' style='font-size: 3rem;' >мелк.опт</p>
+    <p  class='col-4 text-center' style='font-size: 3rem;' >круп.опт</p>
+  </div>
+  <div class='col-12 row'>
+    <p  class='col-4 display-4 text-right' >${ price[0] } $!{glob.signRur} |</p>
+    <p  class='col-4 display-4 text-right' >${ price[1] } $!{glob.signRur} |</p>
+    <p  class='col-4 display-4 text-right' >${ price[2] } $!{glob.signRur} </p>
+  </div>
+
 </macro>
 
 <macro|{name, path}| name='headerName'>
