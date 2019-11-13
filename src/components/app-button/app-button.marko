@@ -1,0 +1,71 @@
+class {
+  handleClick(event) {
+    // Every Widget instance is also an EventEmitter instance.
+    // We will emit a custom "click" event when a DOM click event
+    // is triggered
+    this.emit("click", {
+      event: event // Pass along the DOM event in case it is helpful to others
+    });
+  }
+}
+
+style {
+  .app-button {
+    font-size: 100%;
+    border: 0;
+    display: inline-block;
+    border-radius: 50px;
+    padding: 12px;
+    background-color: #2980b9;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+  }
+
+  .app-button:hover {
+    background-color: #409ad5;
+  }
+
+  /* Variants */
+  .app-button-secondary {
+    background-color: #999999;
+    color: #ffffff;
+  }
+
+  .app-button-secondary:hover {
+    background-color: #b3b3b3;
+  }
+
+  /* Sizes */
+  .app-button-small {
+    font-size: 0.9em;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .app-button-large {
+    font-size: 1.2em;
+    font-weight: 100;
+  }
+  
+}
+
+$ const size = input.size || "normal";
+$ const variant = input.variant || "primary";
+$ const variantClassName = variant !== "primary" && "app-button-" + variant;
+$ const sizeClassName = size !== "normal" && "app-button-" + size;
+
+<button
+  ...input["*"]
+  class=["app-button", variantClassName, sizeClassName, input["class"]]
+  onClick("handleClick")>
+  <span>
+    <if(input.label)>
+      ${input.label}
+    </if>
+    <else>
+      <${input}/>
+    </else>
+  </span>
+</button>

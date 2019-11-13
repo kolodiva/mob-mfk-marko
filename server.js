@@ -4,6 +4,7 @@ require('marko/node-require').install();
 var express     = require('express');
 var compression = require('compression'); // Provides gzip compression for the HTTP response
 
+//var nodemailer = require('nodemailer');
 var app = express();
 
 //var port = process.env.PORT1 || 8080;
@@ -14,8 +15,8 @@ var router = express.Router();
 var path = require('path');
 
 //var isProduction = process.env.NODE_ENV === 'production';
-//var isProduction = false;
-var isProduction = true;
+var isProduction = false;
+//var isProduction = true;
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
 require( 'lasso' ).configure({
@@ -33,6 +34,11 @@ app.use( require('lasso/middleware').serveStatic() );
 app.use( compression() );
 
 app.use( express.static( 'public' ) );
+
+app.use(function(req, res, next) {
+  res.setHeader( 'Set-Cookie', 'HttpOnly; Secure; SameSite=Strict' )
+  next();
+});
 
 //
 app.set( 'appParams', { 'isProduction': isProduction, } );
@@ -53,6 +59,8 @@ router.get( '/filial_info',         routes.getContacts );
 router.get( '/test',                routes.getTest );
 
 router.get( '/getNum',              routes.getNum );
+
+router.get( '/sendEmail',           routes.sendEmail );
 
 router.get( '*',                    routes.get404 );
 

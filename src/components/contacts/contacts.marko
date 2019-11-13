@@ -1,5 +1,5 @@
-
 import * as glob        from '../../jslib/constants'
+import { sendEmail }    from '../../axios'
 
 class {
     onCreate(input, out) {
@@ -9,6 +9,21 @@ class {
     }
 
     onMount() {
+    }
+
+    sendmail1() {
+
+      // sendmail({
+      //     from: 'adv@newfurnitura.ru',
+      //     to: 'kolodiva@mail.ru',
+      //     subject: 'test sendmail',
+      //     html: 'Mail of test sendmail ',
+      //   }, function(err, reply) {
+      //     console.log(err && err.stack);
+      //     //console.dir(reply);
+      // });
+      //alert('111111111111111111111111');
+      sendEmail();
     }
 
 }
@@ -26,6 +41,8 @@ style {
   <address phone0 = '+78612127278' phone = '+7 (861) 212-72-78' city = 'Краснодар' adr1 = 'г. Краснодар,' adr2 = 'ул. Московская, д. 91/3' />
   <address phone0 = '+73832920246' phone = '+7 (383) 292-02-46' city = 'Новосибирск' adr1 = 'г. Новосибирск,' adr2 = 'ул. Мира, д. 54а, корп. 1' />
   <address phone0 = '+78632233673' phone = '+7 (863) 223-36-73' city = 'Ростов-на-Дону' adr1 = 'г. Ростов-на-Дону,' adr2 = 'ул. Орская, д. 31м' />
+
+  <div style='text-align: center'><button style='font-size: 4rem' on-click('sendmail1')>Запостить</button></div>
 
 </div>
 

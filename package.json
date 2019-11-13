@@ -34,11 +34,13 @@
     "marko": "^4.18.14",
     "memory-cache": "^0.2.0",
     "mime": "^2.4.4",
+    "nodemailer": "^6.3.1",
     "pg": "^7.12.1",
     "popper.js": "^1.15.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sendmail": "^1.6.1"
   },
   "browser": {
     "routes\\index\\components\\app-hello.js": "routes\\index\\components\\app-hello.browser.js",

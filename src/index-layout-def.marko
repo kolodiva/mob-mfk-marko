@@ -9,6 +9,10 @@ import SiteLayout from './index.marko';
     <@body>
 
       <if( out.global.htmlPath == 'home' )>
+      <!-- <modal-win visible=true>
+        <h2>Overlay Demo</h2>
+        This is an overlay!
+      </modal-win> -->
         <app-hello isProduction = out.global.isProduction />
       </if>
 

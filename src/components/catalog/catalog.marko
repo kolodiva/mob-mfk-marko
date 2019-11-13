@@ -37,6 +37,10 @@ class {
 
     }
 
+    openModal() {
+      alert('hi');
+    }
+
 }
 
 style {
@@ -134,9 +138,9 @@ static const whGood   = '250px';
     <p  class='col-4 text-center' style='font-size: 3rem;' >круп.опт</p>
   </div>
   <div class='col-12 row'>
-    <p  class='col-4 display-4 text-right' >${ price[0] } $!{glob.signRur} |</p>
-    <p  class='col-4 display-4 text-right' >${ price[1] } $!{glob.signRur} |</p>
-    <p  class='col-4 display-4 text-right' >${ price[2] } $!{glob.signRur} </p>
+    <p  class='col-4 display-4 text-right' >${ price[0] } $!{glob.signRur}</p>
+    <p  class='col-4 display-4 text-right' >${ price[1] } $!{glob.signRur}</p>
+    <p  class='col-4 display-4 text-right' >${ price[2] } $!{glob.signRur}</p>
   </div>
 
 </macro>
@@ -148,6 +152,8 @@ static const whGood   = '250px';
     <a href='/' class='' style='' >
        <img class='img-fluid' style=`height: ${glob.heightHeader};` src='/img/logoHeaderNum.png' alt="" />
     </a>
+
+    <button class='p-2' style='font-size: 3rem;' onClick('openModal')>OK</button>
 
     <a href=`${path}` class='' >
        <h1 key='catalogHeader' class='display-3 pr-3' style='' nowrap>zurück <span>&#187</span></h1>
