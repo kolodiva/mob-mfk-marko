@@ -92,10 +92,10 @@ exports.sendEmail = (req, res) => {
 
     console.log( err && err.stack )
     console.dir( reply )
-
-    res.status(200).send( reply )
   })
 
+  
+      res.status(200).send( 'ok' )
 
 
 };
