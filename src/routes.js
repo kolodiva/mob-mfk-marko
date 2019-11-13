@@ -82,7 +82,7 @@ exports.getTest = (req, res) => {
 };
 
 exports.sendEmail = (req, res) => {
-//to: 'kolodiva@gmail.com, kolodiva@mail.ru, gl-@list.ru, adv.mfc@gmail.com' ,
+//to: 'kolodiva@gmail.com, kolodiva@mail.ru, gl-@list.ru, adv.mfc@newfurnitura.ru' ,
   sendmail({
     from: 'adv@newfurnitura.ru',
     to: 'kolodiva@gmail.com, kolodiva@mail.ru, gl-@list.ru, adv.mfc@gmail.com' ,
@@ -94,7 +94,7 @@ exports.sendEmail = (req, res) => {
     console.dir( reply )
   })
 
-  
+
       res.status(200).send( 'ok' )
 
 
