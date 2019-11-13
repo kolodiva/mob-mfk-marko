@@ -2,7 +2,7 @@ var fs = require('fs');
 
 var sendmail = require('sendmail')( {silent: true,
   dkim: {
-    privateKey: fs.readFileSync('./etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
+    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
     keySelector: 'mail.newfurnitura.ru'
   }
 } );
