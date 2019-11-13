@@ -35,10 +35,10 @@ app.use( compression() );
 
 app.use( express.static( 'public' ) );
 
-// app.use(function(req, res, next) {
-//   res.setHeader( 'Set-Cookie', 'HttpOnly; Secure; SameSite=Strict' )
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.setHeader( 'Set-Cookie', 'HttpOnly; Secure; SameSite=Strict' )
+  next();
+});
 
 //
 app.set( 'appParams', { 'isProduction': isProduction, } );
