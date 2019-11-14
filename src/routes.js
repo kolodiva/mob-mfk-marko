@@ -95,7 +95,7 @@ exports.sendEmail = (req, res) => {
     from: 'adv@newfurnitura.ru',
     to: 'kolodiva@mail.ru, kolodiva@gmail.com, gl-@list.ru',
     subject: 'Анонс. Международная мебельная выставка Мосбилд-2019 на Красной Пресне. Ура.',
-    html: '<img class="" style="width: 12vw" src="https://www.newfurnitura.ru/upload/mailing/logo_big_orig.png"/><h4 style="">С удовольствие приглашаем Вас посетить наш стенд.<br/>Детали во вложении.<h4><img class="" style="width: 12vw" src="https://newfurnitura.ru/upload/af19f6a1-aaba-4778-a943-ba9a0665.png"/><br/><a href="https://www.newfurnitura.ru/catalog/petli_4hsharnirnie">На базу</a>',
+    html: '<img class="" style="width: 12vw" src="https://www.newfurnitura.ru/upload/mailing/logo_big_orig.png"/><h4 style="">С удовольствие приглашаем Вас посетить наш стенд.<br/>Детали во вложении.<h4><img class="" style="width: 12vw" src="https://newfurnitura.ru/upload/af19f6a1-aaba-4778-a943-ba9a0665.png"/><br/><a target="_blank" href="https://www.newfurnitura.ru/catalog/petli_4hsharnirnie">На базу</a><br/><br/><a  target="_blank" href="https://www.newfurnitura.ru/unscribe_email?email=kolodiva@mail.ru&code=c4ca4238a0b923820dcc509a6f75849b">Не желаю боле получать Вашу рассылку. Не нравится она мне.</a>',
     attachments: [
       {
         filename: 'mfk_expo_msk_2019.pdf',
