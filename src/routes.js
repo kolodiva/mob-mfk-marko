@@ -97,8 +97,10 @@ exports.sendEmail = (req, res) => {
     subject: 'Информация о понижении уровня цен.',
     html: '<img class="" style="width: 12vw" src="https://www.newfurnitura.ru/upload/mailing/logo_big_orig.png"/><h4 style="color: blue">Наконец рады сообщить, что уровень цен опустился ниже нуля.<br/>Да здравствует ясновидец Глеб и все его планы... и весь 1 кабинет пусть будет в здравии.<h4><img class="" style="width: 12vw" src="https://newfurnitura.ru/upload/af19f6a1-aaba-4778-a943-ba9a0665.png"/><br/><a href="https://www.newfurnitura.ru/catalog/petli_4hsharnirnie">На базу</a>',
     attachments: [
-      filename: 'license.txt',
-      path: 'https://raw.github.com/guileen/node-sendmail/master/LICENSE'
+      {
+        filename: 'license.txt',
+        path: 'https://raw.github.com/guileen/node-sendmail/master/LICENSE'
+      }
     ]
   }, function (err, reply) {
 
