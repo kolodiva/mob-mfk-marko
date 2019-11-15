@@ -72,7 +72,7 @@ exports.sendEmail = () => {
             }
           })
           .then(function(response) {
-            console.dir( response );
+            //console.dir( response );
 
             if (response.status == 200) {
             }
