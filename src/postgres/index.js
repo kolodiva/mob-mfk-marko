@@ -5,6 +5,15 @@ var glob = require("../jslib/constants");
 var { genGuid } = require("../jslib/enother.js");
 
 const params_conn = glob.paramsConnPg;
+
+var sendmail = require('sendmail')( {silent: true,
+  // dkim: {
+  //   privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
+  //   keySelector: 'mail.newfurnitura.ru'
+  // }
+} );
+
+
 //const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
 
 const connect = (db)  => {
@@ -156,10 +165,71 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 }
 
+const mailAction = (db) => {
+
+	//console.log( 'postgre guidParent: ', guidParent );
+
+	const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
+											from mailings where noactive=false) \
+											select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
+											from t1 \
+											inner join mailing_lists t2 \
+										  on t1.group_id = t2.group_id and t2.subscribed=true
+											inner join mailing_groups t3 \
+										  on t3.group_id = t2.group_id and t2.subscribed=true;`
+
+// console.log( qryText.replace(/\s+/g," ") );
+
+	//const params = [];
+
+	return db.query( qryText ).then( (res) => {
+
+					const rows = res.rows;
+
+					var emails = [];
+
+					rows.forEach( el => {
+						emails.push( [el.email, el.user_id] );
+					} );
+
+					//console.log( rec0 );
+					//to: 'kolodiva@mail.ru, kolodiva@gmail.com, gl-@list.ru, adv.mfc@gmail.com,  mebel_furnitura@hotmail.com',
+
+					var rec0 = rows[0];
+					var strHtml = '';
+
+					emails.forEach( email => {
+
+						strHtml = rec0.content.replace('[msgUnsubscribe]', `https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
+							//console.log( email, strHtml );
+
+						sendmail({
+					    from: rec0.email_from,
+					    to: email[0],
+					    subject: rec0.description,
+							html: strHtml,
+					    // attachments: [
+					    //   {
+					    //     filename: 'mfk_expo_msk_2019.pdf',
+					    //     path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
+					    //   }
+					    // ]
+					  }, function (err, reply) {
+
+					    console.log( err && err.stack )
+					    console.dir( reply )
+					  });
+
+					});
+});
+
+}
+
 module.exports = { params_conn: params_conn,
 						connect: connect,
 							getServicesList: getServicesList,
 								saveServiceParams: saveServiceParams,
 									taskProc: taskProc,
 										getNomenklator: getNomenklator,
-											getNmnkl: getNmnkl, }
+											getNmnkl: getNmnkl,
+										 		mailAction: mailAction, }

@@ -1,13 +1,5 @@
 var fs = require('fs');
 
-var sendmail = require('sendmail')( {silent: true,
-  dkim: {
-    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
-    keySelector: 'mail.newfurnitura.ru'
-  }
-} );
-
-
 const {Pool}    = require('pg');
 const postgres  = require("./postgres");
 
@@ -90,33 +82,21 @@ exports.getTest = (req, res) => {
 };
 
 exports.sendEmail = (req, res) => {
-//to: 'kolodiva@mail.ru, kolodiva@gmail.com, gl-@list.ru, adv.mfc@gmail.com,  mebel_furnitura@hotmail.com',
 
-const array1 = ['kolodiva@mail.ru', 'kolodiva@gmail.com']
+  postgres.mailAction( dbpg );
 
-for (var i = 0; i < array1.length; i++) {
+  res.status(200).send( 'ok' )
+};
 
-  sendmail({
-    from: 'mfc@newfurnitura.ru',
-    to: array1[i],
-    subject: 'Анонс. Международная мебельная выставка Мосбилд - 2019 на Красной Пресне.',
-    html: '<img class="" style="width: 12vw" src="https://www.newfurnitura.ru/upload/mailing/logo_big_orig.png"/><h4 style="">С удовольствие приглашаем Вас посетить наш стенд.<br/>Детали во вложении.<h4><a target="_blank" href="https://www.newfurnitura.ru/catalog/petli_4hsharnirnie"><img class="" style="width: 12vw" src="https://newfurnitura.ru/upload/af19f6a1-aaba-4778-a943-ba9a0665.png"/><br/>Петли шарнирные</a><br/><br/><br/><a target="_blank" href="https://www.newfurnitura.ru/news/Unihopper_08_2019.pdf_prefix_xEsgkzRXVojgIjOjN_Dg1w.pdf">Скачать pdf файл с акцией по Системам хранения и утилизации.</a><br/><br/><br/><a  target="_blank" href="https://www.newfurnitura.ru/unscribe_email?email=kolodiva@mail.ru&code=c4ca4238a0b923820dcc509a6f75849b">Не желаю более получать Вашу рассылку. Не нравится она мне.</a>',
-    attachments: [
-      {
-        filename: 'mfk_expo_msk_2019.pdf',
-        path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
-      }
-    ]
-  }, function (err, reply) {
+exports.getActionFile = (req, res) => {
 
-    console.log( err && err.stack )
-    console.dir( reply )
-  })
+  let params = req.query;
 
-}
-      res.status(200).send( 'ok' )
+  //console.log( params.pathfile );
 
+  res.redirect( params.pathfile );
 
+  //res.status(200).send( 'ok' )
 };
 
 exports.get404 = (req, res) => {

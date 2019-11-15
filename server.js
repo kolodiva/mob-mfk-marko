@@ -62,6 +62,11 @@ router.get( '/getNum',              routes.getNum );
 
 router.get( '/sendEmail',           routes.sendEmail );
 
+router.get( '/getActionFile',       routes.getActionFile );
+
+//router.get( '/new',                 res.status(200).send( 'ok' ) );
+
+
 router.get( '*',                    routes.get404 );
 
 //
