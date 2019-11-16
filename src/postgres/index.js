@@ -202,7 +202,9 @@ const mailAction = (db) => {
 					emails.forEach( email => {
 
 						strHtml = rec0.content.replace('[msgUnsubscribe]', 	`https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
+
 						strHtml = rec0.content.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
+						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 
 							//console.log( email, strHtml );
 
