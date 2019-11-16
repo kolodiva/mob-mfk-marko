@@ -1,5 +1,3 @@
-var fs = require('fs');
-
 const {Pool}    = require('pg');
 const postgres  = require("./postgres");
 

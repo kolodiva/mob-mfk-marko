@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 //import * as glob  from '../../jslib/constants'
 var glob = require("../jslib/constants");
 
