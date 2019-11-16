@@ -92,9 +92,13 @@ exports.getActionFile = (req, res) => {
 
   let params = req.query;
 
-  console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
+  //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
-  res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
+  if ( params.pathfileview ) {
+    res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
+  } else {
+    res.redirect( `https://newfurnitura.ru/news/${params.pathfile}` );
+  }
 
   //res.status(200).send( 'ok' )
 };
