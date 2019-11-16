@@ -230,8 +230,10 @@ const mailAction = (db) => {
 
 const countEmailClick = (db, user_id, mailing_id) => {
 
-	const qryText = `with t1 as ( delete from mailing_feedbacks where user_id'=${user_id}' and mailing_id='${mailing_id}' ) \
-										  insert into mailing_feedbacks(user_id, mailing_id) values ( '${user_id}', '${mailing_id}' );`
+	const dateStamp = Date.now();
+
+	const qryText = `with t1 as ( delete from mailing_feedbacks where user_id='${user_id}' and mailing_id='${mailing_id}' ) \
+										  insert into mailing_feedbacks(user_id, mailing_id) values ( '${user_id}', '${mailing_id}', 'to_timestamp(${dateStamp} / 1000.0)', 'to_timestamp(${dateStamp} / 1000.0)' );`
 
  console.log( qryText.replace(/\s+/g," ") );
 
