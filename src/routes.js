@@ -95,10 +95,10 @@ exports.getActionFile = (req, res) => {
   //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
   if ( params.pathfileview != '' ) {
-    res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfileview}` );
-  } else {
-    res.sendFile( `https://newfurnitura.ru/news/${params.pathfiledownload}` );
+    return res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfileview}` );
   }
+
+  res.status(200).sendFile( `https://newfurnitura.ru/news/${params.pathfiledownload}` );
 
   //res.status(200).send( 'ok' )
 };
