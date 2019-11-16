@@ -92,6 +92,8 @@ exports.getActionFile = (req, res) => {
 
   let params = req.query;
 
+  postgres.countEmailClick( dbpg );
+
   //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
   if ( params.pathfiledownload && params.pathfiledownload != '' ) {

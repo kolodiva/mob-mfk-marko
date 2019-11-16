@@ -228,6 +228,18 @@ const mailAction = (db) => {
 
 }
 
+const countEmailClick = (db, user_id, mailing_id) => {
+
+	const qryText = `with t1 as ( delete from mailing_feedbacks where user_id=${user_id} and mailing_id=${mailing_id} ) \
+										  insert into mailing_feedbacks(user_id, mailing_id) values ( ${user_id}, ${mailing_id} );`
+
+// console.log( qryText.replace(/\s+/g," ") );
+
+	//const params = [];
+
+	return db.query( qryText ).then( (res) => {});
+}
+
 module.exports = { params_conn: params_conn,
 						connect: connect,
 							getServicesList: getServicesList,
