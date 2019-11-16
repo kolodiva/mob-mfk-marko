@@ -92,7 +92,7 @@ exports.getActionFile = (req, res) => {
 
   let params = req.query;
 
-  //console.log( params.pathfile );
+  console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
   res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
