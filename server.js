@@ -33,7 +33,7 @@ app.use( require('lasso/middleware').serveStatic() );
 
 app.use( compression() );
 
-app.use( express.static( 'public' ) );
+app.use( express.static( __dirname + 'public' ) );
 
 app.use(function(req, res, next) {
   res.setHeader( 'Set-Cookie', 'HttpOnly; Secure; SameSite=Strict' )
