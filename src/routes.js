@@ -92,7 +92,7 @@ exports.getActionFile = (req, res) => {
 
   let params = req.query;
 
-  postgres.countEmailClick( dbpg );
+  postgres.countEmailClick( dbpg, params.email, params.code );
 
   //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
