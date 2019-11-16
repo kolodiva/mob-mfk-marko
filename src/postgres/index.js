@@ -169,8 +169,9 @@ const mailAction = (db) => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
+	//РАССЫЛАЕТСЯ ВСЕГДА ТОЛЬКО ОДНА АКЦИЯ
 	const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
-											from mailings where noactive=false) \
+											from mailings where noactive=false and id=1) \
 											select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
 											from t1 \
 											inner join mailing_lists t2 \
@@ -201,7 +202,7 @@ const mailAction = (db) => {
 					emails.forEach( email => {
 
 						strHtml = rec0.content.replace('[msgUnsubscribe]', 	`https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
-						strHtml = rec0.content.replace('[msgCountClick]', 	`email=${email[0]}&code=${email[1]}`);
+						strHtml = rec0.content.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 
 							//console.log( email, strHtml );
 
