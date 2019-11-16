@@ -94,7 +94,7 @@ exports.getActionFile = (req, res) => {
 
   //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
-  if ( params.pathfileview ) {
+  if ( params.pathfileview != '' ) {
     res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
   } else {
     res.redirect( `https://newfurnitura.ru/news/${params.pathfile}` );
