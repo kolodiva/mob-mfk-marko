@@ -247,4 +247,5 @@ module.exports = { params_conn: params_conn,
 									taskProc: taskProc,
 										getNomenklator: getNomenklator,
 											getNmnkl: getNmnkl,
-										 		mailAction: mailAction, }
+										 		mailAction: mailAction,
+												countEmailClick: countEmailClick,}
