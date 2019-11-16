@@ -7,10 +7,10 @@ var { genGuid } = require("../jslib/enother.js");
 const params_conn = glob.paramsConnPg;
 
 var sendmail = require('sendmail')( {silent: true,
-  // dkim: {
-  //   privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
-  //   keySelector: 'mail.newfurnitura.ru'
-  // }
+  dkim: {
+    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
+    keySelector: 'mail.newfurnitura.ru'
+  }
 } );
 
 
