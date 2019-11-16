@@ -93,12 +93,11 @@ exports.getActionFile = (req, res) => {
   let params = req.query;
 
   //console.log( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
-  console.log();
 
   if ( params.pathfileview != '' ) {
     res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfileview}` );
   } else {
-    res.redirect( `https://newfurnitura.ru/news/${params.pathfiledownload}` );
+    res.sendFile( `https://newfurnitura.ru/news/${params.pathfiledownload}` );
   }
 
   //res.status(200).send( 'ok' )
