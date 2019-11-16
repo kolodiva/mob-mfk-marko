@@ -1,5 +1,14 @@
+var fs = require('fs');
+
 const {Pool}    = require('pg');
 const postgres  = require("./postgres");
+
+const sendmail = require('sendmail')( {silent: true,
+  dkim: {
+    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
+    keySelector: 'mail.newfurnitura.ru'
+  }
+} );
 
 const dbpg = new Pool(postgres.params_conn);
 
@@ -81,7 +90,7 @@ exports.getTest = (req, res) => {
 
 exports.sendEmail = (req, res) => {
 
-  postgres.mailAction( dbpg );
+  postgres.mailAction( dbpg, sendmail );
 
   res.status(200).send( 'ok' )
 };

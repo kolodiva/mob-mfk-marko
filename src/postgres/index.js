@@ -1,5 +1,3 @@
-var fs = require('fs');
-
 //import * as glob  from '../../jslib/constants'
 var glob = require("../jslib/constants");
 
@@ -7,14 +5,6 @@ var glob = require("../jslib/constants");
 var { genGuid } = require("../jslib/enother.js");
 
 const params_conn = glob.paramsConnPg;
-
-var sendmail = require('sendmail')( {silent: true,
-  dkim: {
-    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
-    keySelector: 'mail.newfurnitura.ru'
-  }
-} );
-
 
 //const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
 
@@ -167,7 +157,7 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 }
 
-const mailAction = (db) => {
+const mailAction = (db, sendmail) => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
