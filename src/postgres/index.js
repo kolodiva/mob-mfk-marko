@@ -200,7 +200,9 @@ const mailAction = (db) => {
 
 					emails.forEach( email => {
 
-						strHtml = rec0.content.replace('[msgUnsubscribe]', `https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
+						strHtml = rec0.content.replace('[msgUnsubscribe]', 	`https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
+						strHtml = rec0.content.replace('[msgCountClick]', 	`email=${email[0]}&code=${email[1]}`);
+
 							//console.log( email, strHtml );
 
 						sendmail({
