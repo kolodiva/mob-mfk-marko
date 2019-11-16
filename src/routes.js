@@ -94,7 +94,7 @@ exports.getActionFile = (req, res) => {
 
   //console.log( params.pathfile );
 
-  res.redirect( params.pathfile );
+  res.redirect( `https://docs.google.com/viewerng/viewer?url=newfurnitura.ru/news/${params.pathfile}` );
 
   //res.status(200).send( 'ok' )
 };
