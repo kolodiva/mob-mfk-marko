@@ -162,14 +162,23 @@ const mailAction = (db, sendmail) => {
 	//console.log( 'postgre guidParent: ', guidParent );
 
 	//РАССЫЛАЕТСЯ ВСЕГДА ТОЛЬКО ОДНА АКЦИЯ
-	const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
-											from mailings where noactive=false and id=4) \
-											select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
-											from t1 \
-											left join mailing_lists t2 \
-										  on t1.group_id = t2.group_id and t2.subscribed=true
-											inner join mailing_groups t3 \
-										  on t3.group_id = t2.group_id and t2.subscribed=true;`
+	// const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
+	// 										from mailings where noactive=false and id=4) \
+	// 										select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
+	// 										from t1 \
+	// 										left join mailing_lists t2 \
+	// 									  on t1.group_id = t2.group_id and t2.subscribed=true
+	// 										inner join mailing_groups t3 \
+	// 									  on t3.group_id = t2.group_id and t2.subscribed=true;`
+
+											const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
+																					from mailings where noactive=false and id=4) \
+																					select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
+																					from t1 \
+																					left join mailing_lists t2 \
+																				  on t2.subscribed=true
+																					inner join mailing_groups t3 \
+																				  on t3.group_id = t2.group_id;`
 
 // console.log( qryText.replace(/\s+/g," ") );
 
