@@ -222,7 +222,8 @@ const mailAction = (db, sendmail) => {
 
 							//console.log( email, strHtml );
 
-							var res = Promise( function(resolve, reject ) {
+							//var res = Promise( function(resolve, reject ) {
+
 									sendmail({
 								    from: email[2],
 								    to: email[0],
@@ -231,16 +232,17 @@ const mailAction = (db, sendmail) => {
 								  }, function ( err, reply ) {
 
 											if (err) {
-													reject( 'err.stack: ' )
+													console.log( err.stack )
 											} else {
-													resolve('done')
+													console.log( 'done' )
 											}
 									}
 								);
-								}
-							);
 
-							promise.then( (res) => { console.log( 'promise ok: ', res ) }, (err) => { console.log( 'promise error: ',  err ) } );
+							// 	}
+							// );
+
+							//promise.then( (res) => { console.log( 'promise ok: ', res ) }, (err) => { console.log( 'promise error: ',  err ) } );
 
 
 							// try {
