@@ -61,6 +61,7 @@ router.get( '/test',                routes.getTest );
 
 router.get( '/getNum',              routes.getNum );
 
+//service route only mobile
 router.get( '/sendEmail',           routes.sendEmail );
 
 router.get( '/getActionFile',       routes.getActionFile );

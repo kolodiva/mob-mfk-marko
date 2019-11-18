@@ -191,7 +191,14 @@ const mailAction = (db, sendmail) => {
 					var rec0 = rows[0];
 					var strHtml = '';
 
+					const mailLength = emails.length;
+					let counter = 0;
+
 					emails.forEach( email => {
+
+						counter++;
+
+						console.log( counter + '/' + mailLength, email[0] )
 
 						strHtml = rec0.content.replace('[msgUnsubscribe]', 	`https://newfurnitura.ru/unscribe_email?email=${email[0]}&code=${email[1]}`);
 
@@ -213,7 +220,9 @@ const mailAction = (db, sendmail) => {
 					    // ]
 					  }, function (err, reply) {
 
-					    // console.log( err && err.stack )
+							if (err && err.stack) {
+									console.log( email[0], err.stack )
+							}
 					    // console.dir( reply )
 					  });
 
