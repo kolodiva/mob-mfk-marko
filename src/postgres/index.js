@@ -220,6 +220,7 @@ const mailAction = (db, sendmail) => {
   						resolve(123); // мгновенно выдаст результат: 123
 						});
 
+						console.log( 'promise: ', promise );
 
 
 
