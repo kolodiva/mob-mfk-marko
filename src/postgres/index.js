@@ -219,7 +219,15 @@ const mailAction = (db, sendmail) => {
 							    //     path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
 							    //   }
 							    // ]
+							  }, function (err, reply) {
+
+									if (err && err.stack) {
+											//console.log( email[0], err.stack )
+											db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
+									}
+							    // console.dir( reply )
 							  });
+
 							} catch (e) {
 								db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
 							} finally {
