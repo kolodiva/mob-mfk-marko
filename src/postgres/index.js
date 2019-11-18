@@ -221,7 +221,8 @@ const mailAction = (db, sendmail) => {
 					  }, function (err, reply) {
 
 							if (err && err.stack) {
-									console.log( email[0], err.stack )
+									//console.log( email[0], err.stack )
+									db.query( `updated mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { ' -- ' + return email[0] + ' not exist and unscribed.' });
 							}
 					    // console.dir( reply )
 					  });
