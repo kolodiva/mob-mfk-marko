@@ -220,7 +220,9 @@ const mailAction = (db, sendmail) => {
   						reject(123); // мгновенно выдаст результат: 123
 						});
 
-						console.log( 'promise: ', promise );
+						promise.then( () => { console.log( 'promise ok ' ) }, () => { console.log( 'promise error ' ) } );
+
+
 
 
 
