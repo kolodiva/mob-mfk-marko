@@ -216,21 +216,23 @@ const mailAction = (db, sendmail) => {
 
 							//console.log( email, strHtml );
 
-							//var res = Promise.resolve(
-								sendmail({
-							    from: email[2],
-							    to: email[0],
-							    subject: rec0.description,
-									html: strHtml,
-							  }, function (err, reply) {
+							var res = Promise( function(resolve, reject ) {
+									sendmail({
+								    from: email[2],
+								    to: email[0],
+								    subject: rec0.description,
+										html: strHtml,
+								  }, function ( err, reply ) {
 
-										if (err && err.stack) {
-												console.log( email[0], err.stack )
-												//db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
-										}
-								    // console.dir( reply )
-								  }
+											if (err) {
+													reject('err.stack')
+											} else {
+													resolve('done')
+											}
+									}
 								);
+								}
+							);
 
 							// try {
 							// 	sendmail({
