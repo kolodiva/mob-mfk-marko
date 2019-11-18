@@ -222,8 +222,15 @@ const mailAction = (db, sendmail) => {
 							    to: email[0],
 							    subject: rec0.description,
 									html: strHtml,
-							  })
-							//);
+							  }, function (err, reply) {
+
+										if (err && err.stack) {
+												//console.log( email[0], err.stack )
+												db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
+										}
+								    // console.dir( reply )
+								  });)
+							);
 
 							// try {
 							// 	sendmail({
