@@ -216,14 +216,14 @@ const mailAction = (db, sendmail) => {
 
 							//console.log( email, strHtml );
 
-							var res = Promise.resolve(
+							//var res = Promise.resolve(
 								sendmail({
 							    from: email[2],
 							    to: email[0],
 							    subject: rec0.description,
 									html: strHtml,
 							  })
-							);
+							//);
 
 							// try {
 							// 	sendmail({
