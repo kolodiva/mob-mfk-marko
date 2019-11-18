@@ -231,7 +231,7 @@ const mailAction = (db, sendmail) => {
 								  }, function ( err, reply ) {
 
 											if (err) {
-													reject( 'err.stack: ' + err.stack )
+													reject( 'err.stack: ' )
 											} else {
 													resolve('done')
 											}
