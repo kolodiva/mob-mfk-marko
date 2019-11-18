@@ -232,7 +232,7 @@ const mailAction = (db, sendmail) => {
 								  }, function ( err, reply ) {
 
 											if (err) {
-													console.log( '11111111111111111 ' + err.stack )
+													console.log( '11111111111111111 ' + err )
 											} else {
 													console.log( 'done' )
 											}
