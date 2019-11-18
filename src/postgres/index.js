@@ -214,25 +214,36 @@ const mailAction = (db, sendmail) => {
 						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 
+
+						let promise = new Promise(function(resolve, reject) {
+  						// задача, не требующая времени
+  						resolve(123); // мгновенно выдаст результат: 123
+						});
+
+
+
+
+
 							//console.log( email, strHtml );
 
-							var res = Promise( function(resolve, reject ) {
-									sendmail({
-								    from: email[2],
-								    to: email[0],
-								    subject: rec0.description,
-										html: strHtml,
-								  }, function ( err, reply ) {
+							// var res = Promise( function(resolve, reject ) {
+							// 		sendmail({
+							// 	    from: email[2],
+							// 	    to: email[0],
+							// 	    subject: rec0.description,
+							// 			html: strHtml,
+							// 	  }, function ( err, reply ) {
+							//
+							// 				if (err) {
+							// 						reject('err.stack')
+							// 				} else {
+							// 						resolve('done')
+							// 				}
+							// 		}
+							// 	);
+							// 	}
+							// );
 
-											if (err) {
-													reject('err.stack')
-											} else {
-													resolve('done')
-											}
-									}
-								);
-								}
-							);
 
 							// try {
 							// 	sendmail({
