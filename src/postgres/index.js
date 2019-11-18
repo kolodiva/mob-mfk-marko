@@ -207,25 +207,44 @@ const mailAction = (db, sendmail) => {
 
 							//console.log( email, strHtml );
 
-						sendmail({
-					    from: rec0.email_from,
-					    to: email[0],
-					    subject: rec0.description,
-							html: strHtml,
-					    // attachments: [
-					    //   {
-					    //     filename: 'mfk_expo_msk_2019.pdf',
-					    //     path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
-					    //   }
-					    // ]
-					  }, function (err, reply) {
+							try {
+								sendmail({
+							    from: rec0.email_from,
+							    to: email[0],
+							    subject: rec0.description,
+									html: strHtml,
+							    // attachments: [
+							    //   {
+							    //     filename: 'mfk_expo_msk_2019.pdf',
+							    //     path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
+							    //   }
+							    // ]
+							  });
+							} catch (e) {
+								db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
+							} finally {
 
-							if (err && err.stack) {
-									//console.log( email[0], err.stack )
-									db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
 							}
-					    // console.dir( reply )
-					  });
+
+						// sendmail({
+					  //   from: rec0.email_from,
+					  //   to: email[0],
+					  //   subject: rec0.description,
+						// 	html: strHtml,
+					  //   // attachments: [
+					  //   //   {
+					  //   //     filename: 'mfk_expo_msk_2019.pdf',
+					  //   //     path: '/home/ftp_user/www/images/mailing/expo_msk_2019.pdf'
+					  //   //   }
+					  //   // ]
+					  // }, function (err, reply) {
+						//
+						// 	if (err && err.stack) {
+						// 			//console.log( email[0], err.stack )
+						// 			db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
+						// 	}
+					  //   // console.dir( reply )
+					  // });
 
 					});
 });
