@@ -163,10 +163,10 @@ const mailAction = (db, sendmail) => {
 
 	//РАССЫЛАЕТСЯ ВСЕГДА ТОЛЬКО ОДНА АКЦИЯ
 	const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
-											from mailings where noactive=false and id=1) \
+											from mailings where noactive=false and id=4) \
 											select t1.* , t2.email, md5(t2.id::varchar) user_id, t3.email_from \
 											from t1 \
-											inner join mailing_lists t2 \
+											left join mailing_lists t2 \
 										  on t1.group_id = t2.group_id and t2.subscribed=true
 											inner join mailing_groups t3 \
 										  on t3.group_id = t2.group_id and t2.subscribed=true;`
@@ -214,17 +214,6 @@ const mailAction = (db, sendmail) => {
 							    subject: rec0.description,
 									html: strHtml,
 							  })
-							).then(
-
-								function (err, reply) {
-
-										if (err && err.stack) {
-												//console.log( email[0], err.stack )
-												db.query( `update mailing_lists set subscribed=false where email=${email[0]}` ).then( (res) => { return ' -- ' + email[0] + ' not exist and unscribed.' });
-										}
-								    // console.dir( reply )
-								  }
-
 							);
 
 							// try {
