@@ -215,37 +215,32 @@ const mailAction = (db, sendmail) => {
 						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 
 
-						let promise = new Promise(function(resolve, reject) {
-  						// задача, не требующая времени
-  						reject(123); // мгновенно выдаст результат: 123
-						});
-
-						promise.then( () => { console.log( 'promise ok ' ) }, () => { console.log( 'promise error ' ) } );
-
-
-
-
-
+						// let promise = new Promise(function(resolve, reject) {
+  					// 	// задача, не требующая времени
+  					// 	reject(123); // мгновенно выдаст результат: 123
+						// });
 
 							//console.log( email, strHtml );
 
-							// var res = Promise( function(resolve, reject ) {
-							// 		sendmail({
-							// 	    from: email[2],
-							// 	    to: email[0],
-							// 	    subject: rec0.description,
-							// 			html: strHtml,
-							// 	  }, function ( err, reply ) {
-							//
-							// 				if (err) {
-							// 						reject('err.stack')
-							// 				} else {
-							// 						resolve('done')
-							// 				}
-							// 		}
-							// 	);
-							// 	}
-							// );
+							var res = Promise( function(resolve, reject ) {
+									sendmail({
+								    from: email[2],
+								    to: email[0],
+								    subject: rec0.description,
+										html: strHtml,
+								  }, function ( err, reply ) {
+
+											if (err) {
+													reject( err.stack )
+											} else {
+													resolve('done')
+											}
+									}
+								);
+								}
+							);
+
+							promise.then( (res) => { console.log( 'promise ok: ', res ) }, (err) => { console.log( 'promise error: ',  err ) } );
 
 
 							// try {
