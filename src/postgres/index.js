@@ -217,7 +217,7 @@ const mailAction = (db, sendmail) => {
 
 						let promise = new Promise(function(resolve, reject) {
   						// задача, не требующая времени
-  						resolve(123); // мгновенно выдаст результат: 123
+  						reject(123); // мгновенно выдаст результат: 123
 						});
 
 						console.log( 'promise: ', promise );
