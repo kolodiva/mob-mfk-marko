@@ -233,7 +233,7 @@ const mailAction = (db, sendmail) => {
 
 											if (err) {
 													console.log( email[0], ' - ERROR ERROR ERROR email: ' + err );
-													db.query( `update mailing_list set comment='${err}' where email='${email[0]}'` )
+													db.query( `update mailing_lists set comment='${err}' where email='${email[0]}'` )
 													.catch( (err) => { console.log( '------> ERROR ERROR ERROR pgsql: ', err )  } );
 											} else {
 													console.log( email[0], ' - done' )
