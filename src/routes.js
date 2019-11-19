@@ -88,6 +88,10 @@ exports.getContacts   = (req, res) => {
 };
 
 //
+exports.getMailing = (req, res) => {
+  renderHtml(req, res, 'mailing');
+};
+
 exports.getTest = (req, res) => {
   renderHtml(req, res, 'test');
 };

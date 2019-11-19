@@ -59,6 +59,7 @@ router.get( '/exhibition',          routes.getExhibition );
 router.get( '/filial_info/:id',     routes.getContacts );
 router.get( '/filial_info',         routes.getContacts );
 
+router.get( '/mailing',             routes.getMailing );
 router.get( '/test',                routes.getTest );
 
 router.get( '/getNum',              routes.getNum );

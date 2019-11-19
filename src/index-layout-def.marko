@@ -24,6 +24,10 @@ import SiteLayout from './index.marko';
         <contacts />
       </else-if>
 
+      <else-if( out.global.htmlPath == 'mailing' )>
+          <mailing />
+      </else-if>
+
       <else-if( out.global.htmlPath == 'test' )>
           <test />
       </else-if>
