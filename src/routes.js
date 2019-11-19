@@ -41,7 +41,7 @@ exports.getHome       = (req, res) => {
   renderHtml(req, res, 'home');
 };
 
-exports.exhibition = (req, res) => {
+exports.getExhibition = (req, res) => {
   renderHtml(req, res, 'exhibition');
 };
 
