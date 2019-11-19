@@ -41,6 +41,10 @@ exports.getHome       = (req, res) => {
   renderHtml(req, res, 'home');
 };
 
+exports.exhibition = (req, res) => {
+  renderHtml(req, res, 'exhibition');
+};
+
 exports.getCatalog    = (req, res) => {
   //renderHtml(req, res, 'catalog');
   //

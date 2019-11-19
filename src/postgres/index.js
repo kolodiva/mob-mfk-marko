@@ -235,7 +235,7 @@ const mailAction = (db, sendmail) => {
 													console.log( '11111111111111111 ' + err );
 													db.query( `update mailing_lists set comment='${err}' where email='${email[0]}'` );
 											} else {
-													console.log( 'done' )
+													console.log( email[0], ' - done' )
 											}
 									}
 								);
