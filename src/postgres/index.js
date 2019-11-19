@@ -232,8 +232,19 @@ const mailAction = (db, sendmail) => {
 								  }, function ( err, reply ) {
 
 											if (err) {
-													console.log( '11111111111111111 ' + err );
-													db.query( `update mailing_lists set comment='${err}' where email='${email[0]}'` );
+													console.log( email[0], ' 11111111111111111 ' + err );
+
+													var resPG = Promise( function (res, rej) {
+
+														try {
+																db.query( `update mailing_lists set comment='${err}' where email='${email[0]}'` );
+														} catch (e) {
+																rej(e);
+														} finally {
+														}
+													});
+
+													resPG.catch( (err) => { console.log() } )
 											} else {
 													console.log( email[0], ' - done' )
 											}
