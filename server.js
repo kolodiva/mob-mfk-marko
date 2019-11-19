@@ -54,7 +54,7 @@ router.get( '/',                    routes.getHome );
 router.get( '/catalog/:guidParent', routes.getCatalog );
 router.get( '/catalog',             routes.getCatalog );
 
-router.get( '/exhibition',          routes.getexhibition );
+router.get( '/exhibition',          routes.getExhibition );
 
 router.get( '/filial_info/:id',     routes.getContacts );
 router.get( '/filial_info',         routes.getContacts );
