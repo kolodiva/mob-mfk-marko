@@ -244,7 +244,7 @@ const mailAction = (db, sendmail) => {
 														}
 													});
 
-													resPG.catch( (err) => { console.log() } )
+													resPG.catch( ( err ) => { console.log( err ) } )
 											} else {
 													console.log( email[0], ' - done' )
 											}
