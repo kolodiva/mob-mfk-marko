@@ -2,8 +2,6 @@ const axios = require('axios');
 
 exports.getNumenklator = (guidParent = '', guidPosition = '') => {
 
-    //console.log('axios numenkl:', guidParent);
-
     return dispatch => {
       axios
         .get("/getNum", {
@@ -63,8 +61,6 @@ exports.getNumenklator = (guidParent = '', guidPosition = '') => {
   };
 
 exports.sendEmail = () => {
-
-      //console.log('axios numenkl:', guidParent);
 
         axios
           .get("/sendEmail", {

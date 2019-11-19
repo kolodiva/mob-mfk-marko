@@ -15,7 +15,7 @@ const dbpg = new Pool(postgres.params_conn);
 // const view = require('./index');
 const view = require('./index-layout-def');
 
-const getAppParams = (req) => { return { appParams:req.app.get('appParams'), paramsUrl:req.params, qtyParamsUrl:Object.keys(req.params).length,  } };
+const getAppParams = (req) => { return { appParams: req.app.get('appParams'), paramsUrl: req.params, qtyParamsUrl: Object.keys(req.params).length,  } };
 
 const renderHtml = (req, res, htmlPath, status = 200) => {
   //

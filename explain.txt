@@ -12,3 +12,8 @@ service nginx restart
 PORT1=8081 forever start server.js
 
 node server.js
+
+prod test
+server isProduction
+routes sendMail - dkim
+constants imgPath, paramsConnPg
