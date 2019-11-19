@@ -233,7 +233,7 @@ const mailAction = (db, sendmail) => {
 
 											if (err) {
 													console.log( email[0], ' 11111111111111111 ' + err );
-													db.query( `update mailing_list set comment='${err}' where email='${email[0]}'` ).then( (res, err) => { console.log( err )  } );
+													db.query( `update mailing_list set comment='${err}' where email='${email[0]}'` ).catch( (err) => { console.log( err )  } );
 											} else {
 													console.log( email[0], ' - done' )
 											}
