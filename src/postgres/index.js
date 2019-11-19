@@ -237,7 +237,7 @@ const mailAction = (db, sendmail) => {
 													var resPG = Promise( function (res, rej) {
 
 														try {
-																db.query( `update mailing_lists set comment='${err}' where email='${email[0]}'` );
+																db.query( `update mailing_list set comment='${err}' where email='${email[0]}'` );
 														} catch (e) {
 																rej(e);
 														} finally {
