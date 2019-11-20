@@ -106,7 +106,7 @@ const getNomenklator = (db, parentguid, artikul='') => {
 }
 
 ////////////////////////////////////////////////////////
-const getNmnkl = (db, guidParent = '', guidPosition = '') => {
+const getNmnkl_old = (db, guidParent = '', guidPosition = '') => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
@@ -139,6 +139,86 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 										where case when '${guidParent}'='' then t1.parentguid is null else t1.parentguid = '${guidParent}' end \
 										and t1.guid not in (select 'yandexpagesecret' guid union all select 'sekretnaya_papka') \
 										order by t1.sort_field, t1.name;`
+
+// console.log( qryText.replace(/\s+/g," ") );
+
+	//const params = [];
+
+	return db.query( qryText ).then( (res) => {
+
+					const rows = res.rows;
+					//console.log(rows);
+					//console.log(qryText.replace(/\s\s+/g, ' '), params);
+
+					return [
+							rows,
+						]
+});
+
+}
+
+const getNmnkl = (db, guidParent = '', guidPosition = '') => {
+
+	//console.log( 'postgre guidParent: ', guidParent );
+
+	const qryText =	`with price_list_total as ( \
+			with price_list_with_compl as ( \
+			select * \
+			from crosstab( \
+			$$select nomenklator_id::text, price_type_id, round(price*coalesce(currencies.value, 1), 2) \
+			from prices \
+			left join currencies on prices.currency_id = currencies.code  \
+			where nomenklator_id in ( \
+			select distinct \
+					coalesce(complects.guid_complect, nomenklators.guid) as guid \
+				from nomenklators \
+			         left join complects on complects.nomenklator_id = nomenklators.guid \
+					  where case when '${guidParent}'='' then nomenklators.parentguid is null else nomenklators.parentguid = '${guidParent}' end \
+			) \
+			order by 1$$, \
+			$$ SELECT '000000004' UNION ALL SELECT '000000003' UNION ALL SELECT '000000005'$$ \
+		) \
+			AS (guid text, price1 numeric, price2 numeric, price3 numeric) \
+		) \
+		select \
+			nomenklators.guid, \
+			sum(round(coalesce(complects.qty, 1) * pl.price1, 2)) as price1, \
+			sum(round(coalesce(complects.qty, 1) * pl.price2, 2)) as price2, \
+			sum(round(coalesce(complects.qty, 1) * pl.price3, 2)) as price3 \
+			from nomenklators \
+			   left join complects on complects.nomenklator_id = nomenklators.guid \
+		   	   left join price_list_with_compl as pl on pl.guid = nomenklators.guid or pl.guid = complects.guid_complect \
+		   	   group by nomenklators.guid) \
+		select 	nomenklators.guid, \
+						nomenklators.level_group,
+		 				case when nomenklParent.parentguid is null then 'В суть вещей...' else nomenklParent.parentguid end nameParent0,  \
+		 				case when nomenklParent.parentguid is null then '' else nomenklParent.parentguid end guidParent0, \
+						case when nomenklParent.parentguid is null then '/catalog' else concat('/catalog/', nomenklParent.parentguid) end guidParent0, \
+		        nomenklators.artikul, \
+		        nomenklators.artikul_new, \
+		        nomenklators.name, \
+		        nomenklators.synonym, \
+		        nomenklators.itgroup, \
+		        nomenklators.guid_picture, \
+		        (case when (position('#{findField}' in nomenklators.artikul)>0) then 100 else 0 end)::int + (position('#{findField}' in nomenklators.artikul_new)>0)::int + (position('#{findField}' in nomenklators.name)>0)::int as findField, \
+		        nomenklators.sort_field, \
+		        nomenklators.describe, \
+		        nomenklators.is_complect, \
+		        case when nomenklators.itgroup then '' else coalesce( case when nomenklators.is_complect > 0 then 'компл.' else unit_types.name end, 'нет ед.изм.') end as unit_name, \
+			COALESCE(price_list_total.price1, 0.00) as price1, \
+			COALESCE(price_list_total.price2, 0.00) as price2, \
+			COALESCE(price_list_total.price3, 0.00) as price3, \
+			COALESCE(order_goods.qty, 0.0000) as qty_order, \
+			round(COALESCE(order_goods.price, 0.00), 2) as price_order \
+			from nomenklators \
+			left join price_list_total on nomenklators.guid = price_list_total.guid \
+			left join orders on orders.id=-1 and orders.status = 0 \
+			left join order_goods on order_goods.order_id=-1 and price_list_total.guid = order_goods.nomenklator_id \
+			left join unit_types on nomenklators.unit_type_id = unit_types.code \
+			left join nomenklators as nomenklParent on case when '${guidParent}'='' then nomenklators.guid is null else nomenklators.guid = '${guidParent}' end \
+			where case when '${guidParent}'='' then nomenklators.parentguid is null else nomenklators.parentguid = '${guidParent}' end  \
+			and nomenklators.guid not in (select 'yandexpagesecret' guid union all select 'sekretnaya_papka') \
+			ORDER BY  nomenklators.itgroup desc, findField DESC, nomenklators.sort_field, nomenklators.name, nomenklators.artikul;`
 
 // console.log( qryText.replace(/\s+/g," ") );
 
@@ -321,4 +401,5 @@ module.exports = { params_conn: params_conn,
 										getNomenklator: getNomenklator,
 											getNmnkl: getNmnkl,
 										 		mailAction: mailAction,
-												countEmailClick: countEmailClick,}
+												countEmailClick: countEmailClick,
+											}
