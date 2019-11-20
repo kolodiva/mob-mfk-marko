@@ -15,8 +15,8 @@ var router = express.Router();
 var path = require('path');
 
 //var isProduction = process.env.NODE_ENV === 'production';
-var isProduction = false;
-//var isProduction = true;
+//var isProduction = false;
+var isProduction = true;
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
 require( 'lasso' ).configure({

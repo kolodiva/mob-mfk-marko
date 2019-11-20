@@ -5,11 +5,11 @@
 
 
 const globalVar = {
-      imgPath:      '/img/group',
-      imgPath1:      '/images',
+      imgPath1:      '/img/group',
+      imgPath:      '/images',
 
-      paramsConnPg:    {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432},
-      paramsConnPg1:    {user: 'postgres',  host: '127.0.0.1',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 12550},
+      paramsConnPg1:    {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432},
+      paramsConnPg:    {user: 'postgres',  host: '127.0.0.1',  database: 'app1',  password: 'c2ec57df699966b3afef779a16fa5fff', port: 12550},
 
       colorBlueMF:  '#00aec6',
       colorBlackMF: 'black',
