@@ -1,10 +1,12 @@
 const { createStore, applyMiddleware, combineReducers, compose  }  = require('redux');
 //const { createStore, applyMiddleware, combineReducers, compose  }  = require('../../jslib/redux.min.js');
 
-const { composeWithDevTools }           = require('redux-devtools-extension');
+const { composeWithDevTools }  = require('redux-devtools-extension');
 
 var thunk   = require('redux-thunk').default;
 
-var reducerNomenkl = require('./reducer');
+var reducerMainNomenklator    = require('./reducer').getMainNomenklator;
+var reducerFoundedNomenklator = require('./reducer').getFoundedNomenklator;
 
-module.exports = createStore( reducerNomenkl, composeWithDevTools( applyMiddleware( thunk ) ) );
+exports.storeNomenklator        = createStore( reducerMainNomenklator,    composeWithDevTools( applyMiddleware( thunk ) ) );
+exports.storeFoundedNomenklator = createStore( reducerFoundedNomenklator, composeWithDevTools( applyMiddleware( thunk ) ) );

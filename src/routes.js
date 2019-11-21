@@ -4,10 +4,10 @@ const {Pool}    = require('pg');
 const postgres  = require("./postgres");
 
 const sendmail = require('sendmail')( {silent: true,
-  dkim: {
-    privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
-    keySelector: 'mail.newfurnitura.ru'
-  }
+  // dkim: {
+  //   privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
+  //   keySelector: 'mail.newfurnitura.ru'
+  // }
 } );
 
 const dbpg = new Pool(postgres.params_conn);
@@ -126,7 +126,7 @@ exports.get404 = (req, res) => {
 };
 
 //
-exports.getNum = async (req, res) => {
+exports.getNum        = async (req, res) => {
 
   let params = req.query;
 
@@ -136,6 +136,36 @@ exports.getNum = async (req, res) => {
   try {
 
     let result = await postgres.getNmnkl(dbpg, params.guidParent)
+
+    // postgres.getNmnkl(dbpg, params.guidParent).then( res => {
+    //
+    //   return res.status(200).send('res');
+    //
+    // }
+    //
+    // )
+
+    return res.status(200).send(result);
+
+    //console.log('ffffffffff', result);
+
+
+  } catch (e) {
+
+    return res.status(404).send(e.stack)
+  }
+
+};
+exports.getFoundedNum = async (req, res) => {
+
+  let params = req.query;
+
+  console.log('routs params: ', params);
+  // console.log('routs params: ', req.query);
+
+  try {
+
+    let result = await postgres.getFoundedNmnkl(dbpg, params.artikul)
 
     // postgres.getNmnkl(dbpg, params.guidParent).then( res => {
     //

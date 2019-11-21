@@ -1,4 +1,4 @@
-import storeNomenklator from '../../redux/nomenklator/store'
+import stores from '../../redux/nomenklator/store';
 import * as glob        from '../../jslib/constants'
 import axiosProc        from '../../axios'
 
@@ -13,13 +13,18 @@ class {
 
     onMount() {
 
-        storeNomenklator.subscribe(() => {
-            this.forceUpdate();
-        });
+        this.inpArtikul = this.getEl('inpArtikul');
+
+        this.artikulHistory = [];
+
+        this.state = { count: 0 };
+
+        stores.storeNomenklator.subscribe(() => { this.forceUpdate(); } );
+        stores.storeFoundedNomenklator.subscribe(() => { this.forceUpdate(); } );
 
         const guidParent = this.input.guidParent || '';
 
-        storeNomenklator.dispatch(axiosProc.getNumenklator(guidParent, ''));
+        stores.storeNomenklator.dispatch( axiosProc.getNumenklator(guidParent, '') );
 
         //
         this.winSize = glob.getWinSize();
@@ -35,10 +40,29 @@ class {
 
       jQuery(this.getEl('catalogHeader2')).height( heightHeader + 10 + 'px' );
 
+      if ( this.artikulHistory.length>0) {
+        this.inpArtikul.value = this.artikulHistory[ this.artikulHistory.length - 1 ];
+      }
+
     }
 
-    openModal() {
-      alert('hi');
+    openModal( artikul='' ) {
+      //alert('hi');
+      //this.state.count++;
+
+      const inpArt = this.inpArtikul.value;
+
+      if (inpArt !== '') {
+
+          this.artikulHistory.push( inpArt );
+
+          stores.storeFoundedNomenklator.dispatch( axiosProc.getFoundedNumenklator( inpArt ) );
+      }
+      //console.log( 'inpArtikul ', this.inpArtikul.value );
+    }
+
+    cleanFilter() {
+      stores.storeFoundedNomenklator.dispatch( { type: 'PUT_AXIOS_AHTUNG' } );
     }
 
 }
@@ -47,9 +71,12 @@ style {
 }
 
 //$ console.log( input );
-$ const attrs = storeNomenklator.getState();
+$ const attrs = stores.storeNomenklator.getState();
 $ const rec0 = attrs.recs && attrs.recs.length>0 && attrs.recs[0] || false;
 $ const headerText = rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...';
+
+$ const attrsFoundedNomenklator = stores.storeFoundedNomenklator.getState();
+//$ console.log( attrsFoundedNomenklator );
 
 $ const whGroup       = component&&component.winSize&&component.winSize.width/2-150 + 'px'||'150px';
 static const whGood   = '250px';
@@ -60,7 +87,7 @@ static const whGood   = '250px';
 
 <!-- ////////////////////////////////////////////////// -->
 <headerName name=`${ headerText }`
-    path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` />
+    path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
 
 <div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column py-5' } ` style=''>
 
@@ -142,10 +169,9 @@ static const whGood   = '250px';
     <p  class='col-4 display-4 text-right' >${ price[1] }</p>
     <p  class='col-4 display-4 text-right' >${ price[2] }</p>
   </div>
-
 </macro>
 
-<macro|{name, path}| name='headerName'>
+<macro|{name, path, glob}| name='headerName'>
 
   <div class='btn btn-outline-primary col-12 position-fixed d-flex justify-content-between align-items-center p-0' style='background-color: white; z-index: 1;'>
 
@@ -158,8 +184,37 @@ static const whGood   = '250px';
     <!-- <a href=`${path}` class='' >
        <h1 key='catalogHeader' class='display-3 pr-3' style='' nowrap><pre>   </pre><span>&#187</span></h1>
     </a> -->
-
+    <searchIcon glob=glob />
   </div>
 
   <div  key='catalogHeader2' style=`height: 150px; }`/>
+</macro>
+
+<macro|{glob}| name='searchIcon'>
+
+    <!-- <form class="form-search" method="get" action="/searchByArtikul/" style='position: relative;'> -->
+    <div style='position: relative;'>
+      <div style='display: flex; margin-right: 50px;'>
+        <input key='inpArtikul' placeholder=" Артикул..." name="artikul" autocomplete="off" type="text"  style=`width: 35vw; font-size: 2.8rem; border-color: ${glob.colorGreyMF}`>
+        <button style=`width: 100px; height: 75px;` on-click('openModal')>
+          <svg x="0px" y="0px" width="18px" height="18px" viewBox="-2.5 -2.5 25 25">
+           <circle fill="none" stroke=`black` stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
+           <line fill="none" stroke=`black` stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
+         </svg>
+       </button>
+      </div>
+
+$ let classAttr = { class: attrsFoundedNomenklator.recs.length == 0 ? 'd-none' : '' };
+<!-- $ console.log('openFoundWin ', attr); -->
+
+      <div ...classAttr style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
+
+        <for|value| of=attrsFoundedNomenklator.recs>
+            <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
+        </for>
+
+      </div>
+    </div>
+    <!-- </form> -->
+
 </macro>

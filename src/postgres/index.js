@@ -237,6 +237,43 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 }
 
+const getFoundedNmnkl = (db, artikul = '') => {
+
+	//console.log( 'postgre guidParent: ', guidParent );
+	//console.log('postgre: ', artikul);
+
+	strQueryWhereExactly  = " = '" 			+ artikul.split(' ').join('').toLowerCase()  + "' "
+	strQueryWhere         = " like '%" 	+ artikul.split(' ').join('%').toLowerCase() + "%' "
+	strQueryWhereArtikul  = " like '" 	+ artikul.split(' ').join('%').toLowerCase() + "%' "
+
+	const qryText =	`SELECT DISTINCT nomenklators.guid, nomenklators.name,  nomenklators.artikul,
+	        min(case when (lower(nomenklators.artikul) ${strQueryWhereExactly} or lower(nomenklators.artikul_new) ${strQueryWhereExactly} ) then 0 else 1 end) as ord
+	                  FROM
+	                  nomenklators
+
+	              WHERE ( ( lower(nomenklators.name) ${strQueryWhere}
+	                    OR lower(nomenklators.artikul)  ${strQueryWhereArtikul}
+	                    OR lower(nomenklators.artikul_new) ${strQueryWhereArtikul}
+	                      AND NOT nomenklators.itgroup and nomenklators.parentguid!='yandexpagesecret' and nomenklators.parentguid!='sekretnaya_papka'
+											)) group by nomenklators.guid, nomenklators.name,  nomenklators.artikul ORDER BY ord, nomenklators.name limit 30;`
+
+ //console.log( qryText.replace(/\s+/g," ") );
+
+	//const params = [];
+
+	return db.query( qryText ).then( (res) => {
+
+					const rows = res.rows;
+					//console.log(rows);
+					//console.log(qryText.replace(/\s\s+/g, ' '), params);
+
+					return [
+							rows,
+						]
+});
+
+}
+
 const mailAction = (db, sendmail) => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
@@ -400,6 +437,7 @@ module.exports = { params_conn: params_conn,
 									taskProc: taskProc,
 										getNomenklator: getNomenklator,
 											getNmnkl: getNmnkl,
-										 		mailAction: mailAction,
-												countEmailClick: countEmailClick,
+												getFoundedNmnkl: getFoundedNmnkl,
+										 			mailAction: mailAction,
+														countEmailClick: countEmailClick,
 											}

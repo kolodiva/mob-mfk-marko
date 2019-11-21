@@ -63,6 +63,7 @@ router.get( '/mailing',             routes.getMailing );
 router.get( '/test',                routes.getTest );
 
 router.get( '/getNum',              routes.getNum );
+router.get( '/getFoundedNum',       routes.getFoundedNum );
 
 //service route only mobile
 router.get( '/sendEmail',           routes.sendEmail );
