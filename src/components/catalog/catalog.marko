@@ -4,16 +4,15 @@ import axiosProc        from '../../axios'
 
 class {
     onCreate(input, out) {
-        // this.state = {
-        //     qtyEl: 60
-        // };
     }
 
     onInput(input, out) {}
 
     onMount() {
 
-        this.inpArtikul = this.getEl('inpArtikul');
+        this.inpArtikul       = this.getEl('inpArtikul');
+        this.catalogHeader    = this.getEl('catalogHeader');
+        this.catalogHeader2   = this.getEl('catalogHeader2');
 
         this.artikulHistory = [];
 
@@ -36,9 +35,9 @@ class {
 
     onUpdate() {
 
-      const heightHeader = jQuery(this.getEl('catalogHeader')).height();
+      const heightHeader = jQuery(this.catalogHeader).height()  + 10 + 'px';
 
-      jQuery(this.getEl('catalogHeader2')).height( heightHeader + 10 + 'px' );
+      jQuery(this.catalogHeader2).height( heightHeader );
 
       if ( this.artikulHistory.length>0) {
         this.inpArtikul.value = this.artikulHistory[ this.artikulHistory.length - 1 ];
@@ -86,10 +85,22 @@ static const whGood   = '250px';
 //${ console.log( component&&component.winWidth/2-50||'nothing' ) };
 
 <!-- ////////////////////////////////////////////////// -->
-<headerName name=`${ headerText }`
-    path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
+<div class='position: relative;'>
 
-<div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column py-5' } ` style=''>
+  <if(attrsFoundedNomenklator.recs.length > 0)>
+    <div style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
+
+      <for|value| of=attrsFoundedNomenklator.recs>
+          <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
+      </for>
+
+    </div>
+  </if>
+
+
+  <headerName name=`${ headerText }` path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
+
+  <div class=`d-flex ${ rec0.itgroup ? 'flex-row justify-content-around align-items-start flex-wrap p-5' : 'flex-column py-5' } ` style=''>
 
     <if(rec0)>
         <for|value| of=attrs.recs>
@@ -114,6 +125,12 @@ static const whGood   = '250px';
 
 </div>
 <!-- ////////////////////////////////////////////////// -->
+
+
+
+</div>
+
+
 
 
 
@@ -192,7 +209,6 @@ static const whGood   = '250px';
 
 <macro|{glob}| name='searchIcon'>
 
-    <!-- <form class="form-search" method="get" action="/searchByArtikul/" style='position: relative;'> -->
     <div style='position: relative;'>
       <div style='display: flex; margin-right: 50px;'>
         <input key='inpArtikul' placeholder=" Артикул..." name="artikul" autocomplete="off" type="text"  style=`width: 35vw; font-size: 2.8rem; border-color: ${glob.colorGreyMF}`>
@@ -204,17 +220,6 @@ static const whGood   = '250px';
        </button>
       </div>
 
-$ let classAttr = { class: attrsFoundedNomenklator.recs.length == 0 ? 'd-none' : '' };
-<!-- $ console.log('openFoundWin ', attr); -->
-
-      <div ...classAttr style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
-
-        <for|value| of=attrsFoundedNomenklator.recs>
-            <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
-        </for>
-
-      </div>
     </div>
-    <!-- </form> -->
 
 </macro>

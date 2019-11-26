@@ -4,15 +4,15 @@ var glob = require("../jslib/constants");
 //var port    =   process.env.PORT || 8080;
 var { genGuid } = require("../jslib/enother.js");
 
-const params_conn = glob.paramsConnPg;
+exports.params_conn = glob.paramsConnPg;
 
 //const params_conn = {user: 'postgres',  host: 'localhost',  database: 'orders',  password: '123', port: 5432};
 
-const connect = (db)  => {
+exports.connect = (db)  => {
 	console.log( db );
 };
 
-const getServicesList = (db) => {
+exports.getServicesList = (db) => {
 
   const qryText = 'SELECT * FROM services;'
   const params  = [];
@@ -20,7 +20,7 @@ const getServicesList = (db) => {
   return db.query( qryText, params ).then( res => { return JSON.stringify(res.rows) } )
 }
 
-const saveServiceParams = (db, qryText) => {
+exports.saveServiceParams = (db, qryText) => {
 
   //const qryText = 'SELECT * FROM services;'
   const params  = [];
@@ -29,7 +29,7 @@ const saveServiceParams = (db, qryText) => {
 }
 
 
-const taskProc = (db, params) => {
+exports.taskProc = (db, params) => {
 
 	let qryParams, qryText;
 
@@ -86,7 +86,7 @@ const taskProc = (db, params) => {
   // return db.query( qryText, params ).then( res => { return JSON.stringify(res) } )
 }
 
-const getNomenklator = (db, parentguid, artikul='') => {
+exports.getNomenklator = (db, parentguid, artikul='') => {
 
   const qryText = "select artikul, artikul_new, name, t1.guid, t1.parentguid, t1.pic_guid, \
   				unit_type_id, to_char( coalesce(t2.qty1, 0), '9 999 999 999.000') qty1, \
@@ -106,7 +106,7 @@ const getNomenklator = (db, parentguid, artikul='') => {
 }
 
 ////////////////////////////////////////////////////////
-const getNmnkl_old = (db, guidParent = '', guidPosition = '') => {
+exports.getNmnkl_old = (db, guidParent = '', guidPosition = '') => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
@@ -157,7 +157,7 @@ const getNmnkl_old = (db, guidParent = '', guidPosition = '') => {
 
 }
 
-const getNmnkl = (db, guidParent = '', guidPosition = '') => {
+exports.getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
@@ -237,7 +237,7 @@ const getNmnkl = (db, guidParent = '', guidPosition = '') => {
 
 }
 
-const getFoundedNmnkl = (db, artikul = '') => {
+exports.getFoundedNmnkl = (db, artikul = '') => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 	//console.log('postgre: ', artikul);
@@ -274,7 +274,7 @@ const getFoundedNmnkl = (db, artikul = '') => {
 
 }
 
-const mailAction = (db, sendmail) => {
+exports.mailAction = (db, sendmail) => {
 
 	//console.log( 'postgre guidParent: ', guidParent );
 
@@ -416,7 +416,7 @@ const mailAction = (db, sendmail) => {
 
 }
 
-const countEmailClick = (db, user_id, mailing_id) => {
+exports.countEmailClick = (db, user_id, mailing_id) => {
 
 	const dateStamp = Date.now();
 
@@ -429,15 +429,3 @@ const countEmailClick = (db, user_id, mailing_id) => {
 
 	return db.query( qryText ).then( (res) => {});
 }
-
-module.exports = { params_conn: params_conn,
-						connect: connect,
-							getServicesList: getServicesList,
-								saveServiceParams: saveServiceParams,
-									taskProc: taskProc,
-										getNomenklator: getNomenklator,
-											getNmnkl: getNmnkl,
-												getFoundedNmnkl: getFoundedNmnkl,
-										 			mailAction: mailAction,
-														countEmailClick: countEmailClick,
-											}

@@ -2,9 +2,7 @@ import SiteLayout from './index.marko';
 
 <${SiteLayout}>
 
-  <@title>
-    МФ Комплект
-  </@title>
+  <@title>МФ Комплект</@title>
 
     <@body>
 
@@ -29,7 +27,16 @@ import SiteLayout from './index.marko';
       </else-if>
 
       <else-if( out.global.htmlPath == 'test' )>
-          <test />
+
+      <test data=people>
+        <!-- <@column|person|>
+          Name: ${person.name}
+        </@column>
+        <@column|person|>
+          Age: ${person.age}
+        </@column> -->
+      </test>
+
       </else-if>
 
       <else-if( out.global.htmlPath == '404' )>
@@ -56,7 +63,6 @@ import SiteLayout from './index.marko';
           <h1 class='display-3 text-center' style='font-weight: bold; '>Hey Bro!</h1>
         </div>
       </else>
-
     </@body>
 
-  </>
+</>

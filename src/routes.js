@@ -160,7 +160,7 @@ exports.getFoundedNum = async (req, res) => {
 
   let params = req.query;
 
-  console.log('routs params: ', params);
+  //console.log('routs params: ', params);
   // console.log('routs params: ', req.query);
 
   try {
