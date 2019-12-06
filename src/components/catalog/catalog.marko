@@ -99,24 +99,26 @@ static const whGood   = '250px';
 <!-- ////////////////////////////////////////////////// -->
 <div class='position: relative;'>
 
-  <modal-win
-       onOk("handleOverlayOk")
-       onCancel("handleOverlayCancel")
-       onHide("handleOverlayHide")
-       onShow("handleOverlayShow")
-       key="overlay"
-       visible = state.overlayVisible>
-       <h2>Найденные позиции</h2>
-  </modal-win>
-
   <if(attrsFoundedNomenklator.recs.length > 0)>
-    <div style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
+    <modal-win
+         onOk("handleOverlayOk")
+         onCancel("handleOverlayCancel")
+         onHide("handleOverlayHide")
+         onShow("handleOverlayShow")
+         key="overlay"
+         visible = state.overlayVisible>
 
-      <for|value| of=attrsFoundedNomenklator.recs>
-          <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
-      </for>
+         <h1 style='text-align: center;'>Найденные позиции</h1>
 
-    </div>
+           <div style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
+
+             <for|value| of=attrsFoundedNomenklator.recs>
+                 <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
+             </for>
+
+           </div>
+
+    </modal-win>
   </if>
 
   <headerName name=`${ headerText }` path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
