@@ -7,11 +7,12 @@ class {
     }
 
     onInput(input, out) {
-      this.state = { count: 0, overlayVisible: false };
     }
 
     onMount() {
 
+        this.state = { count: 0, overlayVisible: false };
+        
         this.inpArtikul       = this.getEl('inpArtikul');
         this.catalogHeader    = this.getEl('catalogHeader');
         this.catalogHeader2   = this.getEl('catalogHeader2');
