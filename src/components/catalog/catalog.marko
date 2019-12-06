@@ -86,6 +86,7 @@ style {
 $ const attrs = stores.storeNomenklator.getState();
 $ const rec0 = attrs.recs && attrs.recs.length>0 && attrs.recs[0] || false;
 $ const headerText = rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.nameparent0 : 'Go home...';
+$ const ovrVissible = (state&&state.overlayVisible)||false;
 
 $ const attrsFoundedNomenklator = stores.storeFoundedNomenklator.getState();
 //$ console.log( attrsFoundedNomenklator );
@@ -106,7 +107,7 @@ static const whGood   = '250px';
          onHide("handleOverlayHide")
          onShow("handleOverlayShow")
          key="overlay"
-         visible = state.overlayVisible||false>
+         visible = ${ovrVissible}>
 
          <h1 style='text-align: center;'>Найденные позиции</h1>
 
