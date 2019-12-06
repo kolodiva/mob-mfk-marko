@@ -56,9 +56,13 @@ class {
           this.artikulHistory.push( inpArt );
 
           stores.storeFoundedNomenklator.dispatch( axiosProc.getFoundedNumenklator( inpArt ) );
+
+          //this.getComponent('overlay').show();
+          this.state = { overlayVisible: true };
       }
       //console.log( 'inpArtikul ', this.inpArtikul.value );
-      this.getComponent('overlay').show();
+
+
     }
 
     cleanFilter() {
@@ -70,11 +74,13 @@ class {
     }
 
     handleOverlayHide() {
-      console.log('55555555555555555555555555555555555555');
+      //console.log('55555555555555555555555555555555555555');
+      this.state = { overlayVisible: false };
     }
 
     handleOverlayOk() {
-      console.log('999999999999999999999999999999999999999');
+      //console.log('999999999999999999999999999999999999999');
+      this.state = { overlayVisible: false };
     }
 }
 
@@ -100,6 +106,8 @@ static const whGood   = '250px';
 <!-- ////////////////////////////////////////////////// -->
 <div class='position: relative;'>
 
+  <if(attrsFoundedNomenklator.recs.length > 0 )>
+
     <modal-win
          onOk("handleOverlayOk")
          onCancel("handleOverlayCancel")
@@ -110,15 +118,13 @@ static const whGood   = '250px';
 
          <h1 style='text-align: center;'>Найденные позиции</h1>
 
-         <if(attrsFoundedNomenklator.recs.length > 0)>
-
              <for|value| of=attrsFoundedNomenklator.recs>
                  <p on-click('cleanFilter') style='text-align: left; font-size: 3rem; border-bottom: 2px solid black; padding-left: 30px; padding-right: 30px; '>${value.name}</p>
              </for>
 
-         </if>
-
     </modal-win>
+  </if>
+
 
   <headerName name=`${ headerText }` path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
 
