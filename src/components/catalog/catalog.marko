@@ -12,7 +12,7 @@ class {
     onMount() {
 
         this.state = { count: 0, overlayVisible: false };
-        
+
         this.inpArtikul       = this.getEl('inpArtikul');
         this.catalogHeader    = this.getEl('catalogHeader');
         this.catalogHeader2   = this.getEl('catalogHeader2');
@@ -106,7 +106,7 @@ static const whGood   = '250px';
          onHide("handleOverlayHide")
          onShow("handleOverlayShow")
          key="overlay"
-         visible = state.overlayVisible>
+         visible = state.overlayVisible || false>
 
          <h1 style='text-align: center;'>Найденные позиции</h1>
 
