@@ -1,7 +1,71 @@
-style {
-  .section-body {
-    font-size: 3rem;
+import * as imgSrvc from '../../jslib/imgservice';
+
+class {
+
+  onMount() {
+
+    this.imgSrc   = this.getEl('imgSrc');
+
+    this.inpFieldThresHoldBlackPoint = this.getEl('inpFieldThresHoldBlackPoint');
+    this.inpFieldThresHoldEraseLines = this.getEl('inpFieldThresHoldEraseLines');
   }
+
+async onClickTest() {
+
+  try {
+
+    let image = await imgSrvc.loadFile( srcImg );
+    let image2 = image.clone();
+
+    await imgSrvc.greyScale( image2, this.inpFieldThresHoldBlackPoint.value );
+
+    const blackPoint = [];
+    await imgSrvc.getBlackPoint( image2, blackPoint );
+
+    //await imgSrvc.eraseLines( image2, blackPoint, this.inpFieldThresHoldEraseLines.value );
+
+    //imgSrvc.saveData( blackPoint, 'arrayBlackPoint.csv' );
+    await imgSrvc.findSymbol( image2 );
+    
+    await imgSrvc.scaleImage( image2, 3 );
+
+    imgSrvc.showBrowser( image2, this.imgSrc );
+
+  } catch (e) {
+      console.log(e);
+  } finally {
+    console.log('Ready Freddie.');
+    }
+  }
+
 }
 
-<${input} />
+static const srcImg = 'ttn5_small.jpg';
+static const resImg = 'ttn5_res1.jpg';
+
+static const vHeight  = '80vh';
+//static const Jimp     = require('jimp');
+//static const fs       = require('browserify-fs');
+
+
+
+<div style="height: 100vh; width: 100vw; display: flex;">
+
+  <div style = `height: ${vHeight}; width: 40vw; overflow: scroll; padding: 50px;`>
+    <img src='ttn5_small.jpg'/>
+  </div>
+
+  <div style="display: flex; flex-direction: column; width: 134px;" >
+
+    <button on-click('onClickTest') style='width: 100%' >Clear img.</button>
+
+    <input key='inpFieldThresHoldBlackPoint' type="number" name="name" value="2900000000" style='text-align: right; margin-top: 10px;'/>
+    <input key='inpFieldThresHoldEraseLines' type="number" name="name" value="30" style='text-align: right; margin-top: 10px;'/>
+
+  </div>
+
+  <div style = `height: ${vHeight}; width: 40vw; overflow: scroll;  padding: 50px;`>
+    <img key='imgSrc' src=''/>
+  </div>
+
+</div>

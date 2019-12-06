@@ -5,6 +5,7 @@ class {
   onInput (input) {
     this.state = {
       width: input.width || '80%',
+      height: input.height || '85%',
       visible: input.visible === true
     };
   }
@@ -153,24 +154,25 @@ style {
 
 <div class=["app-overlay", state.visible && "visible"]>
   <div class="app-overlay-mask" onClick("handleMaskClick")/>
+
   <div
     class="app-overlay-container"
-    style={ width: state.width }>
+    style={ width: state.width, height: state.height }>
     <div class="app-overlay-body" key="body">
       <${input}/>
     </div>
-    <div class="app-overlay-footer">
+    <div class="app-overlay-footer" style='position: fixed;'>
       <app-button
-        label="Cancel"
+        label="Закрыть"
         size="large"
-        variant="secondary"
-        onClick("handleCancelButtonClick")/>
-      &nbsp;
+        variant="primary"
+        onClick("handleDoneButtonClick")/>
+      <!-- &nbsp;
       <app-button
         label="Done"
         size="large"
         variant="primary"
-        onClick("handleDoneButtonClick")/>
+        onClick("handleDoneButtonClick")/> -->
     </div>
   </div>
 </div>

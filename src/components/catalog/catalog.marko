@@ -6,7 +6,9 @@ class {
     onCreate(input, out) {
     }
 
-    onInput(input, out) {}
+    onInput(input, out) {
+      this.state = { count: 0, overlayVisible: false };
+    }
 
     onMount() {
 
@@ -15,8 +17,6 @@ class {
         this.catalogHeader2   = this.getEl('catalogHeader2');
 
         this.artikulHistory = [];
-
-        this.state = { count: 0 };
 
         stores.storeNomenklator.subscribe(() => { this.forceUpdate(); } );
         stores.storeFoundedNomenklator.subscribe(() => { this.forceUpdate(); } );
@@ -58,12 +58,24 @@ class {
           stores.storeFoundedNomenklator.dispatch( axiosProc.getFoundedNumenklator( inpArt ) );
       }
       //console.log( 'inpArtikul ', this.inpArtikul.value );
+      this.getComponent('overlay').show();
     }
 
     cleanFilter() {
       stores.storeFoundedNomenklator.dispatch( { type: 'PUT_AXIOS_AHTUNG' } );
     }
 
+    handleOverlayShow() {
+      console.log('55555555555555555555555555555555555555');
+    }
+
+    handleOverlayHide() {
+      console.log('55555555555555555555555555555555555555');
+    }
+
+    handleOverlayOk() {
+      console.log('999999999999999999999999999999999999999');
+    }
 }
 
 style {
@@ -87,6 +99,16 @@ static const whGood   = '250px';
 <!-- ////////////////////////////////////////////////// -->
 <div class='position: relative;'>
 
+  <modal-win
+       onOk("handleOverlayOk")
+       onCancel("handleOverlayCancel")
+       onHide("handleOverlayHide")
+       onShow("handleOverlayShow")
+       key="overlay"
+       visible = state.overlayVisible>
+       <h2>Найденные позиции</h2>
+  </modal-win>
+
   <if(attrsFoundedNomenklator.recs.length > 0)>
     <div style='max-height: 70vh; overflow-y: scroll; display: flex; flex-direction: column; position: absolute; font-size: 3rem; width: 80vw; background-color: white; color: black; border: 1px solid black; right: 10px; top: 120px;'>
 
@@ -96,7 +118,6 @@ static const whGood   = '250px';
 
     </div>
   </if>
-
 
   <headerName name=`${ headerText }` path=`${ rec0 && rec0.level_group>1||rec0.level_group==0 ? rec0.pathparent0 : '/' }` glob=glob />
 
@@ -125,9 +146,6 @@ static const whGood   = '250px';
 
 </div>
 <!-- ////////////////////////////////////////////////// -->
-
-
-
 </div>
 
 
@@ -209,17 +227,18 @@ static const whGood   = '250px';
 
 <macro|{glob}| name='searchIcon'>
 
-    <div style='position: relative;'>
-      <div style='display: flex; margin-right: 50px;'>
-        <input key='inpArtikul' placeholder=" Артикул..." name="artikul" autocomplete="off" type="text"  style=`width: 35vw; font-size: 2.8rem; border-color: ${glob.colorGreyMF}`>
-        <button style=`width: 100px; height: 75px;` on-click('openModal')>
-          <svg x="0px" y="0px" width="18px" height="18px" viewBox="-2.5 -2.5 25 25">
-           <circle fill="none" stroke=`black` stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
-           <line fill="none" stroke=`black` stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
-         </svg>
-       </button>
-      </div>
+<div style='display: flex; flex-direction: row; height: 95px; margin-right: 35px;'>
 
-    </div>
+  <input key='inpArtikul' placeholder="Артикул..." name="artikul" autocomplete="off" type="text"
+    style=`width: 45vw; font-size: 3rem; border-color: ${glob.colorBlueMF}; margin-right: 15px; padding-left: 25px;` />
+
+    <button style=`width: 100px; ` on-click('openModal')>
+      <svg x="0px" y="0px" width="60px" height="60px" viewBox="1 -2.5 25 25">
+       <circle fill="none" stroke='black' stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
+       <line fill="none" stroke='black' stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
+     </svg>
+   </button>
+
+</div>
 
 </macro>

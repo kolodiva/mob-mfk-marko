@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-exports.getNumenklator        = function(guidParent = '', guidPosition = '') {
+exports.getNumenklator = function(guidParent = '', guidPosition = '') {
 
     return (dispatch) => {
       axios
