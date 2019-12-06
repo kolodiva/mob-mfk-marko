@@ -4,14 +4,13 @@ import axiosProc        from '../../axios'
 
 class {
     onCreate(input, out) {
+      this.state = { count: 0, overlayVisible: false };
     }
 
     onInput(input, out) {
     }
 
     onMount() {
-
-        this.state = { count: 0, overlayVisible: false };
 
         this.inpArtikul       = this.getEl('inpArtikul');
         this.catalogHeader    = this.getEl('catalogHeader');
