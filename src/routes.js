@@ -6,7 +6,7 @@ const postgres  = require( './postgres' );
 const sendmail = require( 'sendmail' )( {silent: true,
   dkim: {
     privateKey: fs.readFileSync('/etc/opendkim/keys/mail.newfurnitura.ru/dkim.private', 'utf8'),
-    keySelector: 'mail.newfurnitura.ru'
+    keySelector: 'dkim'
   }
 } );
 
