@@ -343,7 +343,7 @@ exports.mailAction = (db, sendmail) => {
 							//var res = Promise( function(resolve, reject ) {
 
 									sendmail({
-								    from: 'no-replay@mail.newfurnitura.ru',
+								    from: 'no-replay@newfurnitura.ru',
 								    to: email[0],
 								    subject: rec0.description,
 										html: strHtml + rec0.attachments,
