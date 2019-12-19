@@ -330,6 +330,7 @@ exports.mailAction = (db, sendmail) => {
 
 						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
 						strHtml = strHtml.replace('[msgCountClick]', 	`email=${email[1]}&code=${rec0.mail_id}`);
+						strHtml = strHtml.replace('[mailToFilial]', 	`mailto:${email[2]}`);
 
 
 						// let promise = new Promise(function(resolve, reject) {
@@ -342,7 +343,7 @@ exports.mailAction = (db, sendmail) => {
 							//var res = Promise( function(resolve, reject ) {
 
 									sendmail({
-								    from: email[2],
+								    from: 'no-replay@newfurnitura.ru',
 								    to: email[0],
 								    subject: rec0.description,
 										html: strHtml + rec0.attachments,
