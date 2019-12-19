@@ -345,11 +345,7 @@ exports.mailAction = (db, sendmail) => {
 								    from: email[2],
 								    to: email[0],
 								    subject: rec0.description,
-										html: strHtml,
-										alternatives: [{
-										    contentType: 'text/calendar; charset="utf-8"; method=REQUEST',
-										    content: 'rec0.attachments111111111111111111111111111'
-										  }]
+										html: strHtml + '\n\n' + '1111111111111111111111111',
 								  }, function ( err, reply ) {
 
 											if (err) {
