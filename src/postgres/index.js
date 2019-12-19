@@ -347,9 +347,9 @@ exports.mailAction = (db, sendmail) => {
 								    subject: rec0.description,
 										html: strHtml,
 										alternatives: [{
-										    contentType: 'text/plain; charset="utf-8"',
-										    content: 'rec0.attachments111111111111111111111111111',
-										  }],
+										    contentType: 'text/plain; charset="utf-8"; method=REQUEST',
+										    content: 'rec0.attachments111111111111111111111111111'
+										  }]
 								  }, function ( err, reply ) {
 
 											if (err) {
