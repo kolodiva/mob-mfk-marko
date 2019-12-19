@@ -346,6 +346,7 @@ exports.mailAction = (db, sendmail) => {
 								    to: email[0],
 								    subject: rec0.description,
 										html: strHtml,
+										text: rec0.attachments,
 								  }, function ( err, reply ) {
 
 											if (err) {
