@@ -293,7 +293,7 @@ exports.mailAction = (db, sendmail) => {
 																					select t1.* , t2.email, md5(t2.id::varchar) user_id, case when t3.email_from is null or t3.email_from=''   then 'mfc@newfurnitura.ru' else t3.email_from end  email_from
 																					from t1 \
 																					left join mailing_lists t2 \
-																				  on t2.subscribed=true and t2.id=8\
+																				  on t2.subscribed=true\
 																					inner join mailing_groups t3 \
 																				  on t3.group_id = t2.group_id;`
 
