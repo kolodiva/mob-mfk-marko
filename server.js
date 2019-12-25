@@ -67,13 +67,13 @@ const recognize = async function( fileName ) {
   const { data: { text } } = await worker.recognize( fileName );
   await worker.terminate();
 
-  worker = undefined;
+  //worker = undefined;
 
-  //console.log(text);
+  console.log(text);
 
   //console.log( fileName + '.txt' );
 
-  fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
+  //fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
   //console.log(text);
   //return text;
 }
@@ -92,6 +92,8 @@ app.post('/uploadocr', async (req, res) => {
 
             //Use the mv() method to place the file in upload directory (i.e. "uploads")
             await fileocr.mv('./public/images/ocr/' + fileocr.name);
+
+            recognize( './public/images/ocr/' + fileocr.name );
 
             //send response
             res.send({
