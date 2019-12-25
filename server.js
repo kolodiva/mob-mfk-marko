@@ -89,7 +89,7 @@ app.post('/uploadocr', async (req, res) => {
             let fileocr = req.files.fileocr;
 
             //Use the mv() method to place the file in upload directory (i.e. "uploads")
-            (async () => { await fileocr.mv('/upload/ocr/' + fileocr.name)} )();
+            (async () => { await fileocr.mv('./public/images/ocr/' + fileocr.name)} )();
 
             //send response
             res.send({
@@ -102,7 +102,7 @@ app.post('/uploadocr', async (req, res) => {
                 }
             });
 
-            recognize( '/upload/ocr/' + fileocr.name );
+            recognize( './public/images/ocr/' + fileocr.name );
 
             //console.log( trnslt );
 
