@@ -60,24 +60,6 @@ app.use(fileUpload({
 app.set( 'appParams', { 'isProduction': isProduction, } );
 
 //
-const recognize = async function( fileName ) {
-  await worker.load();
-  await worker.loadLanguage('rus');
-  await worker.initialize('rus');
-  const { data: { text } } = await worker.recognize( fileName );
-  await worker.terminate();
-
-  //worker = undefined;
-
-  console.log(text);
-
-  //console.log( fileName + '.txt' );
-
-  //fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
-  //console.log(text);
-  //return text;
-}
-
 app.post('/uploadocr', async (req, res) => {
 
     try {
@@ -108,6 +90,25 @@ app.post('/uploadocr', async (req, res) => {
 
             //console.log( trnslt );
             //recognize( './public/images/ocr/' + fileocr.name );
+
+            (async function( fileName ) {
+              await worker.load();
+              await worker.loadLanguage('rus');
+              await worker.initialize('rus');
+              const { data: { text } } = await worker.recognize( fileName );
+              await worker.terminate();
+
+              //worker = undefined;
+
+              console.log(text);
+
+              //console.log( fileName + '.txt' );
+
+              //fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
+              //console.log(text);
+              //return text;
+            })();
+
 
         }
     } catch (err) {
