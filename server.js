@@ -67,9 +67,9 @@ const recognize = async function( fileName ) {
   const { data: { text } } = await worker.recognize( fileName );
   await worker.terminate();
 
-  //console.log(text);
+  console.log(text);
 
-  console.log( fileName + '.txt' );
+  //console.log( fileName + '.txt' );
 
   fs.writeFileSync( fileName + '.txt', text, 'utf8' );
   //console.log(text);
