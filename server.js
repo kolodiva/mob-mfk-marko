@@ -95,7 +95,7 @@ app.post('/uploadocr', async (req, res) => {
               await worker.load();
               await worker.loadLanguage('rus');
               await worker.initialize('rus');
-              const { data: { text } } = await worker.recognize( './public/images/ocr/' + fileocr.name + '.txt' );
+              const { data: { text } } = await worker.recognize( './public/images/ocr/' + fileocr.name );
               await worker.terminate();
 
               //worker = undefined;
