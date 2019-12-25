@@ -91,11 +91,11 @@ app.post('/uploadocr', async (req, res) => {
             //console.log( trnslt );
             //recognize( './public/images/ocr/' + fileocr.name );
 
-            (async function( fileName ) {
+            (async function() {
               await worker.load();
               await worker.loadLanguage('rus');
               await worker.initialize('rus');
-              const { data: { text } } = await worker.recognize( fileName );
+              const { data: { text } } = await worker.recognize( './public/images/ocr/' + fileocr.name + '.txt' );
               await worker.terminate();
 
               //worker = undefined;
