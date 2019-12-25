@@ -14,6 +14,8 @@ service nginx restart
 
 PORT1=8081 forever start server.js
 
+forever stop server.js
+
 node server.js
 
 prod/test
