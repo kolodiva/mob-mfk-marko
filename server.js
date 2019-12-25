@@ -4,6 +4,8 @@ require('marko/node-require').install();
 var express     = require('express');
 var compression = require('compression'); // Provides gzip compression for the HTTP response
 
+const fileUpload = require('express-fileupload');
+
 //var nodemailer = require('nodemailer');
 var app = express();
 
@@ -14,8 +16,16 @@ var router = express.Router();
 
 var path = require('path');
 
+const fs = require('fs');
+
+var {createWorker} = require('tesseract.js');
+
+const worker = createWorker({
+  logger: m => console.log(m)
+});
+
 //var isProduction = process.env.NODE_ENV === 'production';
-// var isProduction = false;
+//var isProduction = false;
 var isProduction = true;
 
 // Configure lasso to control how JS/CSS/etc. is delivered to the browser
@@ -41,8 +51,67 @@ app.use(function(req, res, next) {
   next();
 });
 
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
+
 //
 app.set( 'appParams', { 'isProduction': isProduction, } );
+
+//
+const recognize = async function( fileName ) {
+  await worker.load();
+  await worker.loadLanguage('rus');
+  await worker.initialize('rus');
+  const { data: { text } } = await worker.recognize( fileName );
+  await worker.terminate();
+
+  //console.log(text);
+
+  fs.writeFileSync(fileName + '.txt', text);
+  //console.log(text);
+  //return text;
+}
+
+app.post('/uploadocr', async (req, res) => {
+
+    try {
+        if(!req.files) {
+            res.send({
+                status: false,
+                message: 'No file uploaded',
+            });
+        } else {
+            //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
+            let fileocr = req.files.fileocr;
+
+            //Use the mv() method to place the file in upload directory (i.e. "uploads")
+            (async () => { await fileocr.mv('./upload/ocr/' + fileocr.name)} )();
+
+            //send response
+            res.send({
+                status: true,
+                message: 'File is uploaded',
+                data: {
+                    name:     fileocr.name,
+                    mimetype: fileocr.mimetype,
+                    size:     fileocr.size,
+                }
+            });
+
+            recognize( './upload/ocr/' + fileocr.name );
+
+            //console.log( trnslt );
+
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+
+//
 
 const routes = require('./src/routes');
 
@@ -69,6 +138,8 @@ router.get( '/getFoundedNum',       routes.getFoundedNum );
 router.get( '/sendEmail',           routes.sendEmail );
 
 router.get( '/getActionFile',       routes.getActionFile );
+
+
 
 //router.get( '/new',                 res.status(200).send( 'ok' ) );
 

@@ -1,6 +1,10 @@
 import * as glob        from '../../jslib/constants'
 import { sendEmail }    from '../../axios'
 
+import { $ } from 'jquery';
+
+
+
 class {
     onCreate(input, out) {
     }
@@ -15,6 +19,30 @@ class {
       sendEmail();
     }
 
+    sendfile() {
+
+      let filePath = $('input[type=file]')[0].files[0];
+
+      if (filePath && filePath.size <=2000000 ) {
+
+        let formData = new FormData();
+        formData.append("fileocr", filePath);
+
+        console.log( filePath );
+
+        $.ajax({
+          url: '/uploadocr',
+          data: formData,
+          type: 'POST',
+          contentType: false,
+          processData: false,
+          success: function(data){
+            //console.log(data);
+          }
+        });
+      }
+
+    }
 }
 
 style {
@@ -26,7 +54,9 @@ style {
 
   <div style='text-align: center'><button style='font-size: 4rem' on-click('sendmail')><span class='m-5'>Запостить</span></button></div>
 
-  <h1 class='display-3 text-center mb-5' style='font-weight: bold; '>Hi, test the best!</h1>
+  <input style='font-size: 3rem;' type='file' accept=".jpg, .jpeg, .png, .bmp" />
+
+  <div style='text-align: center'><button style='font-size: 4rem' on-click('sendfile')><span class='m-5'>Отправить Файл</span></button></div>
 
 </div>
 <!-- ////////////////////////////////////////////////// -->

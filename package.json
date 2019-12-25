@@ -28,6 +28,7 @@
     "core-util-is": "^1.0.2",
     "express": "^4.17.1",
     "express-device": "^0.4.2",
+    "express-fileupload": "^1.1.6",
     "jimp": "^0.9.3",
     "jquery": "^3.4.1",
     "jquery-touchswipe": "^1.6.19",
@@ -45,7 +46,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "sendmail": "^1.6.1",
-    "sharp": "^0.23.3"
+    "sharp": "^0.23.3",
+    "tesseract.js": "^2.0.1"
   },
   "browser": {
     "routes\\index\\components\\app-hello.js": "routes\\index\\components\\app-hello.browser.js",

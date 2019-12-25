@@ -498,3 +498,503 @@
   509  npm audit fix
   510  history >> hidtory.txt
   511  history >> history.txt
+    2  marko migrate ./src/components/catalog/catalog.marko
+    3  marko migrate ./src/components/catalog/catalog.marko
+    4  marko migrate ./src/components/catalog/catalog.marko
+    5  browser-refresh server.js
+    6  browser-refresh server.js
+    7  browser-refresh server.js
+    8  browser-refresh server.js
+    9  browser-refresh server.js
+   10  browser-refresh server.js
+   11  browser-refresh server.js
+   12  browser-refresh server.js
+   13  browser-refresh server.js
+   14  browser-refresh server.js
+   15  browser-refresh server.js
+   16  browser-refresh server.js
+   17  browser-refresh server.js
+   18  browser-refresh server.js
+   19  browser-refresh server.js
+   20  browser-refresh server.js
+   21  ьфклщ
+   22  marko
+   23  marko test
+   24  marko build
+   25  marko serve
+   26  browser-refresh server.js
+   27  browser-refresh server.js
+   28  browser-refresh server.js
+   29  browser-refresh server.js
+   30  browser-refresh server.js
+   31  browser-refresh server.js
+   32  browser-refresh server.js
+   33  browser-refresh server.js
+   34  npm install sendmail --save
+   35  npm audit fix
+   36  browser-refresh server.js
+   37  2~
+   38  npm install --save nodemailer
+   39  npm audit fix
+   40  browser-refresh server.js
+   41  npm install sendmail
+   42  npm audit fix
+   43  npm i -f
+   44  npm audit fix
+   45  browser-refresh server.js
+   46  node -v
+   47  browser-refresh server.js
+   48  ping mail.newfurnitura.ru
+   49  ping 82.146.57.6
+   50  ping newfurnitura.ru
+   51  browser-refresh server.js
+   52  browser-refresh server.js
+   53  browser-refresh server.js
+   54  browser-refresh server.js
+   55  browser-refresh server.js
+   56  git pull
+   57  git pull
+   58  exit
+   59  browser-refresh server.js
+   60  node serever.js
+   61  node server.js
+   62  browser-refresh server.js
+   63  browser-refresh server.js
+   64  browser-refresh server.js
+   65  browser-refresh server.js
+   66  apt-get install tesseract-ocr
+   67  sudo apt-get install tesseract-ocr
+   68  sudo npm install node-tesseract-ocr
+   69  npm audit fix
+   70  sudo npm install -g npm
+   71  sudo npm install node-tesseract-ocr
+   72  npm audit fix
+   73  npm audit fix -f
+   74   lsb_release -a
+   75  sudo apt install libtesseract-dev
+   76  sudo nano /etc/apt/sources.list
+   77  tesseract-ocr -v
+   78  tesseract-ocr --version
+   79  tesseract -v 
+   80  browser-refresh server.js
+   81  sudo npm install tesseract-ocr-rus
+   82  apt-get install tesseract-ocr-rus
+   83  sudo apt-get install tesseract-ocr-rus
+   84  node server.js
+   85  cd public
+   86  cs img
+   87  cd img
+   88  tesseract testing/ttn.png ttn-rus.txt -l rus
+   89  tesseract ttn.png ttn-rus.txt -l rus
+   90  ls -al
+   91  tesseract ttn.png ttn-rus -l rus
+   92  tesseract ./ttn.png ttn-rus -l rus
+   93  tesseract ttn.jpg ttn-rus -l rus
+   94  tesseract ttn.jpg ttn-rus -l rus
+   95  tesseract ttn.jpg ttn-rus -l rus
+   96  tesseract ttn2.jpg ttn-rus -l rus
+   97  tesseract ttn1.jpg ttn-rus -l rus
+   98  tesseract ttn2.jpg ttn-rus -l rus
+   99  tesseract ttn3.jpg ttn-rus -l rus
+  100  tesseract ttn3.jpg ttn-rus -l rus
+  101  tesseract ttn4.jpg ttn-rus -l rus
+  102  tesseract ttn4.jpg ttn-rus -l rus
+  103  tesseract ttn5.jpg ttn-rus -l rus
+  104  sudo add-apt-repository ppa:alex-p/tesseract-ocr-devel
+  105  sudo apt-get update
+  106  tesseract ttn5.jpg ttn-rus -l rus
+  107  tesseract ttn5.jpg out hocr -l rus
+  108  tesseract ttn5.jpg hocr -l rus
+  109  tesseract ttn5.jpg out hocr 
+  110  tesseract -h
+  111  tesseract --list-langs
+  112  tesseract --help
+  113  tesseract --help-extra
+  114  tesseract --ptint-parametrs
+  115  tesseract --help-psm
+  116  tesseract --help-oem
+  117  tesseract ttn5.jpg -l -psm 3 out pdf 
+  118  tesseract ttn5.jpg -l rus -psm 3 out pdf 
+  119  tesseract ttn5.jpg -l rus -psm 3 out.pdf 
+  120  tesseract ttn5.jpg out -oem 1 -l rus pdf
+  121  tesseract ttn5.jpg out --oem 1 -l rus pdf
+  122  tesseract ttn5.jpg ttn-rus --oem 1 -l rus
+  123  tesseract ttn5.jpg ttn-rus --oem 1 -l rus pdf
+  124  tesseract ttn5.jpg ttn-rus --oem 1 -l rus pdf
+  125  tesseract ttn5.jpg ttn-rus --oem 1 --psm 4 -l rus 
+  126  tesseract ttn5.jpg ttn-rus --oem 0 -l rus 
+  127  tesseract ttn5.jpg ttn-rus --oem 2 -l rus 
+  128  tesseract ttn5.jpg ttn-rus --oem 1 -l rus 
+  129  tesseract ttn5.jpg ttn-rus -l rus 
+  130  tesseract ttn5.jpg ttn-rus --oem 1 -l rus 
+  131  tesseract ttn5.jpg ttn-rus --psm 0 -l rus 
+  132  tesseract ttn5.jpg ttn-rus --psm 1 -l rus 
+  133  tesseract ttn5.jpg ttn-rus --psm 2 -l rus 
+  134  tesseract ttn5.jpg ttn-rus --psm 4 -l rus 
+  135  tesseract ttn5.jpg ttn-rus --psm 5 -l rus 
+  136  tesseract ttn5.jpg ttn-rus --psm 6 -l rus 
+  137  tesseract ttn5.jpg ttn-rus --psm 7 -l rus 
+  138  tesseract ttn5.jpg ttn-rus --psm 8 -l rus 
+  139  tesseract ttn5.jpg ttn-rus --psm 9 -l rus 
+  140  tesseract ttn5.jpg ttn-rus --psm 10 -l rus 
+  141  tesseract ttn5.jpg ttn-rus --psm 11 -l rus 
+  142  tesseract ttn5.jpg ttn-rus --psm 12 -l rus 
+  143  tesseract ttn5.jpg ttn-rus --psm 13 -l rus 
+  144  tesseract ttn5.jpg ttn-rus -l rus 
+  145  tesseract --vrsion
+  146  tesseract --version
+  147  sudo apt install tesseract-ocr
+  148  tesseract --version
+  149  tesseract --ver
+  150  tesseract --list-langs
+  151  sudo apt install tesseract-ocr-rus
+  152  tesseract --list-langs
+  153  tesseract --ver
+  154  tesseract --version
+  155  tesseract --help-extra
+  156  tesseract --version
+  157  tesseract ttn5.jpg ttn-rus -l rus 
+  158  tesseract ttn5.jpg ttn-rus --oem 0 -l rus 
+  159  tesseract ttn5.jpg ttn-rus --oem 0 
+  160  tesseract ttn5.jpg ttn-rus --oem 1
+  161  tesseract ttn5.jpg ttn-rus --oem 2 -l rus
+  162  tesseract ttn5.jpg ttn-rus -l rus
+  163  tesseract ttn5.jpg ttn-rus --psm 1 -l rus
+  164  tesseract ttn5.jpg ttn-rus --psm 2 -l rus
+  165  npm install ocr
+  166  npm audit fix -f
+  167  npm install ocr-lang-rus
+  168  cd..
+  169  cd ..
+  170  cd ..
+  171  node server.js
+  172  node server.js
+  173  node server.js
+  174  Copy Code
+  175  npm run register -- afms@mail.ru
+  176  sudo npm run register -- afms@mail.ru
+  177  sudo npm run register
+  178  sudo npm register -- afms@mail.ru
+  179  cd node_modules/ocr
+  180  npm run register
+  181  sudo npm register -- afms@mail.ru
+  182  sudo npm run register -- afms@mail.ru
+  183  cd ..
+  184  cd ..
+  185  node server.js
+  186  node server.js
+  187  node server.js
+  188  Copy Code
+  189  npm remove ocr
+  190  tesseract ttn.jpg ttn-rus -l rus
+  191  cd /public/img/
+  192  cd /public/img
+  193  cd public/img/
+  194  tesseract ttn.jpg ttn-rus -l rus
+  195  tesseract ttn.jpg ttn-rus -l rus
+  196  tesseract ttn5.jpg ttn-rus -l rus
+  197  export CONVERTIO_API_KEY=403501d9661e260c5cdc7920395e2ede
+  198  env CONVERTIO_API_KEY
+  199  export get CONVERTIO_API_KEY
+  200  export CONVERTIO_API_KEY=403501d9661e260c5cdc7920395e2ede
+  201  printenv CONVERTIO_API_KEY
+  202  convertio
+  203  sudo wget --no-check-certificate -O '/usr/local/bin/convertio' https://api.convertio.co/convertio
+  204  sudo chmod +x /usr/local/bin/convertio
+  205  convertio
+  206  convertio --help
+  207  sudo apt install convertio
+  208  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5.jpg", "outputformat":"txt"}' http://api.convertio.co/convert
+  209  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5.jpg", "outputformat":"txt"}' http://api.convertio.co/convert
+  210  curl "https://api.convertio.co/convert" -H "Connection: keep-alive" -H "Accept: application/json, text/javascript, */*; q=0.01" -H "Origin: https://developers.convertio.co" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" -H "Sec-Fetch-Site: same-site" -H "Sec-Fetch-Mode: cors" -H "Referer: https://developers.convertio.co/ru/api/docs/" -H "Accept-Encoding: gzip, deflate, br" -H "Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6" --data "^{^\^"apikey^\^":^\^"403501d9661e260c5cdc7920395e2ede^\^",^\^"input^\^":^\^"upload^\^",^\^"file^\^":^\^"d:/node/mob-mfk-marko/public/img/ttn5.jpg^\^",^\^"filename^\^":^\^"ttn5^\^",^\^"outputformat^\^":^\^"txt^\^",^\^"options^\^":^\^"^\^"^}" --compressed
+  211  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/65de63f1b2d5e2bdd1b7991b82daa6ea/ttn5.jpg
+  212  curl -i -X GET http://api.convertio.co/convert/65de63f1b2d5e2bdd1b7991b82daa6ea/status
+  213  curl -i -X GET http://api.convertio.co/convert/65de63f1b2d5e2bdd1b7991b82daa6ea/status
+  214  curl -i -X GET http://api.convertio.co/convert/65de63f1b2d5e2bdd1b7991b82daa6ea/dl
+  215  curl -i -X GET http://api.convertio.co/convert/65de63f1b2d5e2bdd1b7991b82daa6ea/dl
+  216  curl -i -X POST -d '{"apikey": "65de63f1b2d5e2bdd1b7991b82daa6ea", "status": "all", "count": 3}' http://api.convertio.co/convert/list
+  217  curl -i -X POST -d '{"apikey": "403501d9661e260c5cdc7920395e2ede", "status": "all", "count": 3}' http://api.convertio.co/convert/list
+  218  DELETE https://api.convertio.co/convert/849d154fa6971c049ed7dc9945e84647
+  219  curl -i -X DELETE http://api.convertio.co/convert/849d154fa6971c049ed7dc9945e84647
+  220  curl -i -X DELETE http://api.convertio.co/convert/a40a0c8343bfe6b13432051a168e020d
+  221  curl -i -X POST -d '{"apikey": "403501d9661e260c5cdc7920395e2ede", "status": "all", "count": 3}' http://api.convertio.co/convert/list
+  222  curl -i -X POST -d '{"apikey": "403501d9661e260c5cdc7920395e2ede", "status": "all", "count": }' http://api.convertio.co/convert/list
+  223  curl -i -X POST -d '{"apikey": "403501d9661e260c5cdc7920395e2ede", "status": "all", "count": 100}' http://api.convertio.co/convert/list
+  224  curl -i -X POST -d '{"apikey": "403501d9661e260c5cdc7920395e2ede", "status": "all", "count": "10"}' http://api.convertio.co/convert/list
+  225  cd ..
+  226  cd
+  227  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  228  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/a1041f1c63b31d19844e37ee0921e5b5/ttn5.jpg
+  229  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/a1041f1c63b31d19844e37ee0921e5b5/ttn5.jpg
+  230  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/a1041f1c63b31d19844e37ee0921e5b5/ttn5.jpg
+  231  curl -i -X GET http://api.convertio.co/convert/a1041f1c63b31d19844e37ee0921e5b5/status
+  232  curl -i -X DELETE http://api.convertio.co/convert/a1041f1c63b31d19844e37ee0921e5b5
+  233  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5.jpg", "outputformat":"csv", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  234  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/de8718fd2b9407375f9d2e78c6f883a2/ttn5.jpg
+  235  curl -i -X GET http://api.convertio.co/convert/de8718fd2b9407375f9d2e78c6f883a2/status
+  236  curl -i -X GET http://api.convertio.co/convert/de8718fd2b9407375f9d2e78c6f883a2/dl
+  237  curl -i -X DELETE http://api.convertio.co/convert/de8718fd2b9407375f9d2e78c6f883a2
+  238  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5.jpg", "outputformat":"XLSX", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  239  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/7a9aba5c8c25806744f45e90d324cffa/ttn5.jpg
+  240  curl -i -X GET http://api.convertio.co/convert/7a9aba5c8c25806744f45e90d324cffa/status
+  241  curl -i -X DELETE http://api.convertio.co/convert/7a9aba5c8c25806744f45e90d324cffa
+  242  m
+  243  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5_excel.jpg", "outputformat":"XLSX", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  244  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8/ttn5.jpg
+  245  curl -i -X GET http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8/status
+  246  curl -i -X GET http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8/status
+  247  curl -i -X GET http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8/status
+  248  curl -i -X GET http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8/status
+  249  curl -i -X DELETE http://api.convertio.co/convert/82bec7dc26851b3ce462bd383f1a7ba8
+  250  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn5_excel.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  251  curl -i -X PUT --upload-file 'ttn5_excel.jpg' http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/ttn5_excel.jpg
+  252  curl -i -X GET http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/status
+  253  curl -i -X GET http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/status
+  254  curl -i -X GET http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/status
+  255  curl -i -X GET http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/status
+  256  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn1.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  257  curl -i -X PUT --upload-file 'ttn1.jpg' http://api.convertio.co/convert/65664aac16d6e7d474875201c493edbb/ttn1.jpg
+  258  curl -i -X GET http://api.convertio.co/convert/65664aac16d6e7d474875201c493edbb/status
+  259  2~
+  260  curl -i -X GET http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230/status
+  261  curl -i -X GET http://api.convertio.co/convert/65664aac16d6e7d474875201c493edbb/status
+  262  curl -i -X DELETE http://api.convertio.co/convert/8673de9de897b5949011e2612a7dc230
+  263  curl -i -X DELETE http://api.convertio.co/convert/65664aac16d6e7d474875201c493edbb
+  264  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn4.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  265  curl -i -X PUT --upload-file 'ttn4.jpg' http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00/ttn4.jpg
+  266  curl -i -X GET http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00/status
+  267  curl -i -X GET http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00/status
+  268  curl -i -X GET http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00/status
+  269  curl -i -X GET http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00/status
+  270  curl -i -X DELETE http://api.convertio.co/convert/a1707a8ad4323165abcf126019309c00
+  271  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn4.bmp", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  272  curl -i -X PUT --upload-file 'ttn4.bmp' http://api.convertio.co/convert/86f2dc592d2c06aaaafc9cf459ee34cf/ttn4.bmp
+  273  curl -i -X GET http://api.convertio.co/convert/86f2dc592d2c06aaaafc9cf459ee34cf/status
+  274  curl -i -X GET http://api.convertio.co/convert/86f2dc592d2c06aaaafc9cf459ee34cf/status
+  275  curl -i -X GET http://api.convertio.co/convert/86f2dc592d2c06aaaafc9cf459ee34cf/status
+  276  curl -i -X DELETE http://api.convertio.co/convert/86f2dc592d2c06aaaafc9cf459ee34cf
+  277  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn6.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  278  curl -i -X PUT --upload-file 'ttn6.jpg' http://api.convertio.co/convert/178d73f995bbdfa74992d735dd630b09/ttn6.jpg
+  279  curl -i -X GET http://api.convertio.co/convert/178d73f995bbdfa74992d735dd630b09/status
+  280  curl -i -X GET http://api.convertio.co/convert/178d73f995bbdfa74992d735dd630b09/status
+  281  curl -i -X DELETE http://api.convertio.co/convert/178d73f995bbdfa74992d735dd630b09curl -i -X DELETE http://api.convertio.co/convert/178d73f995bbdfa74992d735dd630b09
+  282  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn6.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  283  curl -i -X PUT --upload-file 'ttn6.jpg' http://api.convertio.co/convert/123fe80fc1f4c055c4500053bcc3157f/ttn6.jpg
+  284  curl -i -X GET http://api.convertio.co/convert/123fe80fc1f4c055c4500053bcc3157f/status
+  285  curl -i -X GET http://api.convertio.co/convert/123fe80fc1f4c055c4500053bcc3157f/status
+  286  curl -i -X DELETE http://api.convertio.co/convert/123fe80fc1f4c055c4500053bcc3157f
+  287  curl -i -X POST -d '{"input": "upload", "apikey": "403501d9661e260c5cdc7920395e2ede", "file":"d:/node/mob-mfk-marko/public/img/ttn4.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  288  curl -i -X PUT --upload-file 'ttn4.jpg' http://api.convertio.co/convert/60faabc5fe645a81930ca9f1ef863198/ttn4.jpg
+  289  curl -i -X GET http://api.convertio.co/convert/60faabc5fe645a81930ca9f1ef863198/status
+  290  export CONVERTIO_API_KEY=97aa5b696e7f37e4d0eed160fb794140
+  291  curl -i -X POST -d '{"input": "upload", "apikey": "97aa5b696e7f37e4d0eed160fb794140", "file":"d:/node/mob-mfk-marko/public/img/ttn4.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  292  curl -i -X PUT --upload-file 'ttn4.jpg' http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48/ttn4.jpg
+  293  curl -i -X GET http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48/status
+  294  curl -i -X GET http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48/status
+  295  curl -i -X GET http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48/status
+  296  curl -i -X DELETE http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48
+  297  curl -i -X PUT --upload-file 'ttn2.jpg' http://api.convertio.co/convert/8436f76fffbd3f5fb52323de43ce9a48/ttn2.jpg
+  298  curl -i -X POST -d '{"input": "upload", "apikey": "97aa5b696e7f37e4d0eed160fb794140", "file":"d:/node/mob-mfk-marko/public/img/ttn2.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  299  curl -i -X PUT --upload-file 'ttn2.jpg' http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/ttn2.jpg
+  300  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  301  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  302  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  303  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  304  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  305  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  306  curl -i -X GET http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4/status
+  307  curl -i -X DELETE http://api.convertio.co/convert/51aa985cea526223ce71fbe2ac6ca6e4
+  308  curl -i -X POST -d '{"input": "upload", "apikey": "97aa5b696e7f37e4d0eed160fb794140", "file":"d:/node/mob-mfk-marko/public/img/ttn4.pdf", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  309  curl -i -X PUT --upload-file 'ttn4.pdf' http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/ttn4.pdf
+  310  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  311  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  312  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  313  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  314  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  315  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  316  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  317  curl -i -X GET http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b/status
+  318  curl -i -X DELETE http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b
+  319  curl -i -X DELETE http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b
+  320  curl -i -X DELETE http://api.convertio.co/convert/f3409bd8457a2af149f74f16326fbe5b
+  321  curl -i -X POST -d '{"input": "upload", "apikey": "97aa5b696e7f37e4d0eed160fb794140", "file":"d:/store/ttn5.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  322  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/ttn5.jpg
+  323  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  324  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  325  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  326  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  327  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  328  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  329  curl -i -X GET http://api.convertio.co/convert/3e0d1a6dee073f8c78a3f72d3ead78ec/status
+  330  curl -i -X POST -d '{"input": "upload", "apikey": "d8a4931732dd2669fed07f41ef558232", "file":"d:/store/ttn5.jpg", "outputformat":"XLS", "options": {"ocr_enabled": true, "ocr_settings": {"langs": ["rus"]}}}' http://api.convertio.co/convert
+  331  curl -i -X PUT --upload-file 'ttn5.jpg' http://api.convertio.co/convert/a4c69a164ffc082093f9af1fc7e18cac/ttn5.jpg
+  332  curl -i -X GET http://api.convertio.co/convert/a4c69a164ffc082093f9af1fc7e18cac/status
+  333  curl -i -X DELETE http://api.convertio.co/convert/a4c69a164ffc082093f9af1fc7e18cac
+  334  browser
+  335  node server.js
+  336  node server.js
+  337  node server.js
+  338  node server.js
+  339  node server.js
+  340  node server.js
+  341  node server.js
+  342  node server.js
+  343  node server.js
+  344  node server.js
+  345  node server.js
+  346  node server.js
+  347  node server.js
+  348  node server.js
+  349  node server.js
+  350  node server.js
+  351  node server.js
+  352  node server.js
+  353  node server.js
+  354  node server.js
+  355  node server.js
+  356  node server.js
+  357   browser-refresh 
+  358  node server.js
+  359  node server.js
+  360  node server.js
+  361   browser-refresh 
+  362  node server.js
+  363   browser-refresh 
+  364  touch /public/pmg/ttn5_res.jpg
+  365  touch ./public/pmg/ttn5_res.jpg
+  366  touch public/pmg/ttn5_res.jpg
+  367  nano public/pmg/ttn5_res.jpg
+  368  cd public
+  369  cd img
+  370  touch ttn5_res.jpg
+  371  cd ..
+  372  cd ..
+  373   browser-refresh 
+  374  npm install browserify-fs
+  375  sudo npm audit fix
+  376  sudo npm install -g npm
+  377  npm audit fix -f
+  378   browser-refresh 
+  379  sudo npm install browserify-fs
+  380  sudo npm audit fix -f
+  381   browser-refresh 
+  382   browser-refresh 
+  383   browser-refresh 
+  384   browser-refresh 
+  385  lsb_release -a
+  386  sudo add-apt-repository ppa:alex-p/tesseract-ocr
+  387  sudo apt-get update
+  388  sudo apt install tesseract-ocr
+  389  tesseract -v
+  390  workon
+  391  pip
+  392  tesseract -v
+  393  tesseract tesseract_inputs/example_01.png stdout 
+  394  tesseract tesseract_inputs/./example_01.png stdout 
+  395  tesseract example_01.png stdout 
+  396  tesseract example_02.jpg stdout 
+  397  tesseract -h
+  398  tesseract --list-langs
+  399  tesseract -help-extra
+  400  tesseract --help-extra
+  401  tesseract --dpi
+  402  tesseract example_02.jpg stdout 
+  403  tesseract example_02.jpg stdout --dpi 0
+  404  tesseract example_02.jpg stdout --dpi 70
+  405  tesseract example_02.jpg stdout --dpi 242
+  406  tesseract example_02.jpg stdout --dpi 242 --lang rus
+  407  tesseract example_02.jpg stdout --dpi 242 --l rus
+  408  tesseract example_02.jpg stdout --dpi 242 -l rus
+  409  tesseract example_02.jpg stdout --dpi 80 -l rus
+  410  tesseract example_02.jpg stdout --dpi 300 -l rus
+  411  tesseract example_02.jpg stdout --dpi 600 -l rus
+  412  tesseract example_02.jpg stdout --dpi 400 -l rus
+  413  tesseract example_02.jpg test.txt --dpi 400 -l rus
+  414  tesseract example_01.png test --dpi 400 -l rus
+  415  tesseract example_01.png test --dpi 400 -l eng
+  416  tesseract ttn5.jpg test.txt --dpi 400 -l rus
+  417  tesseract ttn5.jpg test.txt --dpi 500 -l rus
+  418  tesseract ttn5.jpg test.txt --dpi 600 -l rus
+  419  tesseract ttn5.jpg test --dpi 600 -l rus
+  420  tesseract --help-extra >> tesseract.txt
+  421  tesseract ttn5.jpg test --dpi 600 -l rus --psm 13
+  422  tesseract ttn5.jpg test --dpi 600 -l rus --psm 0
+  423  tesseract ttn5.jpg test --dpi 600 -l rus --psm 1
+  424  tesseract ttn5.jpg test --dpi 600 -l rus --psm 2
+  425  tesseract ttn5.jpg test --dpi 600 -l rus --psm 3
+  426  tesseract ttn5.jpg test --dpi 600 -l rus --psm 4
+  427  tesseract ttn5.jpg test --dpi 600 -l rus --psm 5
+  428  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6
+  429  tesseract ttn5.jpg test --dpi 600 -l rus --psm 7
+  430  tesseract ttn5.jpg test --dpi 600 -l rus --psm 8
+  431  tesseract ttn5.jpg test --dpi 600 -l rus --psm 9
+  432  tesseract ttn5.jpg test --dpi 600 -l rus --psm 10
+  433  tesseract ttn5.jpg test --dpi 600 -l rus --psm 11
+  434  tesseract ttn5.jpg test --dpi 600 -l rus --psm 12
+  435  tesseract ttn5.jpg test --dpi 600 -l rus --psm 13
+  436  tesseract ttn5.jpg test --dpi 600 -l rus --psm 14
+  437  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6
+  438  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6
+  439  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 0
+  440  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 1
+  441  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 2
+  442  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 3
+  443  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 4
+  444  curl   -F "dpi=300"   -F "lang=rus"   -F "myfile=@ttn5.jpg" http://35.164.84.230:8081/ocr
+  445  curl   -F "dpi=300"   -F "lang=rus"   -F "myfile=ttn5.jpg" http://35.164.84.230:8081/ocr
+  446  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 4
+  447  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 1
+  448  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 2
+  449  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6
+  450  tesseract ttn5.jpg test --dpi 600 -l rus
+  451  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 1
+  452  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 0
+  453  cd usr
+  454  tesseract ttn5.jpg test --dpi 300 -l rus
+  455  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 
+  456  tesseract ttn5.jpg test --dpi 300 -l rus --psm 6 
+  457  tesseract ttn5.jpg test --dpi 300 -l rus --psm 6 
+  458  wget https://github.com/tesseract-ocr/tessdata/raw/master/rus.traineddata
+  459  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 1
+  460  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 2
+  461  sudo mv -v rus.traineddata /usr/share/tesseract-ocr/5/tessdata/
+  462  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 2
+  463  tesseract ttn5.jpg test --dpi 600 -l rus --psm 6 --oem 3
+  464  tesseract ttn5.jpg test --dpi 300 -l rus 
+  465  tesseract ttn5.jpg test --dpi 300 -l rus --psm 3
+  466  tesseract ttn5.jpg test --dpi 300 -l rus --psm 13
+  467  tesseract ttn5.jpg test -l rus --psm 13
+  468  tesseract ttn5.jpg test --psm 13
+  469  tesseract ttn5.jpg test
+  470  tesseract ttn5.jpg test -l rus
+  471  tesseract ttn5.jpg test -l rus --dpi 300
+  472  tesseract ttn5.jpg test -l rus --dpi 600
+  473  tesseract ttn5.jpg test --dpi 300 -l rus --psm 3
+  474  tesseract ttn5.jpg test -l rus --psm 3
+  475  tesseract ttn5.jpg test -l rus --psm 1
+  476  tesseract ttn5.jpg test -l rus --psm 2
+  477  tesseract ttn5.jpg test -l rus --psm 3
+  478  tesseract ttn5.jpg test -l rus --psm 6
+  479  tesseract ttn5.jpg test -l rus --psm 6
+  480  tesseract ttn5.jpg test -l rus --psm 6
+  481  tesseract ttn5.jpg test -l rus 
+  482  tesseract ttn5.jpg test -l rus 
+  483  tesseract ttn5.jpg test -l rus --dpi 1200
+  484  tesseract ttn5.jpg test -l rus --dpi 1200
+  485  tesseract ttn5.jpg test -l rus 
+  486  tesseract ttn5.jpg ttn6.jpg test -l rus 
+  487  for %1 in (ttn5.jpg, ttn6.jpg) do tesseract %1 test -l rus 
+  488  for %1 in (ttn5.jpg; ttn6.jpg) do tesseract %1 test -l rus 
+  489  for %1 in ttn5.jpg; ttn6.jpg do tesseract %1 test -l rus 
+  490  for %1 in ttn5.jpg, ttn6.jpg do tesseract %1 test -l rus 
+  491  for %1 in ttn5.jpg do tesseract %1 test -l rus 
+  492  tesseract ttn5.jpg test -l rus tsv
+  493  tesseract ttn5.jpg test -l rus tsv
+  494  exit
+  495  exit
+  496  curl mail.newfurnitura.ru:25
+  497  curl newfurnitura.ru:25
+  498  curl 82.146.57.6:25
+  499  jupyter
+  500  exit
+  501  history >> history.txt
