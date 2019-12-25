@@ -60,6 +60,27 @@ app.use(fileUpload({
 app.set( 'appParams', { 'isProduction': isProduction, } );
 
 //
+const recognize = function( fileName ) {
+
+  (async function() {
+    await worker.load();
+    await worker.loadLanguage('rus');
+    await worker.initialize('rus');
+    const { data: { text } } = await worker.recognize( fileName );
+    await worker.terminate();
+
+    //worker = undefined;
+
+    console.log(text);
+
+    //console.log( fileName + '.txt' );
+
+    //fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
+    //console.log(text);
+    //return text;
+  })();
+}
+
 app.post('/uploadocr', async (req, res) => {
 
     try {
@@ -75,7 +96,7 @@ app.post('/uploadocr', async (req, res) => {
             //Use the mv() method to place the file in upload directory (i.e. "uploads")
             await fileocr.mv('./public/images/ocr/' + fileocr.name);
 
-            //recognize( './public/images/ocr/' + fileocr.name );
+            recognize( './public/images/ocr/' + fileocr.name );
 
             //send response
             res.send({
@@ -91,23 +112,6 @@ app.post('/uploadocr', async (req, res) => {
             //console.log( trnslt );
             //recognize( './public/images/ocr/' + fileocr.name );
 
-            (async function() {
-              await worker.load();
-              await worker.loadLanguage('rus');
-              await worker.initialize('rus');
-              const { data: { text } } = await worker.recognize( './public/images/ocr/' + fileocr.name );
-              await worker.terminate();
-
-              //worker = undefined;
-
-              console.log(text);
-
-              //console.log( fileName + '.txt' );
-
-              //fs.writeFileSync( fileName + '.txt', text, 'utf8', (data) => { console.log( '11111111111111 ' + data ) } );
-              //console.log(text);
-              //return text;
-            })();
 
 
         }
