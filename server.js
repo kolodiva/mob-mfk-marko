@@ -21,12 +21,6 @@ const fs = require('fs');
 
 var Tesseract = require('tesseract.js');
 
-var {createWorker} = require('tesseract.js');
-
-const worker = createWorker({
-  logger: m => console.log(m)
-});
-
 //var isProduction = process.env.NODE_ENV === 'production';
 //var isProduction = false;
 var isProduction = true;
@@ -63,18 +57,6 @@ app.use(fileUpload({
 app.set( 'appParams', { 'isProduction': isProduction, } );
 
 //
-var recognize_old = async function( fileName ) {
-
-    await worker.load();
-    await worker.loadLanguage('rus');
-    await worker.initialize('rus');
-    const { data: { text } } = await worker.recognize( fileName );
-    await worker.terminate();
-
-    console.log(text);
-
-}
-
 var recognize = function( fileName ) {
 
   Tesseract.recognize(
@@ -82,9 +64,9 @@ var recognize = function( fileName ) {
     'rus',
     { logger: m => console.log(m) }
   ).then(({ data: { text } }) => {
-    console.log(text);
+    fs.writeFile( fileName + '.txt', text, 'utf8' );
   })
-  
+
 }
 
 app.post('/uploadocr', async (req, res) => {
