@@ -60,6 +60,12 @@ app.use(fileUpload({
 app.set( 'appParams', { 'isProduction': isProduction, } );
 
 //
+function throwError (err) {
+  if (err) {
+    throw err
+  }
+}
+
 const recognize = async function( fileName ) {
   await worker.load();
   await worker.loadLanguage('rus');
@@ -71,7 +77,7 @@ const recognize = async function( fileName ) {
 
   //console.log( fileName + '.txt' );
 
-  await fs.writeFile( fileName + '.txt', text, 'utf8' );
+  fs.writeFile( fileName + '.txt', text, 'utf8', throwError );
   //console.log(text);
   //return text;
 }
