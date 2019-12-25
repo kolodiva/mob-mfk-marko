@@ -64,7 +64,7 @@ var recognize = function( fileName ) {
     'rus',
     { logger: m => console.log(m) }
   ).then(({ data: { text } }) => {
-    fs.writeFile( fileName + '.txt', text, 'utf8' );
+    fs.writeFileSync( fileName + '.txt', text, 'utf8' );
   })
 
 }
