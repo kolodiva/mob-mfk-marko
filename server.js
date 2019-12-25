@@ -71,7 +71,7 @@ const recognize = async function( fileName ) {
 
   //console.log( fileName + '.txt' );
 
-  fs.writeFileSync( fileName + '.txt', text, 'utf8' );
+  await fs.writeFile( fileName + '.txt', text, 'utf8' );
   //console.log(text);
   //return text;
 }
