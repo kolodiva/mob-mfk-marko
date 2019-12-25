@@ -105,7 +105,7 @@ app.post('/uploadocr', async (req, res) => {
             });
 
             //console.log( trnslt );
-            recognize( './public/images/ocr/' + fileocr.name );
+            //recognize( './public/images/ocr/' + fileocr.name );
 
         }
     } catch (err) {
