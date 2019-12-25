@@ -69,7 +69,9 @@ const recognize = async function( fileName ) {
 
   //console.log(text);
 
-  fs.writeFileSync(fileName + '.txt', text);
+  console.log( fileName + '.txt' );
+
+  fs.writeFileSync( fileName + '.txt', text );
   //console.log(text);
   //return text;
 }
