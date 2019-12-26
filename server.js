@@ -62,13 +62,14 @@ var recognize = function( fileName ) {
   Tesseract.recognize(
     fileName,
     'rus',
-    { logger: m => console.log(m) }
+    {  }, //logger: m => console.log(m)
   ).then(({ data: { text } }) => {
     fs.writeFileSync( fileName + '.txt', text, 'utf8' );
   })
 
 }
 
+//transfer file for OCR
 app.post('/uploadocr', async (req, res) => {
 
     try {
@@ -107,6 +108,41 @@ app.post('/uploadocr', async (req, res) => {
         res.status(500).send(err);
     }
 });
+//transfer file for OCR
+app.get('/readyocr', async (req, res) => {
+
+  //fs.writeFileSync( 'req_params.txt', req.headers, 'utf8' );
+
+    try {
+            //send response
+            let totRes = [];
+
+            let resTmp = req.headers.files ? req.headers.files.split('***') : 'NA';
+
+            let files = fs.readdirSync('./public/images/ocr/');
+
+            resTmp.forEach( (el1) => {
+              files.forEach( (el2) => {
+                  if (el1 === el2) {
+                    let cont = fs.readFileSync( './public/images/ocr/' + el2, 'utf8' );
+                    totRes.push( [el1, cont] );
+                  }
+               } );
+            });
+
+            res.send({
+                status: true,
+                message: 'File is ready',
+                data: {
+                    totRes: totRes,
+                }
+            });
+
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 
 
 //
