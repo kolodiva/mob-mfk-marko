@@ -342,9 +342,7 @@ exports.mailAction = (db, sendmail) => {
 
 							//var res = Promise( function(resolve, reject ) {
 
-							(async () => {
-
-								await sendmail({
+							sendmail({
 									from: 'no-replay@newfurnitura.ru',
 									to: email[0],
 									subject: rec0.description,
@@ -361,7 +359,6 @@ exports.mailAction = (db, sendmail) => {
 								}
 							);
 
-							})();
 
 							// 	}
 							// );
