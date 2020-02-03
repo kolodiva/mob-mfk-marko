@@ -25,4 +25,4 @@ constants imgPath, paramsConnPg
 
 
 update mailing_lists set subscribed = false, comment='';
-update mailing_lists set subscribed = true where email in ( 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru' );
+update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru', 'kolodiva@mail.ru' );

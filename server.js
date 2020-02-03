@@ -168,7 +168,7 @@ router.get( '/test',                routes.getTest );
 router.get( '/getNum',              routes.getNum );
 router.get( '/getFoundedNum',       routes.getFoundedNum );
 
-//service route only mobile
+//service route only mobile fact of REFRESH is send emails!!!!!!!!
 router.get( '/sendEmail',           routes.sendEmail );
 
 router.get( '/getActionFile',       routes.getActionFile );
