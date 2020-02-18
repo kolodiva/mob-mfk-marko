@@ -249,6 +249,10 @@ exports.getMailing = (req, res) => {
 
 exports.sendEmail = (req, res) => {
 
+  let params = getAppParams(req);
+
+  console.log(params);
+
   postgres.mailAction( dbpg, sendmail );
 
   res.status(200).send( '<h1 style="font-size: 75px">ok Bro</h1>' )

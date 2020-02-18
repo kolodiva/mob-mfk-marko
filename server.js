@@ -169,7 +169,7 @@ router.get( '/getNum',              routes.getNum );
 router.get( '/getFoundedNum',       routes.getFoundedNum );
 
 //service route only mobile fact of REFRESH is send emails!!!!!!!!
-router.get( '/sendEmail/:guid_pass',           routes.sendEmail );
+router.get( '/sendEmail/:guid_pass', routes.sendEmail );
 
 router.get( '/getActionFile',       routes.getActionFile );
 
