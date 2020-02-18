@@ -255,7 +255,7 @@ exports.sendEmail = (req, res) => {
     return res.status(200).send( `<h1 style="font-size: 75px">It's ok Bro, it's not Ok!</h1>` )
   }
 
-  console.log(params);
+  //console.log(params);
 
   postgres.mailAction( dbpg, sendmail );
 
