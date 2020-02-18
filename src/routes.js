@@ -251,6 +251,10 @@ exports.sendEmail = (req, res) => {
 
   let params = getAppParams(req);
 
+  if ( params.paramsUrl.guid_pass && params.paramsUrl.guid_pass != 'Pp123456' ) {
+    return res.status(200).send( `<h1 style="font-size: 75px">It's ok Bro, it's not Ok!</h1>` )
+  }
+
   console.log(params);
 
   postgres.mailAction( dbpg, sendmail );
