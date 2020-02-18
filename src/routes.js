@@ -251,7 +251,7 @@ exports.sendEmail = (req, res) => {
 
   postgres.mailAction( dbpg, sendmail );
 
-  res.status(200).send( 'ok' )
+  res.status(200).send( <h1>ok</h1> )
 };
 
 exports.getActionFile = (req, res) => {
