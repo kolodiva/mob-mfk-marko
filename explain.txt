@@ -28,3 +28,6 @@ update mailing_lists set subscribed = false;
 update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru', 'oksana@newfurnitura.ru' );
 
 update mailing_lists set subscribed = true, comment='';
+
+with t2 as (select max(id)+1 id from mailings)
+insert into mailings select t2.id, t1.description, t1.content, mail_at, now(), now(), group_id, noactive, query_txt, attachments from mailings t1 inner join t2 on t1.id=t2.id-1;
