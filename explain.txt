@@ -31,3 +31,11 @@ update mailing_lists set subscribed = true, comment='';
 
 with t2 as (select max(id)+1 id from mailings)
 insert into mailings select t2.id, t1.description, t1.content, mail_at, now(), now(), group_id, noactive, query_txt, attachments from mailings t1 inner join t2 on t1.id=t2.id-1;
+
+https://www.newfurnitura.ru/sendEmail/Pp123456
+
+select * from  mailing_lists where not subscribed
+delete from mailing_lists where not subscribed
+
+CHECK BEFORE
+andrewpashin@gmail.com
