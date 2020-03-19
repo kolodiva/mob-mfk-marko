@@ -25,7 +25,9 @@ constants imgPath, paramsConnPg
 
 
 update mailing_lists set subscribed = false;
-update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru', 'oksana@newfurnitura.ru' );
+update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru' );
+
+//, 'oksana@newfurnitura.ru'
 
 update mailing_lists set subscribed = true, comment='';
 
@@ -39,3 +41,5 @@ delete from mailing_lists where not subscribed
 
 CHECK BEFORE
 andrewpashin@gmail.com
+
+video54441537/milf_gives_her_young_lover_another_chance-_candy_alexa
