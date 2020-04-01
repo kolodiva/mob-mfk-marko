@@ -8,7 +8,8 @@ git remote add origin git@gitHub:mob_mfk_marko.git
 cd /home/nodejs/mob-mfk-marko
 forever stop server.js
 
-cp /home/ftp_user/www/psql/nginx.conf /home/dokku/app1/nginx.conf
+cp /home/ftp_user/www/psql/nginx_withmob.conf /home/dokku/app1/nginx.conf
+//cp /home/ftp_user/www/psql/nginx_withoutmob.conf /home/dokku/app1/nginx.conf
 
 service nginx restart
 
