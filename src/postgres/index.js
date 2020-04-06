@@ -289,7 +289,7 @@ exports.mailAction = (db, sendmail) => {
 	// 									  on t3.group_id = t2.group_id and t2.subscribed=true;`
 //11771
 											const qryText = `with t1 as ( select distinct md5(id::varchar) mail_id, description, content, query_txt, attachments, mail_at, noactive, unnest( group_id ) group_id \
-																					from mailings where noactive=false and id=15) \
+																					from mailings where noactive=false and id=16) \
 																					select t1.* , t2.email, md5(t2.id::varchar) user_id, case when t3.email_from is null or t3.email_from=''   then 'mfc@newfurnitura.ru' else t3.email_from end  email_from
 																					from t1 \
 																					left join mailing_lists t2 \
