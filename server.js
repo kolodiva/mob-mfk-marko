@@ -183,11 +183,14 @@ router.get( '*',                    routes.get404 );
 //
 app.use('/', router);
 
-app.listen(port, function(err) {
+//был PORT
+const portMine = 6000;
+
+app.listen(portMine, function(err) {
     if (err) {
         throw err;
     }
-    console.log('Listening on port %d', port);
+    console.log('Listening on port %d', portMine);
 
     // The browser-refresh module uses this event to know that the
     // process is ready to serve traffic after the restart

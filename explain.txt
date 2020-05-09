@@ -41,6 +41,6 @@ select * from  mailing_lists where not subscribed
 delete from mailing_lists where not subscribed
 
 CHECK BEFORE
-andrewpashin@gmail.com
+select * from  mailing_lists where email = 'andrewpashin@gmail.com'
 
 video54441537/milf_gives_her_young_lover_another_chance-_candy_alexa
