@@ -297,7 +297,7 @@ exports.mailAction = (db, sendmail) => {
 																					inner join mailing_groups t3 \
 																				  on t3.group_id = t2.group_id;`
 
-// console.log( qryText.replace(/\s+/g," ") );
+// console.log( qryText.replace(/\s+/g," ") ); 
 
 	//const params = [];
 
