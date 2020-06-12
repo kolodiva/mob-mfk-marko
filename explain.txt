@@ -9,13 +9,18 @@ cd /home/nodejs/mob-mfk-marko
 forever stop server.js
 
 cp /home/ftp_user/www/psql/nginx_withmob.conf /home/dokku/app1/nginx.conf
-//cp /home/ftp_user/www/psql/nginx_withoutmob.conf /home/dokku/app1/nginx.conf
+// cp /home/ftp_user/www/psql/nginx_nuxt.conf /home/dokku/app1/nginx.conf
+// cp /home/ftp_user/www/psql/nginx_withoutmob.conf /home/dokku/app1/nginx.conf
 
 service nginx restart
 
 PORT1=8081 forever start server.js
 
+PORT1=8081 forever node server.js
+
 forever stop server.js
+
+forever stopall
 
 node server.js
 
@@ -26,7 +31,7 @@ constants imgPath, paramsConnPg
 
 
 update mailing_lists set subscribed = false;
-update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru' );
+update mailing_lists set subscribed = true where email in ( 'samodelkin77@list.ru', 'adv.mfc@gmail.com', 'kolodiva@gmail.com', 'kolodiva@mail.ru', mebel_furnitura@hotmail.com );
 
 //, 'oksana@newfurnitura.ru'
 

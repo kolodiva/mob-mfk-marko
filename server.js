@@ -184,7 +184,8 @@ router.get( '*',                    routes.get404 );
 app.use('/', router);
 
 //был PORT
-const portMine = 6000;
+//const portMine = 6000;
+const portMine = 8081;
 
 app.listen(portMine, function(err) {
     if (err) {
