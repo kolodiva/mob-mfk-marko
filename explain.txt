@@ -13,14 +13,12 @@ cp /home/ftp_user/www/psql/nginx_withmob.conf /home/dokku/app1/nginx.conf
 // cp /home/ftp_user/www/psql/nginx_withoutmob.conf /home/dokku/app1/nginx.conf
 
 service nginx restart
+forever stopall
+PORT1=8081 node server.js
+https://www.newfurnitura.ru/sendEmail/Pp123456
 
 PORT1=8081 forever start server.js
-
-PORT1=8081 forever node server.js
-
 forever stop server.js
-
-forever stopall
 
 node server.js
 
