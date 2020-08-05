@@ -28,7 +28,7 @@
     "core-util-is": "^1.0.2",
     "express": "^4.17.1",
     "express-device": "^0.4.2",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "jimp": "^0.9.3",
     "jquery": "^3.4.1",
     "jquery-touchswipe": "^1.6.19",
