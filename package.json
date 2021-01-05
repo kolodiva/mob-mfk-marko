@@ -19,7 +19,7 @@
   "homepage": "https://github.com/marko-js-samples/marko-express",
   "dependencies": {
     "@lasso/marko-taglib": "^1.0.15",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "browser-refresh": "^1.7.3",
     "browser-refresh-taglib": "^1.1.0",
